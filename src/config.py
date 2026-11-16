@@ -27,6 +27,8 @@ def _env(name: str) -> str | None:
                 val = winreg.QueryValueEx(k, name)[0]
         except OSError:
             val = None
+    # Secrets pasted/piped from Windows can carry a BOM or trailing newline.
+    val = (val or "").lstrip("﻿").strip()
     return val or None
 
 
