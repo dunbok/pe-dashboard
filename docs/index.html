@@ -115,7 +115,8 @@ button.on { border-color: var(--accent); color: var(--accent); }
 
 <div class="legend">
   Tap a column to sort; tap a row to see its P/E history chart.
-  <b>Fwd vs 5y median</b>: green = cheaper than its own 5-year forward-P/E median, red = more expensive.
+  <b>vs median columns</b>: current P/E compared with its own 5- or 10-year median (trailing with trailing, forward with forward).
+  Green = cheaper than that median, red = more expensive.
 </div>
 
 <section class="notes">
@@ -157,8 +158,20 @@ const COLS = [
   { k: "fwd_5y_median", label: "≈ 5y median", type: "pe", est: true },
   { k: "fwd_10y_mean", label: "≈ 10y mean", type: "pe", est: true },
   { k: "fwd_10y_median", label: "≈ 10y median", type: "pe", est: true },
+  { k: "tr_vs_5y_median_pct", label: "Trailing vs 5y median", type: "pct" },
+  { k: "tr_vs_10y_median_pct", label: "Trailing vs 10y median", type: "pct" },
   { k: "fwd_vs_5y_median_pct", label: "Fwd vs 5y median", type: "pct" },
+  { k: "fwd_vs_10y_median_pct", label: "Fwd vs 10y median", type: "pct" },
 ];
+// % difference of current P/E from its own median (negative = cheaper than usual)
+const pctVs = (cur, med) => (typeof cur === "number" && typeof med === "number" && med > 0)
+  ? Math.round((cur / med - 1) * 1000) / 10 : null;
+function addDerived(r) {
+  r.tr_vs_5y_median_pct = pctVs(r.trailing_pe, r.tr_5y_median);
+  r.tr_vs_10y_median_pct = pctVs(r.trailing_pe, r.tr_10y_median);
+  r.fwd_vs_5y_median_pct = pctVs(r.forward_pe, r.fwd_5y_median);
+  r.fwd_vs_10y_median_pct = pctVs(r.forward_pe, r.fwd_10y_median);
+}
 let DATA = null, rows = [], sortK = "fwd_vs_5y_median_pct", sortDir = 1, range = 10, current = null, series = null;
 const $ = (s) => document.querySelector(s);
 const nf0 = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
@@ -173,7 +186,7 @@ function fmt(col, v, row) {
 
 function buildHeader() {
   const g = $("tr.groups"), c = $("tr.cols");
-  const spans = [[2, ""], [1, ""], [2, "Current P/E"], [4, "Trailing P/E history"], [4, "≈ Forward P/E history (est.)"], [1, ""]];
+  const spans = [[2, ""], [1, ""], [2, "Current P/E"], [4, "Trailing P/E history"], [4, "≈ Forward P/E history (est.)"], [4, "Current vs median (green = cheaper)"]];
   spans.forEach(([n, t]) => { const th = document.createElement("th"); th.colSpan = n; th.textContent = t; g.appendChild(th); });
   COLS.forEach((col) => {
     const th = document.createElement("th");
@@ -182,7 +195,7 @@ function buildHeader() {
     if (col.sticky) th.classList.add("sticky");
     th.dataset.k = col.k;
     th.addEventListener("click", () => {
-      if (sortK === col.k) sortDir = -sortDir; else { sortK = col.k; sortDir = col.type === "str" ? 1 : (col.k === "fwd_vs_5y_median_pct" ? 1 : -1); }
+      if (sortK === col.k) sortDir = -sortDir; else { sortK = col.k; sortDir = col.type === "str" ? 1 : (col.type === "pct" ? 1 : -1); }
       render();
     });
     c.appendChild(th);
@@ -256,7 +269,7 @@ function render() {
         s.title = "Price is the " + r.price_basis + ", not 9:45 ET"; td.appendChild(s);
       }
       if (c.k === "trailing_pe" && v !== null && r.trailing_eps_src === "Yahoo") td.title = "From Yahoo trailing EPS";
-      if (v !== null && r.fwd_hist_src === "edgar_gaap" && (c.est || c.k === "fwd_vs_5y_median_pct")) {
+      if (v !== null && r.fwd_hist_src === "edgar_gaap" && (c.est || c.k.startsWith("fwd_vs_"))) {
         const s = document.createElement("span"); s.className = "dag"; s.textContent = "‡";
         s.title = "Forward history uses GAAP EPS (Alpha Vantage backfill pending). GAAP is usually below adjusted EPS, so these P/Es and medians run high.";
         td.appendChild(s);
@@ -351,6 +364,7 @@ async function boot() {
     DATA = await res.json();
   } catch (e) { $("#updated").textContent = "Couldn't load data/latest.json"; return; }
   rows = DATA.rows;
+  rows.forEach(addDerived);
   $("#updated").textContent = "Updated: " + DATA.asof + "  ·  " + DATA.count + " stocks" +
     (DATA.forced ? "  ·  TEST RUN (not a 9:45 ET snapshot)" : "");
   const secs = [...new Set(rows.map((r) => r.section).filter(Boolean))];
