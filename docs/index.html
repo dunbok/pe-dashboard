@@ -47,6 +47,9 @@ td.est { font-style: italic; }
 .dag { color: var(--muted); font-size: 11px; }
 .legend, .notes { padding: 10px 16px; color: var(--muted); font-size: 13px; }
 .notes h2 { font-size: 14px; color: var(--text); margin: 14px 0 6px; }
+.notes.top { padding-bottom: 0; } .notes.top h2 { margin-top: 4px; }
+.notes .g { background: rgba(var(--green), .35); padding: 0 4px; border-radius: 3px; }
+.notes .r { background: rgba(var(--red), .35); padding: 0 4px; border-radius: 3px; }
 .notes ul { margin: 6px 0; padding-left: 20px; }
 #archive a { margin-right: 10px; white-space: nowrap; color: var(--accent); }
 dialog { background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 10px;
@@ -72,9 +75,30 @@ button.on { border-color: var(--accent); color: var(--accent); }
   <div id="updated">Loading&hellip;</div>
 </header>
 
+<section class="notes top">
+  <h2>Data notes</h2>
+  <ul>
+    <li><b>Blank</b> = no data. Nothing is filled with zeros or guesses. Negative P/Es are blank and excluded from means and medians.</li>
+    <li><b>&asymp; italic</b> = approximation. True point-in-time analyst consensus history isn't free, so historical forward P/E is
+      price &divide; the adjusted EPS the company <i>actually reported</i> over the following four quarters (Alpha Vantage), with
+      the not-yet-reported last ~12 months filled from today's consensus. Treat these as estimates.</li>
+    <li>Trailing P/E = price &divide; GAAP diluted EPS, last four quarters (SEC filings, point-in-time). Foreign filers (20-F) and
+      non-US listings use Yahoo's trailing EPS for the current value; their history is often blank.</li>
+    <li><span class="dag">&Dagger;</span> forward history for this stock is built from GAAP EPS because its adjusted-EPS backfill
+      (Alpha Vantage free tier, 25 calls/day) hasn't reached it yet. GAAP EPS is usually lower than adjusted, so these medians run
+      high and the comparison looks too cheap. It fixes itself within a few days.</li>
+    <li><span class="dag">&dagger;</span> price is the last close, not 9:45 ET (market closed, e.g. Tokyo or Seoul).</li>
+    <li>5y/10y statistics are shown only when at least 80% of trading days in the window have a valid P/E.</li>
+    <li>Fwd P/E is price &divide; Yahoo consensus EPS for the next fiscal year. Every day's real value is saved, so real history replaces the approximation over time.</li>
+    <li><b>Colours in the history columns</b>: <span class="g">green</span> = that average is <i>lower</i> than the stock's current P/E,
+      <span class="r">red</span> = it is <i>higher</i> (trailing columns compare to trailing P/E, &asymp; forward columns to forward P/E).</li>
+  </ul>
+</section>
+
 <div class="controls">
   <input type="search" id="q" placeholder="Filter ticker or name" aria-label="Filter">
   <select id="sec" aria-label="Section"><option value="">All sections</option></select>
+  <label title="Trailing P/E is below its 5y &amp; 10y mean and median, AND forward P/E is below its 5y &amp; 10y mean and median"><input type="checkbox" id="cheap"> cheaper than all history (trailing &amp; forward)</label>
   <label><input type="checkbox" id="onlyfwd"> only with forward history</label>
   <span id="count"></span>
 </div>
@@ -95,21 +119,6 @@ button.on { border-color: var(--accent); color: var(--accent); }
 </div>
 
 <section class="notes">
-  <h2>Data notes</h2>
-  <ul>
-    <li><b>Blank</b> = no data. Nothing is filled with zeros or guesses. Negative P/Es are blank and excluded from means and medians.</li>
-    <li><b>&asymp; italic</b> = approximation. True point-in-time analyst consensus history isn't free, so historical forward P/E is
-      price &divide; the adjusted EPS the company <i>actually reported</i> over the following four quarters (Alpha Vantage), with
-      the not-yet-reported last ~12 months filled from today's consensus. Treat these as estimates.</li>
-    <li>Trailing P/E = price &divide; GAAP diluted EPS, last four quarters (SEC filings, point-in-time). Foreign filers (20-F) and
-      non-US listings use Yahoo's trailing EPS for the current value; their history is often blank.</li>
-    <li><span class="dag">&Dagger;</span> forward history for this stock is built from GAAP EPS because its adjusted-EPS backfill
-      (Alpha Vantage free tier, 25 calls/day) hasn't reached it yet. GAAP EPS is usually lower than adjusted, so these medians run
-      high and the comparison looks too cheap. It fixes itself within a few days.</li>
-    <li><span class="dag">&dagger;</span> price is the last close, not 9:45 ET (market closed, e.g. Tokyo or Seoul).</li>
-    <li>5y/10y statistics are shown only when at least 80% of trading days in the window have a valid P/E.</li>
-    <li>Fwd P/E is price &divide; Yahoo consensus EPS for the next fiscal year. Every day's real value is saved, so real history replaces the approximation over time.</li>
-  </ul>
   <h2>Past days</h2>
   <div id="archive">Loading&hellip;</div>
 </section>
@@ -186,11 +195,30 @@ function pctColor(v) {
   return `rgba(${v < 0 ? "var(--green)" : "var(--red)"},${a.toFixed(2)})`;
 }
 
+const num = (v) => typeof v === "number" && isFinite(v);
+const TR_STATS = ["tr_5y_mean", "tr_5y_median", "tr_10y_mean", "tr_10y_median"];
+const FWD_STATS = ["fwd_5y_mean", "fwd_5y_median", "fwd_10y_mean", "fwd_10y_median"];
+
+// Current P/E strictly below all four of its own history stats (needs all values present).
+function cheapVsHistory(r) {
+  return num(r.trailing_pe) && num(r.forward_pe) &&
+    TR_STATS.every((k) => num(r[k]) && r.trailing_pe < r[k]) &&
+    FWD_STATS.every((k) => num(r[k]) && r.forward_pe < r[k]);
+}
+
+// green = history value is lower than the current P/E, red = higher
+function cmpColor(col, r) {
+  const stat = r[col.k], cur = col.k.startsWith("tr_") ? r.trailing_pe : r.forward_pe;
+  if (!num(stat) || !num(cur) || stat === cur) return "";
+  return `rgba(${stat < cur ? "var(--green)" : "var(--red)"},.30)`;
+}
+
 function visibleRows() {
-  const q = $("#q").value.trim().toLowerCase(), sec = $("#sec").value, only = $("#onlyfwd").checked;
+  const q = $("#q").value.trim().toLowerCase(), sec = $("#sec").value, only = $("#onlyfwd").checked,
+    cheap = $("#cheap").checked;
   return rows.filter((r) =>
     (!q || r.ticker.toLowerCase().includes(q) || (r.name || "").toLowerCase().includes(q)) &&
-    (!sec || r.section === sec) && (!only || r.fwd_5y_median !== null));
+    (!sec || r.section === sec) && (!only || r.fwd_5y_median !== null) && (!cheap || cheapVsHistory(r)));
 }
 
 function render() {
@@ -222,6 +250,7 @@ function render() {
       if (c.k === "name") td.classList.add("name");
       if (c.est) td.classList.add("est");
       if (c.type === "pct") td.style.background = pctColor(v);
+      else if (TR_STATS.includes(c.k) || FWD_STATS.includes(c.k)) td.style.background = cmpColor(c, r);
       if (c.k === "price" && v !== null && r.price_basis && r.price_basis !== "9:45") {
         const s = document.createElement("span"); s.className = "dag"; s.textContent = "†";
         s.title = "Price is the " + r.price_basis + ", not 9:45 ET"; td.appendChild(s);
@@ -326,7 +355,7 @@ async function boot() {
     (DATA.forced ? "  ·  TEST RUN (not a 9:45 ET snapshot)" : "");
   const secs = [...new Set(rows.map((r) => r.section).filter(Boolean))];
   secs.forEach((s) => { const o = document.createElement("option"); o.value = s; o.textContent = s; $("#sec").appendChild(o); });
-  ["#q", "#sec", "#onlyfwd"].forEach((s) => $(s).addEventListener("input", render));
+  ["#q", "#sec", "#onlyfwd", "#cheap"].forEach((s) => $(s).addEventListener("input", render));
   render();
   try {
     const dates = await (await fetch("data/archive.json", { cache: "no-store" })).json();
