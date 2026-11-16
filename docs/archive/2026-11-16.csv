@@ -1,0 +1,11 @@
+ticker,tv_symbol,name,section,price,price_basis,trailing_pe,trailing_eps_src,forward_pe,tr_5y_mean,tr_5y_median,tr_10y_mean,tr_10y_median,fwd_5y_mean,fwd_5y_median,fwd_10y_mean,fwd_10y_median,fwd_vs_5y_median_pct,fwd_hist_src,note
+TSM,NYSE:TSM,Taiwan Semiconductor Manufactur,VT FOUNDRY TSMC,398.73,prior close,25.8,Yahoo,17.1,30.0,29.4,28.6,24.9,17.4,17.9,18.1,17.9,-4.6,av,
+ASML,NASDAQ:ASML,ASML Holding N.V. - New York Re,VT SPE FRONT-END,1495.16,prior close,36.8,Yahoo,23.6,44.8,42.4,44.3,41.1,33.8,31.0,34.2,31.9,-23.8,av,
+NVDA,NASDAQ:NVDA,NVIDIA Corporation,AI ACCELERATORS,162.85,prior close,20.6,SEC,10.3,71.4,56.0,64.2,54.7,29.5,23.8,31.0,27.0,-56.8,av,
+MSFT,NASDAQ:MSFT,Microsoft Corporation,HYPERSCALERS,523.88,prior close,27.3,SEC,21.7,32.2,33.5,34.1,33.1,27.1,27.5,25.1,24.5,-21.3,av,
+AAPL,NASDAQ:AAPL,Apple Inc.,CONSUMER INTERNET,356.27,prior close,39.7,SEC,33.7,31.5,31.6,26.9,28.1,28.4,28.8,22.9,23.5,17.1,av,
+LLY,NYSE:LLY,Eli Lilly and Company,GLP-1 CHAIN,1443.5,prior close,46.9,SEC,28.5,67.8,54.2,57.1,41.5,41.4,39.8,30.2,24.8,-28.4,av,
+HOOD,NASDAQ:HOOD,"Robinhood Markets, Inc.",PAYMENTS FINANCIALS,77.86,prior close,35.9,SEC,22.8,,,,,24.8,20.4,,,11.9,av,
+JPM,NYSE:JPM,JP Morgan Chase & Co.,PAYMENTS FINANCIALS,346.19,prior close,14.5,SEC,13.5,12.1,11.8,12.9,12.8,10.8,11.0,10.9,11.5,22.5,av,
+CAT,NYSE:CAT,"Caterpillar, Inc.",INDUSTRIALS WASTE,600.2,prior close,23.5,SEC,18.7,21.6,17.8,48.7,19.0,16.8,16.2,16.1,15.4,14.9,av,
+WM,NYSE:WM,"Waste Management, Inc.",INDUSTRIALS WASTE,243.83,prior close,32.0,SEC,27.3,32.9,33.1,30.1,30.7,27.2,27.7,25.5,25.6,-1.4,av,
