@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P/E Dashboard</title>
+<style>
+:root {
+  --bg: #ffffff; --panel: #f6f8fa; --text: #1f2328; --muted: #656d76; --line: #d0d7de;
+  --accent: #0969da; --trail: #2f81f7; --fwd: #e8710a; --green: 46,160,67; --red: 218,54,51;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0d1117; --panel: #161b22; --text: #e6edf3; --muted: #8b949e; --line: #30363d;
+          --accent: #58a6ff; --trail: #58a6ff; --fwd: #f0883e; }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text);
+  font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+header { padding: 14px 16px 6px; }
+h1 { font-size: 20px; margin: 0 0 2px; }
+#updated { color: var(--muted); font-size: 13px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 8px 16px; }
+.controls input[type=search], .controls select {
+  background: var(--panel); color: var(--text); border: 1px solid var(--line);
+  border-radius: 6px; padding: 7px 10px; font: inherit; min-width: 0; }
+.controls label { color: var(--muted); font-size: 13px; display: flex; gap: 6px; align-items: center; }
+#count { color: var(--muted); font-size: 13px; margin-left: auto; }
+.wrap { overflow: auto; max-height: calc(100vh - 150px); border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line); }
+table { border-collapse: separate; border-spacing: 0; width: max-content; min-width: 100%; }
+th, td { padding: 6px 10px; white-space: nowrap; border-bottom: 1px solid var(--line); text-align: right; }
+th { background: var(--panel); position: sticky; z-index: 2; font-weight: 600; cursor: pointer; user-select: none; }
+tr.groups th { top: 0; height: 30px; text-align: center; cursor: default; color: var(--muted);
+  font-size: 12px; border-bottom: 1px solid var(--line); }
+tr.cols th { top: 30px; height: 32px; }
+th.sorted::after { content: " \25B2"; font-size: 10px; }
+th.sorted.desc::after { content: " \25BC"; }
+th.left, td.left { text-align: left; }
+th.sticky, td.sticky { position: sticky; left: 0; z-index: 3; background: var(--bg); border-right: 1px solid var(--line); }
+th.sticky { background: var(--panel); z-index: 4; }
+tbody tr { cursor: default; }
+tbody tr.chartable { cursor: pointer; }
+tbody tr:hover td { background: var(--panel); }
+td.ticker { font-weight: 600; }
+td.name { max-width: 190px; overflow: hidden; text-overflow: ellipsis; color: var(--muted); }
+td.est { font-style: italic; }
+.dag { color: var(--muted); font-size: 11px; }
+.legend, .notes { padding: 10px 16px; color: var(--muted); font-size: 13px; }
+.notes h2 { font-size: 14px; color: var(--text); margin: 14px 0 6px; }
+.notes ul { margin: 6px 0; padding-left: 20px; }
+#archive a { margin-right: 10px; white-space: nowrap; color: var(--accent); }
+dialog { background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 10px;
+  padding: 14px; width: min(860px, 96vw); }
+dialog::backdrop { background: rgba(0,0,0,.5); }
+.dhead { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.dhead h3 { margin: 0; font-size: 17px; }
+.dhead .sub { color: var(--muted); font-size: 13px; }
+.dhead .btns { margin-left: auto; display: flex; gap: 6px; }
+button { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 6px;
+  padding: 5px 10px; font: inherit; cursor: pointer; }
+button.on { border-color: var(--accent); color: var(--accent); }
+#chart { width: 100%; height: auto; display: block; }
+#tip { color: var(--muted); font-size: 13px; min-height: 20px; margin-top: 4px; }
+.key { display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 12px; margin-top: 6px; }
+.key i { display: inline-block; width: 18px; height: 0; border-top: 2px solid; vertical-align: middle; margin-right: 4px; }
+@media (max-width: 600px) { td, th { padding: 6px 7px; } td.name { max-width: 120px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>P/E Dashboard</h1>
+  <div id="updated">Loading&hellip;</div>
+</header>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Filter ticker or name" aria-label="Filter">
+  <select id="sec" aria-label="Section"><option value="">All sections</option></select>
+  <label><input type="checkbox" id="onlyfwd"> only with forward history</label>
+  <span id="count"></span>
+</div>
+
+<div class="wrap">
+  <table id="t">
+    <thead>
+      <tr class="groups"></tr>
+      <tr class="cols"></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div class="legend">
+  Tap a column to sort; tap a row to see its P/E history chart.
+  <b>Fwd vs 5y median</b>: green = cheaper than its own 5-year forward-P/E median, red = more expensive.
+</div>
+
+<section class="notes">
+  <h2>Data notes</h2>
+  <ul>
+    <li><b>Blank</b> = no data. Nothing is filled with zeros or guesses. Negative P/Es are blank and excluded from means and medians.</li>
+    <li><b>&asymp; italic</b> = approximation. True point-in-time analyst consensus history isn't free, so historical forward P/E is
+      price &divide; the adjusted EPS the company <i>actually reported</i> over the following four quarters (Alpha Vantage), with
+      the not-yet-reported last ~12 months filled from today's consensus. Treat these as estimates.</li>
+    <li>Trailing P/E = price &divide; GAAP diluted EPS, last four quarters (SEC filings, point-in-time). Foreign filers (20-F) and
+      non-US listings use Yahoo's trailing EPS for the current value; their history is often blank.</li>
+    <li><span class="dag">&Dagger;</span> forward history for this stock is built from GAAP EPS because its adjusted-EPS backfill
+      (Alpha Vantage free tier, 25 calls/day) hasn't reached it yet. GAAP EPS is usually lower than adjusted, so these medians run
+      high and the comparison looks too cheap. It fixes itself within a few days.</li>
+    <li><span class="dag">&dagger;</span> price is the last close, not 9:45 ET (market closed, e.g. Tokyo or Seoul).</li>
+    <li>5y/10y statistics are shown only when at least 80% of trading days in the window have a valid P/E.</li>
+    <li>Fwd P/E is price &divide; Yahoo consensus EPS for the next fiscal year. Every day's real value is saved, so real history replaces the approximation over time.</li>
+  </ul>
+  <h2>Past days</h2>
+  <div id="archive">Loading&hellip;</div>
+</section>
+
+<dialog id="dlg">
+  <div class="dhead">
+    <h3 id="dtitle"></h3><span class="sub" id="dsub"></span>
+    <div class="btns">
+      <button id="r5">5y</button><button id="r10" class="on">10y</button>
+      <button id="dclose" aria-label="Close">&times;</button>
+    </div>
+  </div>
+  <svg id="chart" viewBox="0 0 800 340" role="img" aria-label="P/E history chart"></svg>
+  <div id="tip">&nbsp;</div>
+  <div class="key">
+    <span><i style="border-color:var(--trail)"></i>Trailing P/E</span>
+    <span><i style="border-color:var(--fwd)"></i>&asymp; Forward P/E (estimate)</span>
+    <span><i style="border-top-style:dashed;border-color:var(--muted)"></i>5y median</span>
+    <span><i style="border-top-style:dotted;border-color:var(--muted)"></i>10y median</span>
+  </div>
+</dialog>
+
+<script>
+"use strict";
+const COLS = [
+  { k: "ticker", label: "Ticker", type: "str", left: true, sticky: true },
+  { k: "name", label: "Name", type: "str", left: true },
+  { k: "price", label: "Price", type: "price" },
+  { k: "trailing_pe", label: "Trailing", type: "pe" },
+  { k: "forward_pe", label: "Forward", type: "pe" },
+  { k: "tr_5y_mean", label: "5y mean", type: "pe" },
+  { k: "tr_5y_median", label: "5y median", type: "pe" },
+  { k: "tr_10y_mean", label: "10y mean", type: "pe" },
+  { k: "tr_10y_median", label: "10y median", type: "pe" },
+  { k: "fwd_5y_mean", label: "≈ 5y mean", type: "pe", est: true },
+  { k: "fwd_5y_median", label: "≈ 5y median", type: "pe", est: true },
+  { k: "fwd_10y_mean", label: "≈ 10y mean", type: "pe", est: true },
+  { k: "fwd_10y_median", label: "≈ 10y median", type: "pe", est: true },
+  { k: "fwd_vs_5y_median_pct", label: "Fwd vs 5y median", type: "pct" },
+];
+let DATA = null, rows = [], sortK = "fwd_vs_5y_median_pct", sortDir = 1, range = 10, current = null, series = null;
+const $ = (s) => document.querySelector(s);
+const nf0 = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
+
+function fmt(col, v, row) {
+  if (v === null || v === undefined) return "";
+  if (col.type === "price") return nf0.format(v);
+  if (col.type === "pct") return (v > 0 ? "+" : "") + v.toFixed(1) + "%";
+  if (col.type === "pe") return (col.est ? "≈" : "") + v.toFixed(1);
+  return String(v);
+}
+
+function buildHeader() {
+  const g = $("tr.groups"), c = $("tr.cols");
+  const spans = [[2, ""], [1, ""], [2, "Current P/E"], [4, "Trailing P/E history"], [4, "≈ Forward P/E history (est.)"], [1, ""]];
+  spans.forEach(([n, t]) => { const th = document.createElement("th"); th.colSpan = n; th.textContent = t; g.appendChild(th); });
+  COLS.forEach((col) => {
+    const th = document.createElement("th");
+    th.textContent = col.label;
+    if (col.left) th.classList.add("left");
+    if (col.sticky) th.classList.add("sticky");
+    th.dataset.k = col.k;
+    th.addEventListener("click", () => {
+      if (sortK === col.k) sortDir = -sortDir; else { sortK = col.k; sortDir = col.type === "str" ? 1 : (col.k === "fwd_vs_5y_median_pct" ? 1 : -1); }
+      render();
+    });
+    c.appendChild(th);
+  });
+}
+
+function pctColor(v) {
+  if (v === null || v === undefined) return "";
+  const a = Math.min(Math.abs(v) / 50, 1) * 0.55;
+  return `rgba(${v < 0 ? "var(--green)" : "var(--red)"},${a.toFixed(2)})`;
+}
+
+function visibleRows() {
+  const q = $("#q").value.trim().toLowerCase(), sec = $("#sec").value, only = $("#onlyfwd").checked;
+  return rows.filter((r) =>
+    (!q || r.ticker.toLowerCase().includes(q) || (r.name || "").toLowerCase().includes(q)) &&
+    (!sec || r.section === sec) && (!only || r.fwd_5y_median !== null));
+}
+
+function render() {
+  const list = visibleRows();
+  const col = COLS.find((c) => c.k === sortK);
+  list.sort((a, b) => {
+    const x = a[sortK], y = b[sortK];
+    const nx = x === null || x === undefined, ny = y === null || y === undefined;
+    if (nx || ny) return nx === ny ? 0 : nx ? 1 : -1;        // blanks always last
+    const d = col.type === "str" ? String(x).localeCompare(String(y)) : x - y;
+    return d * sortDir;
+  });
+  document.querySelectorAll("tr.cols th").forEach((th) => {
+    th.classList.toggle("sorted", th.dataset.k === sortK);
+    th.classList.toggle("desc", th.dataset.k === sortK && sortDir < 0);
+  });
+  const tb = $("#t tbody");
+  tb.textContent = "";
+  for (const r of list) {
+    const tr = document.createElement("tr");
+    if (r.has_series) tr.classList.add("chartable");
+    if (r.note) tr.title = r.note;
+    for (const c of COLS) {
+      const td = document.createElement("td");
+      const v = r[c.k];
+      td.textContent = fmt(c, v, r);
+      if (c.left) td.classList.add("left");
+      if (c.sticky) td.classList.add("sticky", "ticker");
+      if (c.k === "name") td.classList.add("name");
+      if (c.est) td.classList.add("est");
+      if (c.type === "pct") td.style.background = pctColor(v);
+      if (c.k === "price" && v !== null && r.price_basis && r.price_basis !== "9:45") {
+        const s = document.createElement("span"); s.className = "dag"; s.textContent = "†";
+        s.title = "Price is the " + r.price_basis + ", not 9:45 ET"; td.appendChild(s);
+      }
+      if (c.k === "trailing_pe" && v !== null && r.trailing_eps_src === "Yahoo") td.title = "From Yahoo trailing EPS";
+      if (v !== null && r.fwd_hist_src === "edgar_gaap" && (c.est || c.k === "fwd_vs_5y_median_pct")) {
+        const s = document.createElement("span"); s.className = "dag"; s.textContent = "‡";
+        s.title = "Forward history uses GAAP EPS (Alpha Vantage backfill pending). GAAP is usually below adjusted EPS, so these P/Es and medians run high.";
+        td.appendChild(s);
+      }
+      tr.appendChild(td);
+    }
+    if (r.has_series) tr.addEventListener("click", () => openChart(r));
+    tb.appendChild(tr);
+  }
+  $("#count").textContent = list.length + " of " + rows.length + " stocks";
+}
+
+/* ---------- chart ---------- */
+async function openChart(r) {
+  current = r;
+  $("#dtitle").textContent = r.ticker;
+  $("#dsub").textContent = r.name || "";
+  $("#tip").textContent = "Loading…";
+  $("#dlg").showModal();
+  try {
+    const res = await fetch("data/series/" + encodeURIComponent(r.ticker) + ".json");
+    series = await res.json();
+    drawChart();
+  } catch (e) { series = null; $("#chart").textContent = ""; $("#tip").textContent = "Couldn't load history."; }
+}
+
+function drawChart() {
+  const svg = $("#chart"); svg.textContent = "";
+  if (!series) return;
+  const W = 800, H = 340, L = 44, R = 64, T = 12, B = 26;
+  const last = new Date(series.dates[series.dates.length - 1]);
+  const cutoff = new Date(last); cutoff.setFullYear(cutoff.getFullYear() - range);
+  const idx = series.dates.map((d, i) => i).filter((i) => new Date(series.dates[i]) >= cutoff);
+  const dates = idx.map((i) => new Date(series.dates[i]));
+  const tr = idx.map((i) => series.trailing[i]), fw = idx.map((i) => series.forward[i]);
+  const vals = tr.concat(fw).filter((v) => v !== null && v !== undefined).sort((a, b) => a - b);
+  const meds = [current.tr_5y_median, current.tr_10y_median, current.fwd_5y_median, current.fwd_10y_median].filter((v) => v !== null);
+  if (!vals.length) { $("#tip").textContent = "No P/E history in this range."; return; }
+  let ymax = vals[Math.min(vals.length - 1, Math.floor(vals.length * 0.98))] * 1.15;
+  ymax = Math.max(ymax, ...meds.map((m) => m * 1.1), 5);
+  const step = [1, 2, 5, 10, 20, 25, 50, 100, 200].find((s) => ymax / s <= 6) || 200;
+  ymax = Math.ceil(ymax / step) * step;
+  const x = (d) => L + ((d - dates[0]) / (dates[dates.length - 1] - dates[0] || 1)) * (W - L - R);
+  const y = (v) => T + (1 - Math.min(v, ymax) / ymax) * (H - T - B);
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (n, a, t) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (t !== undefined) e.textContent = t; svg.appendChild(e); return e; };
+  for (let v = 0; v <= ymax; v += step) {
+    el("line", { x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: "var(--line)", "stroke-width": 1 });
+    el("text", { x: L - 6, y: y(v) + 4, "text-anchor": "end", fill: "var(--muted)", "font-size": 11 }, v);
+  }
+  const y0 = dates[0].getFullYear(), y1 = dates[dates.length - 1].getFullYear();
+  const every = y1 - y0 > 6 ? 2 : 1;
+  for (let yr = y0 + 1; yr <= y1; yr += every) {
+    const d = new Date(yr + "-01-01"); if (d < dates[0]) continue;
+    el("text", { x: x(d), y: H - 8, "text-anchor": "middle", fill: "var(--muted)", "font-size": 11 }, yr);
+  }
+  const path = (arr) => { let s = "", pen = false;
+    arr.forEach((v, i) => { if (v === null || v === undefined) { pen = false; return; }
+      s += (pen ? "L" : "M") + x(dates[i]).toFixed(1) + " " + y(v).toFixed(1); pen = true; }); return s; };
+  const median = (v, dash, color, label) => { if (v === null) return;
+    el("line", { x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: color, "stroke-width": 1.2, "stroke-dasharray": dash, opacity: 0.9 });
+    el("text", { x: W - R + 4, y: y(v) + 4, fill: color, "font-size": 11 }, label + " " + v.toFixed(1)); };
+  median(current.tr_10y_median, "2 3", "var(--trail)", "10y"); median(current.tr_5y_median, "6 4", "var(--trail)", "5y");
+  median(current.fwd_10y_median, "2 3", "var(--fwd)", "≈10y"); median(current.fwd_5y_median, "6 4", "var(--fwd)", "≈5y");
+  el("path", { d: path(tr), fill: "none", stroke: "var(--trail)", "stroke-width": 1.8 });
+  el("path", { d: path(fw), fill: "none", stroke: "var(--fwd)", "stroke-width": 1.8 });
+  const cross = el("line", { x1: 0, x2: 0, y1: T, y2: H - B, stroke: "var(--muted)", "stroke-width": 1, opacity: 0 });
+  const hit = el("rect", { x: L, y: T, width: W - L - R, height: H - T - B, fill: "transparent" });
+  const move = (ev) => {
+    const box = svg.getBoundingClientRect(); const px = (ev.clientX - box.left) * (W / box.width);
+    const t = dates[0].getTime() + ((px - L) / (W - L - R)) * (dates[dates.length - 1] - dates[0]);
+    let best = 0, bd = Infinity; dates.forEach((d, i) => { const dd = Math.abs(d - t); if (dd < bd) { bd = dd; best = i; } });
+    cross.setAttribute("x1", x(dates[best])); cross.setAttribute("x2", x(dates[best])); cross.setAttribute("opacity", 1);
+    const f = (v) => (v === null || v === undefined ? "–" : v.toFixed(1));
+    $("#tip").textContent = dates[best].toISOString().slice(0, 10) + "   trailing " + f(tr[best]) + "   ≈ forward " + f(fw[best]);
+  };
+  hit.addEventListener("pointermove", move); hit.addEventListener("pointerdown", move);
+  hit.addEventListener("pointerleave", () => { cross.setAttribute("opacity", 0); });
+  $("#tip").innerHTML = "&nbsp;";
+}
+
+$("#dclose").addEventListener("click", () => $("#dlg").close());
+$("#dlg").addEventListener("click", (e) => { if (e.target === $("#dlg")) $("#dlg").close(); });
+[["#r5", 5], ["#r10", 10]].forEach(([s, n]) => $(s).addEventListener("click", () => {
+  range = n; $("#r5").classList.toggle("on", n === 5); $("#r10").classList.toggle("on", n === 10); drawChart(); }));
+
+/* ---------- boot ---------- */
+async function boot() {
+  buildHeader();
+  try {
+    const res = await fetch("data/latest.json", { cache: "no-store" });
+    DATA = await res.json();
+  } catch (e) { $("#updated").textContent = "Couldn't load data/latest.json"; return; }
+  rows = DATA.rows;
+  $("#updated").textContent = "Updated: " + DATA.asof + "  ·  " + DATA.count + " stocks" +
+    (DATA.forced ? "  ·  TEST RUN (not a 9:45 ET snapshot)" : "");
+  const secs = [...new Set(rows.map((r) => r.section).filter(Boolean))];
+  secs.forEach((s) => { const o = document.createElement("option"); o.value = s; o.textContent = s; $("#sec").appendChild(o); });
+  ["#q", "#sec", "#onlyfwd"].forEach((s) => $(s).addEventListener("input", render));
+  render();
+  try {
+    const dates = await (await fetch("data/archive.json", { cache: "no-store" })).json();
+    const box = $("#archive"); box.textContent = "";
+    dates.slice().reverse().slice(0, 60).forEach((d) => { const a = document.createElement("a"); a.href = "archive/" + d + ".csv"; a.textContent = d; box.appendChild(a); });
+    if (!dates.length) box.textContent = "None yet.";
+  } catch (e) { $("#archive").textContent = "None yet."; }
+}
+boot();
+</script>
+</body>
+</html>

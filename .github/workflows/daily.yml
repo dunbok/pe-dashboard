@@ -1,0 +1,91 @@
+name: Daily P/E table
+
+on:
+  schedule:
+    # GitHub cron is UTC and best-effort (often 5-15+ min late). Both lines fire
+    # every weekday; src/schedule.py exits the one that isn't ~9:15 ET.
+    - cron: "15 13 * * 1-5"   # 9:15 ET during EDT (summer)
+    - cron: "15 14 * * 1-5"   # 9:15 ET during EST (winter)
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Skip trading-day / time checks and don't wait for 9:45 (testing)"
+        type: boolean
+        default: false
+      only:
+        description: "Only these Yahoo symbols, comma-separated (testing), e.g. NVDA,AAPL,TSM"
+        type: string
+        default: ""
+
+# One run at a time, so two cron firings can never write at once.
+concurrency:
+  group: pe-dashboard
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Run (waits until 9:45 ET on a trading day)
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          ALPHAVANTAGE_API_KEY: ${{ secrets.ALPHAVANTAGE_API_KEY }}
+          FORCE: ${{ inputs.force }}
+          ONLY: ${{ inputs.only }}
+        run: |
+          args=""
+          if [ "$FORCE" = "true" ]; then args="$args --force"; fi
+          if [ -n "$ONLY" ]; then args="$args --only $ONLY"; fi
+          python -u -m src.run $args
+
+      - name: Commit data
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data docs
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Nothing to commit."
+          else
+            git commit -m "Daily P/E update $(TZ=America/New_York date +'%Y-%m-%d %H:%M %Z')"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,20 @@
+{
+ "symbol": "SPCX",
+ "fetched": "2026-11-16",
+ "quarters": [
+  {
+   "end": "2026-06-30",
+   "reported": "2026-08-04",
+   "time": "post-market",
+   "eps": -0.09,
+   "est": -0.26
+  },
+  {
+   "end": "2026-09-30",
+   "reported": "2026-10-20",
+   "time": "post-market",
+   "eps": 0.35,
+   "est": 0.1
+  }
+ ]
+}

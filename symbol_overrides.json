@@ -1,0 +1,4 @@
+{
+  "_comment": "TradingView symbol -> Yahoo symbol, for cases the default exchange rules get wrong. Use null to force-skip a symbol.",
+  "_example": "EURONEXT:ASML -> ASML.AS, NYSE:SOMETHING -> null"
+}

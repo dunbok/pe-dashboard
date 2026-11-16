@@ -1,0 +1,11 @@
+{
+  "_comment": "Ordinary shares per US-listed share, for foreign (20-F) filers. EDGAR EPS is per ordinary share in the home currency; P/E uses EPS x ratio x FX. Filers not listed here get blank P/E history (ratio unknown). Verify new entries against Yahoo's trailingEps.",
+  "TSM": 5,
+  "UMC": 5,
+  "ASX": 2,
+  "ASML": 1,
+  "NVO": 1,
+  "STM": 1,
+  "ARM": 1,
+  "TSEM": 1
+}

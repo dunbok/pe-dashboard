@@ -1,0 +1,867 @@
+{
+ "symbol": "AMAT",
+ "fetched": "2026-11-16",
+ "quarters": [
+  {
+   "end": "1996-04-30",
+   "reported": "1996-05-14",
+   "time": "pre-market",
+   "eps": 0.13,
+   "est": 0.12
+  },
+  {
+   "end": "1996-07-31",
+   "reported": "1996-08-13",
+   "time": "pre-market",
+   "eps": 0.12,
+   "est": 0.11
+  },
+  {
+   "end": "1996-10-31",
+   "reported": "1996-11-21",
+   "time": "pre-market",
+   "eps": 0.06,
+   "est": 0.05
+  },
+  {
+   "end": "1997-01-31",
+   "reported": "1997-02-11",
+   "time": "pre-market",
+   "eps": 0.06,
+   "est": 0.05
+  },
+  {
+   "end": "1997-04-30",
+   "reported": "1997-05-13",
+   "time": "pre-market",
+   "eps": 0.07,
+   "est": 0.06
+  },
+  {
+   "end": "1997-07-31",
+   "reported": "1997-08-12",
+   "time": "pre-market",
+   "eps": 0.1,
+   "est": 0.08
+  },
+  {
+   "end": "1997-10-31",
+   "reported": "1997-11-20",
+   "time": "pre-market",
+   "eps": 0.12,
+   "est": 0.11
+  },
+  {
+   "end": "1998-01-31",
+   "reported": "1998-02-11",
+   "time": "pre-market",
+   "eps": 0.13,
+   "est": 0.13
+  },
+  {
+   "end": "1998-04-30",
+   "reported": "1998-05-12",
+   "time": "pre-market",
+   "eps": 0.09,
+   "est": 0.09
+  },
+  {
+   "end": "1998-07-31",
+   "reported": "1998-08-11",
+   "time": "pre-market",
+   "eps": 0.05,
+   "est": 0.04
+  },
+  {
+   "end": "1998-10-31",
+   "reported": "1998-11-17",
+   "time": "pre-market",
+   "eps": 0.02,
+   "est": 0.01
+  },
+  {
+   "end": "1999-01-31",
+   "reported": "1999-02-16",
+   "time": "pre-market",
+   "eps": 0.03,
+   "est": 0.02
+  },
+  {
+   "end": "1999-04-30",
+   "reported": "1999-05-18",
+   "time": "pre-market",
+   "eps": 0.1,
+   "est": 0.07
+  },
+  {
+   "end": "1999-07-31",
+   "reported": "1999-08-17",
+   "time": "pre-market",
+   "eps": 0.15,
+   "est": 0.13
+  },
+  {
+   "end": "1999-10-31",
+   "reported": "1999-11-17",
+   "time": "pre-market",
+   "eps": 0.18,
+   "est": 0.16
+  },
+  {
+   "end": "2000-01-31",
+   "reported": "2000-02-15",
+   "time": "pre-market",
+   "eps": 0.2,
+   "est": 0.19
+  },
+  {
+   "end": "2000-04-30",
+   "reported": "2000-05-10",
+   "time": "pre-market",
+   "eps": 0.28,
+   "est": 0.27
+  },
+  {
+   "end": "2000-07-31",
+   "reported": "2000-08-09",
+   "time": "pre-market",
+   "eps": 0.35,
+   "est": 0.34
+  },
+  {
+   "end": "2000-10-31",
+   "reported": "2000-11-15",
+   "time": "pre-market",
+   "eps": 0.39,
+   "est": 0.38
+  },
+  {
+   "end": "2001-01-31",
+   "reported": "2001-02-13",
+   "time": "pre-market",
+   "eps": 0.33,
+   "est": 0.31
+  },
+  {
+   "end": "2001-04-30",
+   "reported": "2001-05-15",
+   "time": "pre-market",
+   "eps": 0.16,
+   "est": 0.16
+  },
+  {
+   "end": "2001-07-31",
+   "reported": "2001-08-14",
+   "time": "pre-market",
+   "eps": 0.03,
+   "est": 0.01
+  },
+  {
+   "end": "2001-10-31",
+   "reported": "2001-11-14",
+   "time": "post-market",
+   "eps": 0.02,
+   "est": 0.02
+  },
+  {
+   "end": "2002-01-31",
+   "reported": "2002-02-12",
+   "time": "post-market",
+   "eps": 0.01,
+   "est": null
+  },
+  {
+   "end": "2002-04-30",
+   "reported": "2002-05-14",
+   "time": "post-market",
+   "eps": 0.03,
+   "est": 0.02
+  },
+  {
+   "end": "2002-07-31",
+   "reported": "2002-08-13",
+   "time": "post-market",
+   "eps": 0.07,
+   "est": 0.06
+  },
+  {
+   "end": "2002-10-31",
+   "reported": "2002-11-13",
+   "time": "post-market",
+   "eps": 0.09,
+   "est": 0.08
+  },
+  {
+   "end": "2003-01-31",
+   "reported": "2003-02-11",
+   "time": "post-market",
+   "eps": -0.0398,
+   "est": 0.02
+  },
+  {
+   "end": "2003-04-30",
+   "reported": "2003-05-13",
+   "time": "post-market",
+   "eps": 0.03,
+   "est": 0.02
+  },
+  {
+   "end": "2003-07-31",
+   "reported": "2003-08-12",
+   "time": "post-market",
+   "eps": 0.05,
+   "est": 0.04
+  },
+  {
+   "end": "2003-10-31",
+   "reported": "2003-11-12",
+   "time": "post-market",
+   "eps": 0.06,
+   "est": 0.05
+  },
+  {
+   "end": "2004-01-31",
+   "reported": "2004-02-18",
+   "time": "post-market",
+   "eps": 0.12,
+   "est": 0.08
+  },
+  {
+   "end": "2004-04-30",
+   "reported": "2004-05-18",
+   "time": "post-market",
+   "eps": 0.22,
+   "est": 0.19
+  },
+  {
+   "end": "2004-07-31",
+   "reported": "2004-08-17",
+   "time": "post-market",
+   "eps": 0.26,
+   "est": 0.25
+  },
+  {
+   "end": "2004-10-31",
+   "reported": "2004-11-17",
+   "time": "post-market",
+   "eps": 0.27,
+   "est": 0.26
+  },
+  {
+   "end": "2005-01-31",
+   "reported": "2005-02-15",
+   "time": "post-market",
+   "eps": 0.17,
+   "est": 0.16
+  },
+  {
+   "end": "2005-04-30",
+   "reported": "2005-05-17",
+   "time": "post-market",
+   "eps": 0.18,
+   "est": 0.17
+  },
+  {
+   "end": "2005-07-31",
+   "reported": "2005-08-16",
+   "time": "post-market",
+   "eps": 0.15,
+   "est": 0.14
+  },
+  {
+   "end": "2005-10-31",
+   "reported": "2005-11-16",
+   "time": "post-market",
+   "eps": 0.15,
+   "est": 0.14
+  },
+  {
+   "end": "2006-01-31",
+   "reported": "2006-02-15",
+   "time": "post-market",
+   "eps": 0.19,
+   "est": 0.17
+  },
+  {
+   "end": "2006-04-30",
+   "reported": "2006-05-16",
+   "time": "post-market",
+   "eps": 0.26,
+   "est": 0.23
+  },
+  {
+   "end": "2006-07-31",
+   "reported": "2006-08-15",
+   "time": "pre-market",
+   "eps": 0.33,
+   "est": 0.3
+  },
+  {
+   "end": "2006-10-31",
+   "reported": "2006-11-15",
+   "time": "post-market",
+   "eps": 0.3,
+   "est": 0.31
+  },
+  {
+   "end": "2007-01-31",
+   "reported": "2007-02-13",
+   "time": "post-market",
+   "eps": 0.27,
+   "est": 0.27
+  },
+  {
+   "end": "2007-04-30",
+   "reported": "2007-05-15",
+   "time": "post-market",
+   "eps": 0.34,
+   "est": 0.28
+  },
+  {
+   "end": "2007-07-31",
+   "reported": "2007-08-14",
+   "time": "post-market",
+   "eps": 0.34,
+   "est": 0.32
+  },
+  {
+   "end": "2007-10-31",
+   "reported": "2007-11-14",
+   "time": "post-market",
+   "eps": 0.31,
+   "est": 0.29
+  },
+  {
+   "end": "2008-01-31",
+   "reported": "2008-02-12",
+   "time": "post-market",
+   "eps": 0.23,
+   "est": 0.2
+  },
+  {
+   "end": "2008-04-30",
+   "reported": "2008-05-13",
+   "time": "post-market",
+   "eps": 0.24,
+   "est": 0.22
+  },
+  {
+   "end": "2008-07-31",
+   "reported": "2008-08-12",
+   "time": "post-market",
+   "eps": 0.14,
+   "est": 0.14
+  },
+  {
+   "end": "2008-10-31",
+   "reported": "2008-11-12",
+   "time": "post-market",
+   "eps": 0.18,
+   "est": 0.14
+  },
+  {
+   "end": "2009-01-31",
+   "reported": "2009-02-10",
+   "time": "post-market",
+   "eps": -0.02,
+   "est": null
+  },
+  {
+   "end": "2009-04-30",
+   "reported": "2009-05-12",
+   "time": "post-market",
+   "eps": -0.12,
+   "est": -0.1
+  },
+  {
+   "end": "2009-07-31",
+   "reported": "2009-08-11",
+   "time": "post-market",
+   "eps": -0.03,
+   "est": -0.08
+  },
+  {
+   "end": "2009-10-31",
+   "reported": "2009-11-11",
+   "time": "post-market",
+   "eps": 0.11,
+   "est": 0.03
+  },
+  {
+   "end": "2010-01-31",
+   "reported": "2010-02-17",
+   "time": "post-market",
+   "eps": 0.13,
+   "est": 0.13
+  },
+  {
+   "end": "2010-04-30",
+   "reported": "2010-05-19",
+   "time": "post-market",
+   "eps": 0.22,
+   "est": 0.21
+  },
+  {
+   "end": "2010-07-31",
+   "reported": "2010-08-18",
+   "time": "post-market",
+   "eps": 0.29,
+   "est": 0.25
+  },
+  {
+   "end": "2010-10-31",
+   "reported": "2010-11-17",
+   "time": "post-market",
+   "eps": 0.36,
+   "est": 0.31
+  },
+  {
+   "end": "2011-01-31",
+   "reported": "2011-02-24",
+   "time": "post-market",
+   "eps": 0.36,
+   "est": 0.33
+  },
+  {
+   "end": "2011-04-30",
+   "reported": "2011-05-24",
+   "time": "post-market",
+   "eps": 0.38,
+   "est": 0.37
+  },
+  {
+   "end": "2011-07-31",
+   "reported": "2011-08-24",
+   "time": "post-market",
+   "eps": 0.35,
+   "est": 0.33
+  },
+  {
+   "end": "2011-10-31",
+   "reported": "2011-11-16",
+   "time": "post-market",
+   "eps": 0.21,
+   "est": 0.19
+  },
+  {
+   "end": "2012-01-31",
+   "reported": "2012-02-16",
+   "time": "post-market",
+   "eps": 0.18,
+   "est": 0.12
+  },
+  {
+   "end": "2012-04-30",
+   "reported": "2012-05-17",
+   "time": "post-market",
+   "eps": 0.27,
+   "est": 0.24
+  },
+  {
+   "end": "2012-07-31",
+   "reported": "2012-08-15",
+   "time": "post-market",
+   "eps": 0.24,
+   "est": 0.22
+  },
+  {
+   "end": "2012-10-31",
+   "reported": "2012-11-15",
+   "time": "pre-market",
+   "eps": 0.06,
+   "est": 0.03
+  },
+  {
+   "end": "2013-01-31",
+   "reported": "2013-02-13",
+   "time": "post-market",
+   "eps": 0.06,
+   "est": 0.03
+  },
+  {
+   "end": "2013-04-30",
+   "reported": "2013-05-16",
+   "time": "post-market",
+   "eps": 0.16,
+   "est": 0.13
+  },
+  {
+   "end": "2013-07-31",
+   "reported": "2013-08-15",
+   "time": "post-market",
+   "eps": 0.18,
+   "est": 0.2
+  },
+  {
+   "end": "2013-10-31",
+   "reported": "2013-11-14",
+   "time": "post-market",
+   "eps": 0.19,
+   "est": 0.18
+  },
+  {
+   "end": "2014-01-31",
+   "reported": "2014-02-12",
+   "time": "post-market",
+   "eps": 0.23,
+   "est": 0.22
+  },
+  {
+   "end": "2014-04-30",
+   "reported": "2014-05-15",
+   "time": "post-market",
+   "eps": 0.28,
+   "est": 0.27
+  },
+  {
+   "end": "2014-07-31",
+   "reported": "2014-08-14",
+   "time": "post-market",
+   "eps": 0.28,
+   "est": 0.27
+  },
+  {
+   "end": "2014-10-31",
+   "reported": "2014-11-13",
+   "time": "post-market",
+   "eps": 0.27,
+   "est": 0.27
+  },
+  {
+   "end": "2015-01-31",
+   "reported": "2015-02-11",
+   "time": "post-market",
+   "eps": 0.27,
+   "est": 0.27
+  },
+  {
+   "end": "2015-04-30",
+   "reported": "2015-05-14",
+   "time": "post-market",
+   "eps": 0.29,
+   "est": 0.28
+  },
+  {
+   "end": "2015-07-31",
+   "reported": "2015-08-13",
+   "time": "post-market",
+   "eps": 0.33,
+   "est": 0.33
+  },
+  {
+   "end": "2015-10-31",
+   "reported": "2015-11-12",
+   "time": "post-market",
+   "eps": 0.29,
+   "est": 0.29
+  },
+  {
+   "end": "2016-01-31",
+   "reported": "2016-02-18",
+   "time": "post-market",
+   "eps": 0.26,
+   "est": 0.25
+  },
+  {
+   "end": "2016-04-30",
+   "reported": "2016-05-19",
+   "time": "post-market",
+   "eps": 0.34,
+   "est": 0.32
+  },
+  {
+   "end": "2016-07-31",
+   "reported": "2016-08-18",
+   "time": "post-market",
+   "eps": 0.5,
+   "est": 0.48
+  },
+  {
+   "end": "2016-10-31",
+   "reported": "2016-11-17",
+   "time": "post-market",
+   "eps": 0.66,
+   "est": 0.65
+  },
+  {
+   "end": "2017-01-31",
+   "reported": "2017-02-15",
+   "time": "post-market",
+   "eps": 0.67,
+   "est": 0.66
+  },
+  {
+   "end": "2017-04-30",
+   "reported": "2017-05-18",
+   "time": "post-market",
+   "eps": 0.79,
+   "est": 0.76
+  },
+  {
+   "end": "2017-07-31",
+   "reported": "2017-08-17",
+   "time": "post-market",
+   "eps": 0.86,
+   "est": 0.83
+  },
+  {
+   "end": "2017-10-31",
+   "reported": "2017-11-16",
+   "time": "post-market",
+   "eps": 0.93,
+   "est": 0.9
+  },
+  {
+   "end": "2018-01-31",
+   "reported": "2018-02-14",
+   "time": "post-market",
+   "eps": 1.06,
+   "est": 0.98
+  },
+  {
+   "end": "2018-04-30",
+   "reported": "2018-05-17",
+   "time": "post-market",
+   "eps": 1.22,
+   "est": 1.15
+  },
+  {
+   "end": "2018-07-31",
+   "reported": "2018-08-16",
+   "time": "post-market",
+   "eps": 1.2,
+   "est": 1.16
+  },
+  {
+   "end": "2018-10-31",
+   "reported": "2018-11-15",
+   "time": "post-market",
+   "eps": 0.97,
+   "est": 0.97
+  },
+  {
+   "end": "2019-01-31",
+   "reported": "2019-02-14",
+   "time": "post-market",
+   "eps": 0.81,
+   "est": 0.79
+  },
+  {
+   "end": "2019-04-30",
+   "reported": "2019-05-16",
+   "time": "post-market",
+   "eps": 0.7,
+   "est": 0.66
+  },
+  {
+   "end": "2019-07-31",
+   "reported": "2019-08-15",
+   "time": "post-market",
+   "eps": 0.74,
+   "est": 0.7
+  },
+  {
+   "end": "2019-10-31",
+   "reported": "2019-11-14",
+   "time": "post-market",
+   "eps": 0.8,
+   "est": 0.76
+  },
+  {
+   "end": "2020-01-31",
+   "reported": "2020-02-12",
+   "time": "post-market",
+   "eps": 0.98,
+   "est": 0.93
+  },
+  {
+   "end": "2020-04-30",
+   "reported": "2020-05-14",
+   "time": "post-market",
+   "eps": 0.89,
+   "est": 0.89
+  },
+  {
+   "end": "2020-07-31",
+   "reported": "2020-08-13",
+   "time": "post-market",
+   "eps": 1.06,
+   "est": 0.95
+  },
+  {
+   "end": "2020-10-31",
+   "reported": "2020-11-12",
+   "time": "post-market",
+   "eps": 1.25,
+   "est": 1.17
+  },
+  {
+   "end": "2021-01-31",
+   "reported": "2021-02-18",
+   "time": "post-market",
+   "eps": 1.39,
+   "est": 1.28
+  },
+  {
+   "end": "2021-04-30",
+   "reported": "2021-05-20",
+   "time": "post-market",
+   "eps": 1.63,
+   "est": 1.51
+  },
+  {
+   "end": "2021-07-31",
+   "reported": "2021-08-19",
+   "time": "post-market",
+   "eps": 1.9,
+   "est": 1.78
+  },
+  {
+   "end": "2021-10-31",
+   "reported": "2021-11-18",
+   "time": "post-market",
+   "eps": 1.94,
+   "est": 1.96
+  },
+  {
+   "end": "2022-01-31",
+   "reported": "2022-02-16",
+   "time": "post-market",
+   "eps": 1.89,
+   "est": 1.85
+  },
+  {
+   "end": "2022-04-30",
+   "reported": "2022-05-19",
+   "time": "post-market",
+   "eps": 1.85,
+   "est": 1.9
+  },
+  {
+   "end": "2022-07-31",
+   "reported": "2022-08-18",
+   "time": "post-market",
+   "eps": 1.94,
+   "est": 1.78
+  },
+  {
+   "end": "2022-10-31",
+   "reported": "2022-11-17",
+   "time": "post-market",
+   "eps": 2.03,
+   "est": 1.74
+  },
+  {
+   "end": "2023-01-31",
+   "reported": "2023-02-16",
+   "time": "post-market",
+   "eps": 2.03,
+   "est": 1.92
+  },
+  {
+   "end": "2023-04-30",
+   "reported": "2023-05-18",
+   "time": "post-market",
+   "eps": 2.0,
+   "est": 1.83
+  },
+  {
+   "end": "2023-07-31",
+   "reported": "2023-08-17",
+   "time": "post-market",
+   "eps": 1.9,
+   "est": 1.75
+  },
+  {
+   "end": "2023-10-31",
+   "reported": "2023-11-16",
+   "time": "post-market",
+   "eps": 2.12,
+   "est": 1.99
+  },
+  {
+   "end": "2024-01-31",
+   "reported": "2024-02-15",
+   "time": "post-market",
+   "eps": 2.13,
+   "est": 1.91
+  },
+  {
+   "end": "2024-04-30",
+   "reported": "2024-05-16",
+   "time": "post-market",
+   "eps": 2.09,
+   "est": 1.99
+  },
+  {
+   "end": "2024-07-31",
+   "reported": "2024-08-15",
+   "time": "post-market",
+   "eps": 2.12,
+   "est": 2.03
+  },
+  {
+   "end": "2024-10-31",
+   "reported": "2024-11-14",
+   "time": "post-market",
+   "eps": 2.32,
+   "est": 2.19
+  },
+  {
+   "end": "2025-01-31",
+   "reported": "2025-02-13",
+   "time": "post-market",
+   "eps": 2.38,
+   "est": 2.3
+  },
+  {
+   "end": "2025-04-30",
+   "reported": "2025-05-15",
+   "time": "post-market",
+   "eps": 2.39,
+   "est": 2.31
+  },
+  {
+   "end": "2025-07-31",
+   "reported": "2025-08-14",
+   "time": "post-market",
+   "eps": 2.48,
+   "est": 2.36
+  },
+  {
+   "end": "2025-10-31",
+   "reported": "2025-12-12",
+   "time": "post-market",
+   "eps": 2.17,
+   "est": 2.09
+  },
+  {
+   "end": "2026-01-31",
+   "reported": "2026-02-12",
+   "time": "post-market",
+   "eps": 2.38,
+   "est": 2.21
+  },
+  {
+   "end": "2026-04-30",
+   "reported": "2026-05-14",
+   "time": "post-market",
+   "eps": 2.86,
+   "est": 2.69
+  },
+  {
+   "end": "2026-07-31",
+   "reported": "2026-08-13",
+   "time": "post-market",
+   "eps": 3.5,
+   "est": 3.38
+  },
+  {
+   "end": "2026-10-31",
+   "reported": "2026-11-12",
+   "time": "post-market",
+   "eps": 4.16,
+   "est": 4.06
+  }
+ ]
+}

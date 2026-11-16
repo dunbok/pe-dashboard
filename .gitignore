@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+# re-downloaded each run; ~1 MB of churn per day if committed
+data/sec_company_tickers.json

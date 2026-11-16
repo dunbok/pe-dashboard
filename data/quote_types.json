@@ -1,0 +1,510 @@
+{
+ "000660.KS": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "2802.T": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "285A.T": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "4004.T": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "4062.T": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "4063.T": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "5802.T": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "6762.T": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "6981.T": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "AAPL": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "ADI": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "ALAB": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "AMAT": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "AMD": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "AMZN": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "ANET": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "APH": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "ARM": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "ASML": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "ASX": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "AVEX": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "AVGO": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "AXP": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "BE": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "CAT": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "CDNS": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "CEG": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "CIEN": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "CLS": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "CNC": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "COHR": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "COST": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "CRDO": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "CRWD": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "DELL": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "DRAM": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "ELV": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "ETN": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "EWY": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "FLEX": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "FN": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "GE": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "GEV": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "GLW": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "GOOG": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "HIMS": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "HOOD": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "HPE": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "HUMN": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "IGV": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "INTC": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "INTU": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "IONQ": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "ISRG": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "JBL": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "JPM": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "KEYS": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "KO": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "KWEB": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "LAC": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "LLY": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "LMT": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "LSCC": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "LULU": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "MA": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "MCD": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "MCHP": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "META": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "MOH": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "MPWR": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "MRVL": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "MSFT": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "MTSI": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "MU": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "MX": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "NBIS": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "NFLX": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "NVDA": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "NVO": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "NVT": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "ON": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "ORCL": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "PANW": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "PG": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "PLTR": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "PWR": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "QCOM": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "QQQ": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "RKLB": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "RTX": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "SKHY": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "SKM": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "SMH": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "SNDK": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "SPCX": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "SPY": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "STM": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "TER": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "TSEM": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "TSLA": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "TSM": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "TTD": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "TXN": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "UBER": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "UHS": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "UMC": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "URNM": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "V": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "VRT": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "VST": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "VTI": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "VXUS": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "WDC": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "WM": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "WMT": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ },
+ "XLB": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "XLC": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "XLE": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "XLF": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "XLI": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "XLK": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "XLP": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "XLRE": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "XLU": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "XLV": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "XLY": {
+  "quoteType": "ETF",
+  "ts": 1794807362.5580869
+ },
+ "ZTS": {
+  "quoteType": "EQUITY",
+  "ts": 1794807362.5580869
+ }
+}

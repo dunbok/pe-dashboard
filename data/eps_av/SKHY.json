@@ -1,0 +1,20 @@
+{
+ "symbol": "SKHY",
+ "fetched": "2026-11-16",
+ "quarters": [
+  {
+   "end": "2026-06-30",
+   "reported": "2026-07-28",
+   "time": "pre-market",
+   "eps": 8.76,
+   "est": 5.12
+  },
+  {
+   "end": "2026-09-30",
+   "reported": "2026-10-27",
+   "time": "pre-market",
+   "eps": 3.84,
+   "est": 5.96
+  }
+ ]
+}
