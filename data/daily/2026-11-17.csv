@@ -96,7 +96,7 @@ JPM,NYSE:JPM,JP Morgan Chase & Co.,PAYMENTS FINANCIALS,338.21,prior close,14.2,S
 V,NYSE:V,Visa Inc.,PAYMENTS FINANCIALS,426.46,prior close,34.6,Yahoo,24.9,,,,,,,,,,,no EPS history for forward approximation
 MA,NYSE:MA,Mastercard Incorporated,PAYMENTS FINANCIALS,661.71,prior close,34.6,SEC,28.6,36.5,36.9,39.5,38.6,30.5,30.9,32.8,31.6,-7.6,edgar_gaap,GAAP fallback (no usable AV data)
 MCD,NYSE:MCD,McDonald's Corporation,CONSUMER,274.67,prior close,21.7,SEC,20.1,26.5,26.1,26.9,26.0,24.3,24.4,24.5,24.1,-17.7,edgar_gaap,GAAP fallback (no usable AV data)
-PG,NYSE:PG,Procter & Gamble Company (The),CONSUMER,173.02,prior close,26.1,SEC,23.4,25.3,25.5,29.2,25.2,24.2,24.5,27.1,24.2,-4.7,edgar_gaap,GAAP fallback (no usable AV data)
+PG,NYSE:PG,Procter & Gamble Company (The),CONSUMER,173.02,prior close,26.1,SEC,23.3,25.3,25.5,29.2,25.2,24.2,24.5,27.1,24.2,-4.9,edgar_gaap,GAAP fallback (no usable AV data)
 COST,NASDAQ:COST,Costco Wholesale Corporation,CONSUMER,1113.74,prior close,53.6,Yahoo,44.5,48.2,49.0,41.4,39.8,41.0,40.4,34.8,33.1,10.0,edgar_gaap,GAAP fallback (no usable AV data)
 WMT,NASDAQ:WMT,Walmart Inc.,CONSUMER,128.41,prior close,46.4,SEC,39.8,37.3,38.4,33.3,31.8,31.2,31.1,30.4,28.9,28.1,edgar_gaap,GAAP fallback (no usable AV data)
 KO,NYSE:KO,Coca-Cola Company (The),CONSUMER,99.48,prior close,29.3,SEC,28.2,26.3,26.3,35.7,27.8,23.7,24.1,32.9,24.9,17.0,edgar_gaap,GAAP fallback (no usable AV data)
