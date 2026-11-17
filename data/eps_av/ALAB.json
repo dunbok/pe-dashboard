@@ -1,0 +1,90 @@
+{
+ "symbol": "ALAB",
+ "fetched": "2026-11-17",
+ "quarters": [
+  {
+   "end": "2023-12-31",
+   "reported": "2024-03-21",
+   "time": "pre-market",
+   "eps": 0.12,
+   "est": null
+  },
+  {
+   "end": "2024-03-31",
+   "reported": "2024-05-07",
+   "time": "post-market",
+   "eps": 0.27,
+   "est": 0.07
+  },
+  {
+   "end": "2024-06-30",
+   "reported": "2024-08-06",
+   "time": "post-market",
+   "eps": 0.13,
+   "est": 0.11
+  },
+  {
+   "end": "2024-09-30",
+   "reported": "2024-11-04",
+   "time": "post-market",
+   "eps": 0.23,
+   "est": 0.17
+  },
+  {
+   "end": "2024-12-31",
+   "reported": "2025-02-10",
+   "time": "post-market",
+   "eps": 0.37,
+   "est": 0.26
+  },
+  {
+   "end": "2025-03-31",
+   "reported": "2025-05-06",
+   "time": "post-market",
+   "eps": 0.33,
+   "est": 0.28
+  },
+  {
+   "end": "2025-06-30",
+   "reported": "2025-08-05",
+   "time": "post-market",
+   "eps": 0.44,
+   "est": 0.32
+  },
+  {
+   "end": "2025-09-30",
+   "reported": "2025-11-04",
+   "time": "post-market",
+   "eps": 0.49,
+   "est": 0.39
+  },
+  {
+   "end": "2025-12-31",
+   "reported": "2026-02-10",
+   "time": "post-market",
+   "eps": 0.58,
+   "est": 0.51
+  },
+  {
+   "end": "2026-03-31",
+   "reported": "2026-05-05",
+   "time": "post-market",
+   "eps": 0.61,
+   "est": 0.54
+  },
+  {
+   "end": "2026-06-30",
+   "reported": "2026-08-04",
+   "time": "post-market",
+   "eps": 0.49,
+   "est": 0.42
+  },
+  {
+   "end": "2026-09-30",
+   "reported": "2026-11-03",
+   "time": "post-market",
+   "eps": 0.99,
+   "est": 0.83
+  }
+ ]
+}

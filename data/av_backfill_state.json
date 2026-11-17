@@ -1,7 +1,7 @@
 {
  "calls": {
   "count": 25,
-  "date": "2026-11-16"
+  "date": "2026-11-17"
  },
  "tickers": {
   "AAPL": {
@@ -9,9 +9,29 @@
    "last_reported": "2026-11-02",
    "status": "ok"
   },
+  "ADI": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-08-19",
+   "status": "ok"
+  },
+  "ALAB": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-11-03",
+   "status": "ok"
+  },
   "AMAT": {
    "fetched": "2026-11-16",
    "last_reported": "2026-11-12",
+   "status": "ok"
+  },
+  "AMD": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-11-03",
+   "status": "ok"
+  },
+  "ANET": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-11-03",
    "status": "ok"
   },
   "APH": {
@@ -19,9 +39,19 @@
    "last_reported": "2026-10-28",
    "status": "ok"
   },
+  "ARM": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-11-04",
+   "status": "ok"
+  },
   "ASML": {
    "fetched": "2026-11-16",
    "last_reported": "2026-10-14",
+   "status": "ok"
+  },
+  "ASX": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-10-29",
    "status": "ok"
   },
   "AVEX": {
@@ -29,14 +59,39 @@
    "last_reported": "2026-11-11",
    "status": "ok"
   },
+  "AVGO": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-09-02",
+   "status": "ok"
+  },
   "CAT": {
    "fetched": "2026-11-16",
    "last_reported": "2026-10-29",
    "status": "ok"
   },
+  "CDNS": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-10-26",
+   "status": "ok"
+  },
+  "CIEN": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-09-03",
+   "status": "ok"
+  },
   "COHR": {
    "fetched": "2026-11-16",
    "last_reported": "2026-11-04",
+   "status": "ok"
+  },
+  "CRDO": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-09-01",
+   "status": "ok"
+  },
+  "DELL": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-09-01",
    "status": "ok"
   },
   "FN": {
@@ -54,14 +109,44 @@
    "last_reported": "2026-10-27",
    "status": "ok"
   },
+  "INTC": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-10-29",
+   "status": "ok"
+  },
   "JPM": {
    "fetched": "2026-11-16",
    "last_reported": "2026-10-13",
    "status": "ok"
   },
+  "KEYS": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-08-18",
+   "status": "ok"
+  },
   "LLY": {
    "fetched": "2026-11-16",
    "last_reported": "2026-10-29",
+   "status": "ok"
+  },
+  "LSCC": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-11-02",
+   "status": "ok"
+  },
+  "MCHP": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-11-05",
+   "status": "ok"
+  },
+  "MPWR": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-10-29",
+   "status": "ok"
+  },
+  "MRVL": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-08-27",
    "status": "ok"
   },
   "MSFT": {
@@ -79,6 +164,11 @@
    "last_reported": "2026-09-30",
    "status": "ok"
   },
+  "MX": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-11-04",
+   "status": "ok"
+  },
   "NVDA": {
    "fetched": "2026-11-16",
    "last_reported": "2026-08-26",
@@ -86,6 +176,16 @@
   },
   "NVO": {
    "fetched": "2026-11-16",
+   "last_reported": "2026-11-04",
+   "status": "ok"
+  },
+  "ON": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-11-02",
+   "status": "ok"
+  },
+  "QCOM": {
+   "fetched": "2026-11-17",
    "last_reported": "2026-11-04",
    "status": "ok"
   },
@@ -109,14 +209,39 @@
    "last_reported": "2026-10-20",
    "status": "ok"
   },
+  "STM": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-10-29",
+   "status": "ok"
+  },
   "TER": {
    "fetched": "2026-11-16",
    "last_reported": "2026-10-27",
    "status": "ok"
   },
+  "TSEM": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-11-02",
+   "status": "ok"
+  },
   "TSM": {
    "fetched": "2026-11-16",
    "last_reported": "2026-10-15",
+   "status": "ok"
+  },
+  "TXN": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-10-21",
+   "status": "ok"
+  },
+  "UMC": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-10-28",
+   "status": "ok"
+  },
+  "WDC": {
+   "fetched": "2026-11-17",
+   "last_reported": "2026-10-22",
    "status": "ok"
   },
   "WM": {

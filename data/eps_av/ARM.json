@@ -1,0 +1,104 @@
+{
+ "symbol": "ARM",
+ "fetched": "2026-11-17",
+ "quarters": [
+  {
+   "end": "2023-06-30",
+   "reported": "2023-09-14",
+   "time": "post-market",
+   "eps": 0.2396,
+   "est": null
+  },
+  {
+   "end": "2023-09-30",
+   "reported": "2023-11-08",
+   "time": "post-market",
+   "eps": 0.36,
+   "est": 0.27
+  },
+  {
+   "end": "2023-12-31",
+   "reported": "2024-02-07",
+   "time": "post-market",
+   "eps": 0.29,
+   "est": 0.25
+  },
+  {
+   "end": "2024-03-31",
+   "reported": "2024-05-08",
+   "time": "post-market",
+   "eps": 0.36,
+   "est": 0.31
+  },
+  {
+   "end": "2024-06-30",
+   "reported": "2024-07-31",
+   "time": "post-market",
+   "eps": 0.4,
+   "est": 0.35
+  },
+  {
+   "end": "2024-09-30",
+   "reported": "2024-11-06",
+   "time": "post-market",
+   "eps": 0.3,
+   "est": 0.26
+  },
+  {
+   "end": "2024-12-31",
+   "reported": "2025-02-05",
+   "time": "post-market",
+   "eps": 0.39,
+   "est": 0.34
+  },
+  {
+   "end": "2025-03-31",
+   "reported": "2025-05-07",
+   "time": "post-market",
+   "eps": 0.55,
+   "est": 0.52
+  },
+  {
+   "end": "2025-06-30",
+   "reported": "2025-07-30",
+   "time": "post-market",
+   "eps": 0.35,
+   "est": 0.35
+  },
+  {
+   "end": "2025-09-30",
+   "reported": "2025-11-05",
+   "time": "post-market",
+   "eps": 0.15,
+   "est": 0.15
+  },
+  {
+   "end": "2025-12-31",
+   "reported": "2026-02-04",
+   "time": "post-market",
+   "eps": 0.43,
+   "est": 0.41
+  },
+  {
+   "end": "2026-03-31",
+   "reported": "2026-05-06",
+   "time": "post-market",
+   "eps": 0.6,
+   "est": 0.58
+  },
+  {
+   "end": "2026-06-30",
+   "reported": "2026-07-29",
+   "time": "post-market",
+   "eps": 0.2,
+   "est": 0.18
+  },
+  {
+   "end": "2026-09-30",
+   "reported": "2026-11-04",
+   "time": "post-market",
+   "eps": 0.15,
+   "est": 0.22
+  }
+ ]
+}
