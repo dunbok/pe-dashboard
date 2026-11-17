@@ -36,8 +36,9 @@ tr.cols th { top: 30px; height: 32px; }
 th.sorted::after { content: " \25B2"; font-size: 10px; }
 th.sorted.desc::after { content: " \25BC"; }
 th.left, td.left { text-align: left; }
-th.sticky, td.sticky { position: sticky; left: 0; z-index: 3; background: var(--bg); border-right: 1px solid var(--line); }
-th.sticky { background: var(--panel); z-index: 4; }
+th.sticky, td.sticky { position: sticky; left: 0; z-index: 3; background: var(--bg); }
+th.sticky { background: var(--panel); z-index: 5; }
+th.edge, td.edge { border-right: 2px solid var(--line); }
 tbody tr { cursor: default; }
 tbody tr.chartable { cursor: pointer; }
 tbody tr:hover td { background: var(--panel); }
@@ -146,10 +147,10 @@ button.on { border-color: var(--accent); color: var(--accent); }
 "use strict";
 const COLS = [
   { k: "ticker", label: "Ticker", type: "str", left: true, sticky: true },
-  { k: "name", label: "Name", type: "str", left: true },
-  { k: "price", label: "Price", type: "price" },
-  { k: "trailing_pe", label: "Trailing", type: "pe" },
-  { k: "forward_pe", label: "Forward", type: "pe" },
+  { k: "name", label: "Name", type: "str", left: true, sticky: true },
+  { k: "price", label: "Price", type: "price", sticky: true },
+  { k: "trailing_pe", label: "Trailing", type: "pe", sticky: true },
+  { k: "forward_pe", label: "Forward", type: "pe", sticky: true, edge: true },
   { k: "tr_5y_mean", label: "5y mean", type: "pe" },
   { k: "tr_5y_median", label: "5y median", type: "pe" },
   { k: "tr_10y_mean", label: "10y mean", type: "pe" },
@@ -186,13 +187,17 @@ function fmt(col, v, row) {
 
 function buildHeader() {
   const g = $("tr.groups"), c = $("tr.cols");
-  const spans = [[2, ""], [1, ""], [2, "Current P/E"], [4, "Trailing P/E history"], [4, "≈ Forward P/E history (est.)"], [4, "Current vs median (green = cheaper)"]];
-  spans.forEach(([n, t]) => { const th = document.createElement("th"); th.colSpan = n; th.textContent = t; g.appendChild(th); });
+  // first five cells are one per frozen column so each can stick on its own
+  [["", 0], ["", 0], ["", 0], ["Current", 0], ["Current", 1]].forEach(([t, e]) => {
+    const th = document.createElement("th"); th.className = "sticky" + (e ? " edge" : ""); th.textContent = t; g.appendChild(th); });
+  [[4, "Trailing P/E history"], [4, "≈ Forward P/E history (est.)"], [4, "Current vs median (green = cheaper)"]]
+    .forEach(([n, t]) => { const th = document.createElement("th"); th.colSpan = n; th.textContent = t; g.appendChild(th); });
   COLS.forEach((col) => {
     const th = document.createElement("th");
     th.textContent = col.label;
     if (col.left) th.classList.add("left");
     if (col.sticky) th.classList.add("sticky");
+    if (col.edge) th.classList.add("edge");
     th.dataset.k = col.k;
     th.addEventListener("click", () => {
       if (sortK === col.k) sortDir = -sortDir; else { sortK = col.k; sortDir = col.type === "str" ? 1 : (col.type === "pct" ? 1 : -1); }
@@ -259,7 +264,9 @@ function render() {
       const v = r[c.k];
       td.textContent = fmt(c, v, r);
       if (c.left) td.classList.add("left");
-      if (c.sticky) td.classList.add("sticky", "ticker");
+      if (c.sticky) td.classList.add("sticky");
+      if (c.edge) td.classList.add("edge");
+      if (c.k === "ticker") td.classList.add("ticker");
       if (c.k === "name") td.classList.add("name");
       if (c.est) td.classList.add("est");
       if (c.type === "pct") td.style.background = pctColor(v);
@@ -280,7 +287,19 @@ function render() {
     tb.appendChild(tr);
   }
   $("#count").textContent = list.length + " of " + rows.length + " stocks";
+  applyFrozen();
 }
+
+// Each frozen column sticks at the combined width of the frozen columns before it.
+function applyFrozen() {
+  const heads = [...document.querySelectorAll("tr.cols th.sticky")], groups = [...document.querySelectorAll("tr.groups th.sticky")];
+  const lefts = []; let x = 0;
+  heads.forEach((h) => { lefts.push(x); x += h.getBoundingClientRect().width; });
+  const put = (cells) => cells.forEach((el, i) => { el.style.left = lefts[i] + "px"; });
+  put(heads); put(groups);
+  document.querySelectorAll("#t tbody tr").forEach((tr) => put([...tr.querySelectorAll("td.sticky")]));
+}
+window.addEventListener("resize", applyFrozen);
 
 /* ---------- chart ---------- */
 async function openChart(r) {
