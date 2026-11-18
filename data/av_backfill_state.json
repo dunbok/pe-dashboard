@@ -1,7 +1,7 @@
 {
  "calls": {
   "count": 25,
-  "date": "2026-11-17"
+  "date": "2026-11-18"
  },
  "tickers": {
   "AAPL": {
@@ -27,6 +27,11 @@
   "AMD": {
    "fetched": "2026-11-17",
    "last_reported": "2026-11-03",
+   "status": "ok"
+  },
+  "AMZN": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-29",
    "status": "ok"
   },
   "ANET": {
@@ -64,6 +69,11 @@
    "last_reported": "2026-09-02",
    "status": "ok"
   },
+  "BE": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-22",
+   "status": "ok"
+  },
   "CAT": {
    "fetched": "2026-11-16",
    "last_reported": "2026-10-29",
@@ -74,9 +84,19 @@
    "last_reported": "2026-10-26",
    "status": "ok"
   },
+  "CEG": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-11-09",
+   "status": "ok"
+  },
   "CIEN": {
    "fetched": "2026-11-17",
    "last_reported": "2026-09-03",
+   "status": "ok"
+  },
+  "CLS": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-26",
    "status": "ok"
   },
   "COHR": {
@@ -89,9 +109,24 @@
    "last_reported": "2026-09-01",
    "status": "ok"
   },
+  "CRWD": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-08-26",
+   "status": "ok"
+  },
   "DELL": {
    "fetched": "2026-11-17",
    "last_reported": "2026-09-01",
+   "status": "ok"
+  },
+  "ETN": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-11-03",
+   "status": "ok"
+  },
+  "FLEX": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-28",
    "status": "ok"
   },
   "FN": {
@@ -99,9 +134,19 @@
    "last_reported": "2026-11-02",
    "status": "ok"
   },
+  "GEV": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-28",
+   "status": "ok"
+  },
   "GLW": {
    "fetched": "2026-11-16",
    "last_reported": "2026-10-27",
+   "status": "ok"
+  },
+  "GOOG": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-28",
    "status": "ok"
   },
   "HOOD": {
@@ -109,9 +154,24 @@
    "last_reported": "2026-10-27",
    "status": "ok"
   },
+  "HPE": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-09-02",
+   "status": "ok"
+  },
   "INTC": {
    "fetched": "2026-11-17",
    "last_reported": "2026-10-29",
+   "status": "ok"
+  },
+  "INTU": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-08-25",
+   "status": "ok"
+  },
+  "JBL": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-09-30",
    "status": "ok"
   },
   "JPM": {
@@ -137,6 +197,11 @@
   "MCHP": {
    "fetched": "2026-11-17",
    "last_reported": "2026-11-05",
+   "status": "ok"
+  },
+  "META": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-21",
    "status": "ok"
   },
   "MPWR": {
@@ -169,6 +234,16 @@
    "last_reported": "2026-11-04",
    "status": "ok"
   },
+  "NBIS": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-11-12",
+   "status": "ok"
+  },
+  "NFLX": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-20",
+   "status": "ok"
+  },
   "NVDA": {
    "fetched": "2026-11-16",
    "last_reported": "2026-08-26",
@@ -179,9 +254,34 @@
    "last_reported": "2026-11-04",
    "status": "ok"
   },
+  "NVT": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-30",
+   "status": "ok"
+  },
   "ON": {
    "fetched": "2026-11-17",
    "last_reported": "2026-11-02",
+   "status": "ok"
+  },
+  "ORCL": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-09-10",
+   "status": "ok"
+  },
+  "PANW": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-09-01",
+   "status": "ok"
+  },
+  "PLTR": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-11-02",
+   "status": "ok"
+  },
+  "PWR": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-29",
    "status": "ok"
   },
   "QCOM": {
@@ -224,9 +324,19 @@
    "last_reported": "2026-11-02",
    "status": "ok"
   },
+  "TSLA": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-21",
+   "status": "ok"
+  },
   "TSM": {
    "fetched": "2026-11-16",
    "last_reported": "2026-10-15",
+   "status": "ok"
+  },
+  "TTD": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-11-09",
    "status": "ok"
   },
   "TXN": {
@@ -234,9 +344,24 @@
    "last_reported": "2026-10-21",
    "status": "ok"
   },
+  "UBER": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-11-04",
+   "status": "ok"
+  },
   "UMC": {
    "fetched": "2026-11-17",
    "last_reported": "2026-10-28",
+   "status": "ok"
+  },
+  "VRT": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-10-28",
+   "status": "ok"
+  },
+  "VST": {
+   "fetched": "2026-11-18",
+   "last_reported": "2026-11-06",
    "status": "ok"
   },
   "WDC": {

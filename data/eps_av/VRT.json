@@ -1,0 +1,237 @@
+{
+ "symbol": "VRT",
+ "fetched": "2026-11-18",
+ "quarters": [
+  {
+   "end": "2018-09-30",
+   "reported": "2018-11-06",
+   "time": "pre-market",
+   "eps": 0.0266,
+   "est": null
+  },
+  {
+   "end": "2018-12-31",
+   "reported": "2019-03-12",
+   "time": "pre-market",
+   "eps": 0.03,
+   "est": null
+  },
+  {
+   "end": "2019-03-31",
+   "reported": "2019-05-08",
+   "time": "pre-market",
+   "eps": 0.03,
+   "est": null
+  },
+  {
+   "end": "2019-06-30",
+   "reported": "2019-08-06",
+   "time": "pre-market",
+   "eps": 0.03,
+   "est": null
+  },
+  {
+   "end": "2019-09-30",
+   "reported": "2019-11-05",
+   "time": "pre-market",
+   "eps": 0.03,
+   "est": null
+  },
+  {
+   "end": "2019-12-31",
+   "reported": "2020-03-11",
+   "time": "post-market",
+   "eps": 0.05,
+   "est": 0.05
+  },
+  {
+   "end": "2020-03-31",
+   "reported": "2020-05-05",
+   "time": "post-market",
+   "eps": -0.09,
+   "est": -0.04
+  },
+  {
+   "end": "2020-06-30",
+   "reported": "2020-08-05",
+   "time": "pre-market",
+   "eps": 0.24,
+   "est": 0.11
+  },
+  {
+   "end": "2020-09-30",
+   "reported": "2020-11-04",
+   "time": "pre-market",
+   "eps": 0.32,
+   "est": 0.27
+  },
+  {
+   "end": "2020-12-31",
+   "reported": "2021-02-24",
+   "time": "pre-market",
+   "eps": 0.33,
+   "est": 0.33
+  },
+  {
+   "end": "2021-03-31",
+   "reported": "2021-04-28",
+   "time": "pre-market",
+   "eps": 0.21,
+   "est": 0.12
+  },
+  {
+   "end": "2021-06-30",
+   "reported": "2021-07-28",
+   "time": "pre-market",
+   "eps": 0.31,
+   "est": 0.24
+  },
+  {
+   "end": "2021-09-30",
+   "reported": "2021-10-27",
+   "time": "pre-market",
+   "eps": 0.2,
+   "est": 0.19
+  },
+  {
+   "end": "2021-12-31",
+   "reported": "2022-02-23",
+   "time": "post-market",
+   "eps": 0.04,
+   "est": 0.28
+  },
+  {
+   "end": "2022-03-31",
+   "reported": "2022-04-27",
+   "time": "pre-market",
+   "eps": -0.08,
+   "est": -0.16
+  },
+  {
+   "end": "2022-06-30",
+   "reported": "2022-08-03",
+   "time": "pre-market",
+   "eps": 0.1,
+   "est": 0.1
+  },
+  {
+   "end": "2022-09-30",
+   "reported": "2022-10-26",
+   "time": "pre-market",
+   "eps": 0.23,
+   "est": 0.21
+  },
+  {
+   "end": "2022-12-31",
+   "reported": "2023-02-22",
+   "time": "pre-market",
+   "eps": 0.28,
+   "est": 0.31
+  },
+  {
+   "end": "2023-03-31",
+   "reported": "2023-04-26",
+   "time": "pre-market",
+   "eps": 0.24,
+   "est": 0.16
+  },
+  {
+   "end": "2023-06-30",
+   "reported": "2023-08-02",
+   "time": "pre-market",
+   "eps": 0.46,
+   "est": 0.29
+  },
+  {
+   "end": "2023-09-30",
+   "reported": "2023-10-25",
+   "time": "pre-market",
+   "eps": 0.52,
+   "est": 0.44
+  },
+  {
+   "end": "2023-12-31",
+   "reported": "2024-02-21",
+   "time": "pre-market",
+   "eps": 0.56,
+   "est": 0.53
+  },
+  {
+   "end": "2024-03-31",
+   "reported": "2024-04-24",
+   "time": "pre-market",
+   "eps": 0.43,
+   "est": 0.36
+  },
+  {
+   "end": "2024-06-30",
+   "reported": "2024-07-24",
+   "time": "pre-market",
+   "eps": 0.67,
+   "est": 0.57
+  },
+  {
+   "end": "2024-09-30",
+   "reported": "2024-10-23",
+   "time": "pre-market",
+   "eps": 0.76,
+   "est": 0.69
+  },
+  {
+   "end": "2024-12-31",
+   "reported": "2025-02-12",
+   "time": "pre-market",
+   "eps": 0.99,
+   "est": 0.8209
+  },
+  {
+   "end": "2025-03-31",
+   "reported": "2025-04-23",
+   "time": "pre-market",
+   "eps": 0.64,
+   "est": 0.62
+  },
+  {
+   "end": "2025-06-30",
+   "reported": "2025-07-30",
+   "time": "pre-market",
+   "eps": 0.95,
+   "est": 0.83
+  },
+  {
+   "end": "2025-09-30",
+   "reported": "2025-10-22",
+   "time": "pre-market",
+   "eps": 1.24,
+   "est": 0.99
+  },
+  {
+   "end": "2025-12-31",
+   "reported": "2026-02-11",
+   "time": "pre-market",
+   "eps": 1.14,
+   "est": 1.3
+  },
+  {
+   "end": "2026-03-31",
+   "reported": "2026-04-22",
+   "time": "pre-market",
+   "eps": 1.17,
+   "est": 1.01
+  },
+  {
+   "end": "2026-06-30",
+   "reported": "2026-07-29",
+   "time": "pre-market",
+   "eps": 1.52,
+   "est": 1.43
+  },
+  {
+   "end": "2026-09-30",
+   "reported": "2026-10-28",
+   "time": "pre-market",
+   "eps": 2.21,
+   "est": 1.82
+  }
+ ]
+}

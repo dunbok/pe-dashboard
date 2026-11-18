@@ -1,0 +1,106 @@
+ticker,tv_symbol,name,section,price,price_basis,trailing_pe,trailing_eps_src,forward_pe,tr_5y_mean,tr_5y_median,tr_10y_mean,tr_10y_median,fwd_5y_mean,fwd_5y_median,fwd_10y_mean,fwd_10y_median,fwd_vs_5y_median_pct,fwd_hist_src,note
+000660.KS,KRX:000660,SK hynix,VT DRAM,1148000.0,last close,,,,,,,,,,,,,,no SEC CIK; no EPS history for forward approximation
+SKHY,NASDAQ:SKHY,SK hynix Inc.,VT DRAM,121.03,9:45,7.7,Yahoo,2.9,,,,,4.3,4.4,4.3,4.4,-33.8,av,
+MU,NASDAQ:MU,"Micron Technology, Inc.",VT DRAM,695.75,9:45,9.4,SEC,3.3,,,21.9,18.0,,,11.2,8.6,,av,
+SKM,NYSE:SKM,"SK Telecom Co., Ltd.",VT DRAM,33.62,9:45,14.5,Yahoo,12.5,,,,,12.8,11.3,14.8,12.0,10.1,av,
+285A.T,TSE:285A,KIOXIA HOLDINGS CORPORATION,VT NAND,8079.0,last close,10.8,Yahoo,,,,,,,,,,,,no EPS history for forward approximation
+SNDK,NASDAQ:SNDK,Sandisk Corporation,VT NAND,762.85,9:45,6.1,SEC,2.6,,,,,3.5,3.1,3.5,3.1,-13.8,av,
+TSM,NYSE:TSM,Taiwan Semiconductor Manufactur,VT FOUNDRY TSMC,359.55,9:45,23.3,Yahoo,15.4,30.0,29.4,28.6,24.9,17.4,17.9,18.1,17.9,-14.0,av,
+AMAT,NASDAQ:AMAT,"Applied Materials, Inc.",VT SPE FRONT-END,348.16,9:45,30.0,SEC,14.1,23.6,20.7,21.3,19.7,18.2,17.9,15.5,14.6,-21.0,av,
+ASML,NASDAQ:ASML,ASML Holding N.V. - New York Re,VT SPE FRONT-END,1380.85,9:45,34.0,Yahoo,21.8,44.7,42.4,44.4,41.1,33.7,30.9,34.2,31.9,-29.5,av,
+TER,NASDAQ:TER,"Teradyne, Inc.",VT SPE BACK-END,231.05,9:45,26.6,SEC,19.2,38.8,31.6,32.6,27.6,29.8,31.0,23.1,21.0,-38.1,av,
+5802.T,TSE:5802,SUMITOMO ELECTRIC INDUSTRIES,VT OPTICAL CABLES,1363.0,last close,13.7,Yahoo,6.2,,,,,,,,,,,no EPS history for forward approximation
+GLW,NYSE:GLW,Corning Incorporated,VT OPTICAL CABLES,107.38,9:45,43.5,SEC,23.6,65.0,48.6,58.8,38.7,22.4,19.2,20.1,18.5,23.0,av,
+FN,NYSE:FN,Fabrinet,VT OPTICAL DEVICES,310.0,9:45,23.4,SEC,12.9,29.3,26.7,24.3,21.6,19.7,18.6,16.5,15.1,-31.0,av,
+COHR,NYSE:COHR,Coherent Corp.,VT OPTICAL DEVICES,210.59,9:45,43.6,SEC,13.3,,,,,21.1,20.0,19.2,18.5,-33.3,av,
+MTSI,NASDAQ:MTSI,MACOM Technology Solutions Hold,VT OPTICAL DEVICES,223.58,9:45,51.9,SEC,19.3,68.3,72.0,,,29.4,30.2,31.1,27.9,-36.2,av,
+APH,NYSE:APH,Amphenol Corporation,VT OPTICAL CONNECT,76.83,9:45,33.4,SEC,21.2,35.3,35.6,32.9,31.9,14.0,13.0,13.1,12.6,63.0,av,
+CRDO,NASDAQ:CRDO,Credo Technology Group Holding ,VT OPTICAL CONNECT,122.3,9:45,43.4,SEC,12.6,,,,,2.2197198867886643e+17,37.7,2.2197198867886643e+17,37.7,-66.6,av,
+TSEM,NASDAQ:TSEM,Tower Semiconductor Ltd.,VT SIPHO FOUNDRY,132.15,9:45,42.5,Yahoo,18.9,38.2,30.8,28.8,19.0,21.6,19.1,19.3,18.1,-1.0,av,
+6981.T,TSE:6981,MURATA MANUFACTURING CO,VT MLCC PASSIVES,5061.0,last close,32.0,Yahoo,21.3,,,,,,,,,,,no EPS history for forward approximation
+6762.T,TSE:6762,TDK CORP,VT MLCC PASSIVES,2269.0,last close,11.6,Yahoo,21.2,,,,,,,,,,,no EPS history for forward approximation
+4062.T,TSE:4062,IBIDEN CO LTD,VT ABF SUBSTRATE,5272.0,last close,38.9,Yahoo,17.1,,,,,,,,,,,no EPS history for forward approximation
+2802.T,TSE:2802,AJINOMOTO CO INC,VT ABF SUBSTRATE,4193.0,last close,25.7,Yahoo,18.1,,,,,,,,,,,no EPS history for forward approximation
+4004.T,TSE:4004,RESONAC HOLDINGS CORPORATION,VT CCL LAMINATE,12150.0,last close,41.6,Yahoo,48.8,,,,,,,,,,,no EPS history for forward approximation
+WDC,NASDAQ:WDC,Western Digital Corporation,T NEARLINE HDD,284.19,9:45,11.0,SEC,7.0,,,,,,,,,,edgar_gaap,AV EPS doesn't match Yahoo's per-share basis; GAAP fallback (no usable AV data)
+UMC,NYSE:UMC,United Microelectronics Corpora,T MATURE FOUNDRY,13.9,9:45,13.1,Yahoo,15.5,12.9,10.9,21.0,15.3,11.7,11.0,14.4,11.9,41.1,av,
+LSCC,NASDAQ:LSCC,Lattice Semiconductor Corporati,B ANALOG SEMIS,111.12,9:45,347.3,SEC,25.3,379.4,67.6,,,256.9,64.4,175.7,60.1,-60.7,edgar_gaap,AV EPS doesn't match Yahoo's per-share basis; GAAP fallback (no usable AV data)
+TXN,NASDAQ:TXN,Texas Instruments Incorporated,B ANALOG SEMIS,291.72,9:45,37.8,SEC,25.1,28.8,28.6,26.7,24.2,27.0,26.7,23.1,20.8,-6.0,av,
+ADI,NASDAQ:ADI,"Analog Devices, Inc.",B ANALOG SEMIS,381.11,9:45,45.3,SEC,23.2,,,40.9,35.5,23.2,23.4,21.1,21.0,-1.0,av,
+MCHP,NASDAQ:MCHP,Microchip Technology Incorporat,B ANALOG SEMIS,59.44,9:45,44.7,SEC,13.4,58.5,26.9,142.8,59.0,32.4,23.8,23.6,15.7,-43.7,av,
+MX,NYSE:MX,Magnachip Semiconductor Corpora,B POWER SEMIS,2.27,9:45,,,,,,,,,,,,,av,negative TTM EPS
+MPWR,NASDAQ:MPWR,"Monolithic Power Systems, Inc.",B POWER SEMIS,1307.79,9:45,71.7,SEC,28.0,65.2,67.3,73.2,74.1,39.5,39.2,38.0,36.5,-28.4,av,
+ON,NASDAQ:ON,ON Semiconductor Corporation,B POWER SEMIS,67.13,9:45,39.3,SEC,14.2,37.6,19.7,35.3,23.7,18.0,18.0,16.0,14.4,-21.1,av,
+STM,NYSE:STM,STMicroelectronics N.V.,B POWER SEMIS,44.35,9:45,77.8,Yahoo,16.0,55.5,15.3,49.2,19.2,23.8,21.2,20.0,16.6,-24.3,av,
+4063.T,TSE:4063,SHIN-ETSU CHEMICAL CO,OS SILICON WAFER,5571.0,last close,20.5,Yahoo,16.9,,,,,,,,,,,no EPS history for forward approximation
+AMD,NASDAQ:AMD,"Advanced Micro Devices, Inc.",AI ACCELERATORS,507.46,9:45,110.3,SEC,28.8,194.1,109.4,160.9,109.5,34.5,33.9,37.2,34.3,-15.1,av,
+QCOM,NASDAQ:QCOM,QUALCOMM Incorporated,AI ACCELERATORS,162.5,9:45,12.8,SEC,13.3,18.7,17.7,22.5,20.2,14.8,14.3,15.4,15.0,-6.8,av,
+INTC,NASDAQ:INTC,Intel Corporation,AI ACCELERATORS,54.13,9:45,,,30.2,,,,,45.3,36.7,26.5,13.4,-17.7,av,negative TTM EPS
+NVDA,NASDAQ:NVDA,NVIDIA Corporation,AI ACCELERATORS,152.44,9:45,19.3,SEC,9.2,71.3,55.9,64.1,54.7,29.2,23.7,30.9,27.0,-61.0,av,
+AVGO,NASDAQ:AVGO,Broadcom Inc.,CUSTOM ASIC,351.67,9:45,44.9,SEC,18.1,62.5,46.1,,,21.7,21.4,17.3,14.4,-15.4,av,
+MRVL,NASDAQ:MRVL,"Marvell Technology, Inc.",CUSTOM ASIC,144.62,9:45,47.7,SEC,19.6,,,,,31.6,30.8,28.5,29.6,-36.2,av,
+ALAB,NASDAQ:ALAB,"Astera Labs, Inc.",CUSTOM ASIC,211.1,9:45,84.1,SEC,29.5,,,,,51.8,47.2,51.8,47.2,-37.4,av,
+ARM,NASDAQ:ARM,Arm Holdings plc,SEMI IP,186.52,9:45,214.4,Yahoo,60.4,,,,,89.1,90.2,89.1,90.2,-33.0,av,
+CDNS,NASDAQ:CDNS,"Cadence Design Systems, Inc.",SEMI IP,309.66,9:45,61.6,SEC,31.5,72.2,72.3,59.2,59.8,41.0,41.3,34.3,35.2,-23.8,av,
+CIEN,NYSE:CIEN,Ciena Corporation,OPTICAL NETWORKING,261.98,9:45,58.5,SEC,22.1,88.9,48.2,58.3,31.4,48.2,41.5,32.9,25.3,-46.8,av,
+ANET,NYSE:ANET,"Arista Networks, Inc.",OPTICAL NETWORKING,186.76,9:45,50.2,SEC,30.9,44.7,44.3,44.8,43.8,28.3,29.0,27.1,26.4,6.7,av,
+ASX,NYSE:ASX,"ASE Technology Holding Co., Ltd",OSAT PACKAGING,32.12,9:45,30.9,Yahoo,14.7,23.2,19.1,21.6,18.5,15.6,16.2,14.7,15.2,-9.4,av,
+KEYS,NYSE:KEYS,Keysight Technologies Inc.,TEST AND METROLOGY,285.14,9:45,39.1,SEC,20.5,36.1,30.3,43.4,37.1,21.2,20.8,19.3,19.5,-1.7,av,
+DELL,NYSE:DELL,Dell Technologies Inc.,SERVER OEM,312.73,9:45,18.2,SEC,10.2,,,,,9.4,8.0,6.7,5.8,27.8,av,
+HPE,NYSE:HPE,Hewlett Packard Enterprise Comp,SERVER OEM,45.85,9:45,23.8,SEC,9.7,17.2,15.3,100.0,19.8,8.3,7.9,8.5,8.5,21.9,av,
+CLS,NYSE:CLS,"Celestica, Inc.",EMS CONTRACT MFG,243.87,9:45,23.0,Yahoo,10.9,,,,,12.9,10.7,11.7,10.2,2.4,av,
+FLEX,NASDAQ:FLEX,Flex Ltd.,EMS CONTRACT MFG,74.67,9:45,27.0,SEC,9.5,20.6,15.7,30.7,18.9,10.7,10.6,9.3,8.1,-10.2,av,
+JBL,NYSE:JBL,Jabil Inc.,EMS CONTRACT MFG,246.81,9:45,25.3,SEC,11.1,21.9,15.1,31.9,26.2,12.6,13.0,11.0,10.6,-14.6,av,
+VRT,NYSE:VRT,"Vertiv Holdings, LLC",DC THERMAL RACKS,193.39,9:45,36.1,SEC,19.6,146.5,68.9,,,23.6,24.0,46.1,25.3,-18.4,av,
+NVT,NYSE:NVT,nVent Electric plc,DC THERMAL RACKS,109.39,9:45,26.4,SEC,15.6,25.9,22.8,,,19.1,18.4,16.9,15.8,-15.3,av,
+GEV,NYSE:GEV,GE Vernova Inc.,ELECTRICAL GRID,780.63,9:45,20.5,SEC,30.1,,,,,40.1,41.6,40.1,41.6,-27.6,av,
+ETN,NYSE:ETN,"Eaton Corporation, PLC",ELECTRICAL GRID,335.42,9:45,33.5,SEC,20.4,33.1,32.9,26.8,28.4,23.7,24.2,20.4,19.3,-15.7,av,
+PWR,NYSE:PWR,"Quanta Services, Inc.",ELECTRICAL GRID,602.9,9:45,54.6,SEC,27.7,54.7,51.6,38.3,32.4,25.6,26.4,19.5,18.4,5.1,av,
+VST,NYSE:VST,Vistra Corp.,IPP POWER,126.74,9:45,17.1,SEC,12.9,,,,,18.5,15.0,,,-13.8,av,
+CEG,NASDAQ:CEG,Constellation Energy Corporatio,IPP POWER,264.67,9:45,25.8,SEC,19.8,,,,,22.2,21.4,22.2,21.4,-7.4,av,
+BE,NYSE:BE,Bloom Energy Corporation,DISTRIBUTED GEN,171.09,9:45,104.3,SEC,32.1,,,,,,,,,,av,
+NBIS,NASDAQ:NBIS,Nebius Group N.V.,HYPERSCALERS,106.69,9:45,,,,,,,,,,,,,av,negative TTM EPS; negative forward EPS; foreign filer: ADR ratio unknown (add to adr_ratios.json)
+ORCL,NYSE:ORCL,Oracle Corporation,HYPERSCALERS,114.49,9:45,17.9,SEC,10.4,34.8,32.5,30.5,27.6,20.2,19.1,17.2,15.2,-45.9,av,
+GOOG,NASDAQ:GOOG,Alphabet Inc.,HYPERSCALERS,278.93,9:45,14.6,SEC,18.4,24.1,24.3,,,19.1,18.2,21.1,21.1,1.2,av,
+AMZN,NASDAQ:AMZN,"Amazon.com, Inc.",HYPERSCALERS,263.72,9:45,21.3,SEC,24.1,67.4,48.8,102.5,78.9,50.7,29.4,69.0,51.5,-17.9,av,
+MSFT,NASDAQ:MSFT,Microsoft Corporation,HYPERSCALERS,504.58,9:45,26.3,SEC,20.9,32.2,33.4,34.1,33.1,27.1,27.5,25.1,24.5,-24.2,av,
+META,NASDAQ:META,"Meta Platforms, Inc.",HYPERSCALERS,613.29,9:45,20.9,SEC,17.2,24.8,26.7,28.0,28.4,19.4,19.5,21.0,20.9,-12.1,av,
+PLTR,NASDAQ:PLTR,Palantir Technologies Inc.,ENTERPRISE SW,154.96,9:45,109.1,SEC,61.0,,,,,92.8,67.9,123.6,79.6,-10.2,av,
+CRWD,NASDAQ:CRWD,"CrowdStrike Holdings, Inc.",ENTERPRISE SW,233.1,9:45,3729.6,SEC,144.7,,,,,,,,,,edgar_gaap,AV EPS doesn't match Yahoo's per-share basis; GAAP fallback (no usable AV data)
+INTU,NASDAQ:INTU,Intuit Inc.,ENTERPRISE SW,313.11,9:45,18.9,SEC,11.6,53.4,58.4,50.5,49.4,28.8,29.6,30.7,30.5,-60.8,av,
+PANW,NASDAQ:PANW,"Palo Alto Networks, Inc.",ENTERPRISE SW,329.65,9:45,701.4,SEC,67.6,,,,,239.9,96.1,,,-29.7,edgar_gaap,AV EPS doesn't match Yahoo's per-share basis; GAAP fallback (no usable AV data)
+NFLX,NASDAQ:NFLX,"Netflix, Inc.",CONSUMER INTERNET,59.78,9:45,17.3,SEC,15.8,38.7,41.1,93.9,58.6,29.5,28.1,52.1,44.2,-43.5,av,
+AAPL,NASDAQ:AAPL,Apple Inc.,CONSUMER INTERNET,353.08,9:45,39.4,SEC,33.4,31.5,31.6,27.0,28.1,28.4,28.8,22.9,23.6,16.1,av,
+UBER,NYSE:UBER,"Uber Technologies, Inc.",CONSUMER INTERNET,68.62,9:45,40.1,SEC,15.6,,,,,26.3,20.1,,,-22.4,av,
+TTD,NASDAQ:TTD,"The Trade Desk, Inc.",CONSUMER INTERNET,15.07,9:45,22.2,SEC,12.8,220.7,205.6,172.2,128.9,48.0,47.9,47.0,45.8,-73.3,av,
+TSLA,NASDAQ:TSLA,"Tesla, Inc.",ROBOTICS,380.26,9:45,417.9,SEC,176.1,161.3,106.7,,,138.8,105.5,,,66.9,av,
+AVEX,NYSE:AVEX,AEVEX Corp.,AEROSPACE & DEFENSE,13.22,9:45,,,19.8,,,,,2055.3,173.2,2055.3,173.2,-88.6,av,negative TTM EPS; no recent EPS (stale or gaps)
+LMT,NYSE:LMT,Lockheed Martin Corporation,AEROSPACE & DEFENSE,573.6,9:45,20.4,SEC,17.2,20.9,20.5,21.2,19.1,19.2,17.7,19.5,17.1,-2.6,edgar_gaap,GAAP fallback (no usable AV data)
+RTX,NYSE:RTX,RTX Corporation,AEROSPACE & DEFENSE,195.43,9:45,31.7,SEC,24.2,36.7,35.9,30.5,29.3,29.7,26.5,27.4,25.9,-8.9,edgar_gaap,GAAP fallback (no usable AV data)
+GE,NYSE:GE,GE Aerospace,AEROSPACE & DEFENSE,326.23,9:45,37.7,SEC,35.0,42.7,36.6,,,32.3,24.8,,,41.4,edgar_gaap,GAAP fallback (no usable AV data)
+RKLB,NASDAQ:RKLB,Rocket Lab Corporation,AEROSPACE & DEFENSE,53.72,9:45,,,750.5,,,,,,,,,,edgar_gaap,negative TTM EPS; GAAP fallback (no usable AV data)
+SPCX,NASDAQ:SPCX,Space Exploration Technologies ,AEROSPACE & DEFENSE,144.3,9:45,627.4,Yahoo,52.6,,,,,61.2,58.0,61.2,58.0,-9.3,av,
+IONQ,NYSE:IONQ,"IonQ, Inc.",QUANTUM,23.69,9:45,16.8,SEC,,,,,,,,,,,edgar_gaap,negative forward EPS; GAAP fallback (no usable AV data)
+HIMS,NYSE:HIMS,"Hims & Hers Health, Inc.",GLP-1 CHAIN,17.46,9:45,,,43.2,,,,,,,,,,edgar_gaap,negative TTM EPS; GAAP fallback (no usable AV data)
+LLY,NYSE:LLY,Eli Lilly and Company,GLP-1 CHAIN,1389.42,9:45,45.1,SEC,27.4,67.9,54.2,57.1,41.6,41.4,39.8,30.2,24.9,-31.3,av,
+NVO,NYSE:NVO,Novo Nordisk A/S,GLP-1 CHAIN,39.69,9:45,10.0,Yahoo,11.3,33.8,38.2,29.7,26.0,,,,,,,AV EPS doesn't match Yahoo's per-share basis; no EPS history for forward approximation
+ISRG,NASDAQ:ISRG,"Intuitive Surgical, Inc.",MEDTECH ANIMAL,425.89,9:45,51.6,SEC,34.2,68.9,70.8,65.8,69.0,57.9,57.3,55.8,54.2,-40.4,edgar_gaap,GAAP fallback (no usable AV data)
+ZTS,NYSE:ZTS,Zoetis Inc.,MEDTECH ANIMAL,83.72,9:45,14.2,SEC,13.1,32.0,33.8,36.8,37.7,29.4,30.7,31.7,31.4,-57.2,edgar_gaap,GAAP fallback (no usable AV data)
+MOH,NYSE:MOH,Molina Healthcare Inc,MANAGED CARE,206.0,9:45,,,21.3,123.6,20.4,79.5,19.9,123.5,20.6,72.6,18.4,3.3,edgar_gaap,negative TTM EPS; GAAP fallback (no usable AV data)
+ELV,NYSE:ELV,"Elevance Health, Inc.",MANAGED CARE,413.27,9:45,17.6,SEC,13.6,17.3,17.9,17.4,17.6,17.0,17.1,15.6,15.5,-20.2,edgar_gaap,GAAP fallback (no usable AV data)
+CNC,NYSE:CNC,Centene Corporation,MANAGED CARE,68.08,9:45,23.3,SEC,12.2,21.7,16.2,22.7,20.7,16.5,13.3,20.1,17.9,-8.3,edgar_gaap,GAAP fallback (no usable AV data)
+UHS,NYSE:UHS,"Universal Health Services, Inc.",MANAGED CARE,188.95,9:45,7.9,SEC,8.2,12.0,11.5,13.3,13.5,10.1,9.6,11.7,11.9,-14.9,edgar_gaap,GAAP fallback (no usable AV data)
+HOOD,NASDAQ:HOOD,"Robinhood Markets, Inc.",PAYMENTS FINANCIALS,68.31,9:45,31.5,SEC,20.0,,,,,24.7,20.4,,,-1.9,av,
+AXP,NYSE:AXP,American Express Company,PAYMENTS FINANCIALS,314.42,9:45,17.7,SEC,15.6,18.9,18.9,19.9,18.9,16.3,16.2,17.2,16.3,-4.2,edgar_gaap,GAAP fallback (no usable AV data)
+JPM,NYSE:JPM,JP Morgan Chase & Co.,PAYMENTS FINANCIALS,326.36,9:45,13.7,SEC,12.8,12.1,11.8,12.9,12.8,10.8,11.0,10.9,11.5,15.5,av,
+V,NYSE:V,Visa Inc.,PAYMENTS FINANCIALS,415.22,9:45,33.7,Yahoo,24.2,,,,,,,,,,,no EPS history for forward approximation
+MA,NYSE:MA,Mastercard Incorporated,PAYMENTS FINANCIALS,641.33,9:45,33.5,SEC,27.7,36.5,36.9,39.5,38.6,30.5,30.9,32.8,31.6,-10.4,edgar_gaap,GAAP fallback (no usable AV data)
+MCD,NYSE:MCD,McDonald's Corporation,CONSUMER,273.27,9:45,21.6,SEC,20.0,26.5,26.0,26.9,26.0,24.3,24.4,24.5,24.1,-18.1,edgar_gaap,GAAP fallback (no usable AV data)
+PG,NYSE:PG,Procter & Gamble Company (The),CONSUMER,170.39,9:45,25.7,SEC,23.0,25.3,25.5,29.2,25.2,24.1,24.5,27.1,24.2,-6.4,edgar_gaap,GAAP fallback (no usable AV data)
+COST,NASDAQ:COST,Costco Wholesale Corporation,CONSUMER,1104.36,9:45,53.2,Yahoo,44.1,48.2,49.0,41.4,39.8,41.0,40.4,34.8,33.1,9.0,edgar_gaap,GAAP fallback (no usable AV data)
+WMT,NASDAQ:WMT,Walmart Inc.,CONSUMER,126.64,9:45,45.7,SEC,39.2,37.3,38.4,33.3,31.8,31.2,31.1,30.4,28.9,26.2,edgar_gaap,GAAP fallback (no usable AV data)
+KO,NYSE:KO,Coca-Cola Company (The),CONSUMER,98.14,9:45,28.9,SEC,27.8,26.3,26.3,35.7,27.8,23.7,24.1,32.9,24.9,15.3,edgar_gaap,GAAP fallback (no usable AV data)
+LULU,NASDAQ:LULU,lululemon athletica inc.,CONSUMER,110.47,9:45,9.1,SEC,12.8,31.4,28.8,42.0,42.3,27.1,26.0,33.0,31.1,-50.7,edgar_gaap,GAAP fallback (no usable AV data)
+CAT,NYSE:CAT,"Caterpillar, Inc.",INDUSTRIALS WASTE,552.32,9:45,21.7,SEC,17.2,21.6,17.8,48.6,19.0,16.8,16.3,16.1,15.4,5.6,av,
+WM,NYSE:WM,"Waste Management, Inc.",INDUSTRIALS WASTE,240.48,9:45,31.6,SEC,26.9,32.9,33.1,30.1,30.7,27.2,27.6,25.5,25.7,-2.7,av,
+LAC,NYSE:LAC,Lithium Americas Corp.,BATTERY MINERALS,1.45,9:45,4.1,Yahoo,,,,,,,,,,,,negative forward EPS; no EPS history for forward approximation
