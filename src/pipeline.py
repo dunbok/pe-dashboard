@@ -169,7 +169,9 @@ def live_prices(ysyms: list[str], asof: datetime) -> dict[str, tuple[float, str]
         return out
     for s in ysyms:
         try:
-            d = (df[s]["Close"] if len(ysyms) > 1 else df["Close"]).dropna()
+            # yfinance returns (ticker, field) columns when group_by="ticker", even for ONE ticker
+            multi = isinstance(df.columns, pd.MultiIndex) and s in df.columns.get_level_values(0)
+            d = (df[s]["Close"] if multi else df["Close"]).dropna()
         except KeyError:
             continue
         if d.empty:
