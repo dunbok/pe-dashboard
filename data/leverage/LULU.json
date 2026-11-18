@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -881320000,
+ "ebitda_ttm": 828320000,
+ "net_debt_ebitda": -1.06,
+ "interest_cover": null,
+ "balance_date": "2019-02-03",
+ "note": null,
+ "ticker": "LULU",
+ "latest_filing": "2026-10-22",
+ "fetched": "2026-11-18T16:45:53+00:00"
+}

@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -3169800000,
+ "ebitda_ttm": 1689600000,
+ "net_debt_ebitda": -1.88,
+ "interest_cover": 20.7,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "CLS",
+ "latest_filing": "2026-10-30",
+ "fetched": "2026-11-18T16:45:39+00:00"
+}

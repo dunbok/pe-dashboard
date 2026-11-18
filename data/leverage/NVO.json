@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": null,
+ "ebitda_ttm": null,
+ "net_debt_ebitda": null,
+ "interest_cover": null,
+ "balance_date": null,
+ "note": "no US-GAAP data",
+ "ticker": "NVO",
+ "latest_filing": "2026-11-16",
+ "fetched": "2026-11-18T16:46:01+00:00"
+}

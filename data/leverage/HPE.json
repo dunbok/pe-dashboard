@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 14028000000,
+ "ebitda_ttm": 6092000000,
+ "net_debt_ebitda": 2.3,
+ "interest_cover": 2.4,
+ "balance_date": "2026-07-31",
+ "note": null,
+ "ticker": "HPE",
+ "latest_filing": "2026-11-04",
+ "fetched": "2026-11-18T16:45:48+00:00"
+}

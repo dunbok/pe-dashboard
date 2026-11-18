@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 21392000000,
+ "ebitda_ttm": 171486000000,
+ "net_debt_ebitda": 0.12,
+ "interest_cover": 40.2,
+ "balance_date": "2026-09-26",
+ "note": null,
+ "ticker": "AAPL",
+ "latest_filing": "2026-11-09",
+ "fetched": "2026-11-18T16:45:01+00:00"
+}

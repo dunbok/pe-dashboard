@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 5596000000,
+ "ebitda_ttm": 7803000000,
+ "net_debt_ebitda": 0.72,
+ "interest_cover": 11.9,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "UBER",
+ "latest_filing": "2026-11-04",
+ "fetched": "2026-11-18T16:46:11+00:00"
+}

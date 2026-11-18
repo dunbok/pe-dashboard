@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 23123000000,
+ "ebitda_ttm": 7768000000,
+ "net_debt_ebitda": 2.98,
+ "interest_cover": 9.6,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "WM",
+ "latest_filing": "2026-10-28",
+ "fetched": "2026-11-18T16:46:14+00:00"
+}

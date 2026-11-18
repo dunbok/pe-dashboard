@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -2789000000,
+ "ebitda_ttm": 9585000000,
+ "net_debt_ebitda": -0.29,
+ "interest_cover": 38.7,
+ "balance_date": "2026-07-26",
+ "note": null,
+ "ticker": "AMAT",
+ "latest_filing": "2026-11-12",
+ "fetched": "2026-11-18T16:45:31+00:00"
+}

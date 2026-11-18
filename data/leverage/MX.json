@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -39801000,
+ "ebitda_ttm": -30861000,
+ "net_debt_ebitda": null,
+ "interest_cover": -1.9,
+ "balance_date": "2026-09-30",
+ "note": "negative EBITDA",
+ "ticker": "MX",
+ "latest_filing": "2026-11-05",
+ "fetched": "2026-11-18T16:45:59+00:00"
+}

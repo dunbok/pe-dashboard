@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 5663000000,
+ "ebitda_ttm": null,
+ "net_debt_ebitda": null,
+ "interest_cover": 8.0,
+ "balance_date": "2026-09-30",
+ "note": "EBITDA inputs missing",
+ "ticker": "GLW",
+ "latest_filing": "2026-10-29",
+ "fetched": "2026-11-18T16:45:46+00:00"
+}

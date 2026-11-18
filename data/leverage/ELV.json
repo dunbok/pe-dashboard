@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -4938000000,
+ "ebitda_ttm": 6916000000,
+ "net_debt_ebitda": -0.71,
+ "interest_cover": 4.9,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "ELV",
+ "latest_filing": "2026-11-10",
+ "fetched": "2026-11-18T16:45:43+00:00"
+}

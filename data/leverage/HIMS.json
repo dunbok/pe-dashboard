@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -712221000,
+ "ebitda_ttm": -124743000,
+ "net_debt_ebitda": null,
+ "interest_cover": null,
+ "balance_date": "2026-09-30",
+ "note": "negative EBITDA",
+ "ticker": "HIMS",
+ "latest_filing": "2026-11-09",
+ "fetched": "2026-11-18T16:45:47+00:00"
+}

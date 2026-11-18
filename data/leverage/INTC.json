@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -3871000000,
+ "ebitda_ttm": 1962000000,
+ "net_debt_ebitda": -1.97,
+ "interest_cover": 1.9,
+ "balance_date": "2026-09-26",
+ "note": null,
+ "ticker": "INTC",
+ "latest_filing": "2026-10-30",
+ "fetched": "2026-11-18T16:44:59+00:00"
+}

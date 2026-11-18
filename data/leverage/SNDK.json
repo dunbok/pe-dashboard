@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -4762000000,
+ "ebitda_ttm": 12538000000,
+ "net_debt_ebitda": -0.38,
+ "interest_cover": 169.7,
+ "balance_date": "2026-07-03",
+ "note": null,
+ "ticker": "SNDK",
+ "latest_filing": "2026-10-30",
+ "fetched": "2026-11-18T16:46:06+00:00"
+}

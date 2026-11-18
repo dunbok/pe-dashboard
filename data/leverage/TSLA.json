@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -37491000000,
+ "ebitda_ttm": 4498100000,
+ "net_debt_ebitda": -8.33,
+ "interest_cover": 13.3,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "TSLA",
+ "latest_filing": "2026-10-22",
+ "fetched": "2026-11-18T16:46:09+00:00"
+}

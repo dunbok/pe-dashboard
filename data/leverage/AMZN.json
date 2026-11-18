@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 66661000000,
+ "ebitda_ttm": 183719000000,
+ "net_debt_ebitda": 0.36,
+ "interest_cover": 34.8,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "AMZN",
+ "latest_filing": "2026-10-30",
+ "fetched": "2026-11-18T16:45:32+00:00"
+}

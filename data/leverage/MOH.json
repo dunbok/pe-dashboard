@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -4808000000,
+ "ebitda_ttm": 333000000,
+ "net_debt_ebitda": -14.44,
+ "interest_cover": 1.6,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "MOH",
+ "latest_filing": "2026-11-06",
+ "fetched": "2026-11-18T16:45:56+00:00"
+}

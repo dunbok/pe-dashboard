@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -27805000000,
+ "ebitda_ttm": 16334000000,
+ "net_debt_ebitda": -1.7,
+ "interest_cover": 1.1,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "GM",
+ "latest_filing": "",
+ "fetched": "2026-11-18T16:45:00+00:00"
+}

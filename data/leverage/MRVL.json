@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 1030100000,
+ "ebitda_ttm": 1866200000,
+ "net_debt_ebitda": 0.55,
+ "interest_cover": 7.5,
+ "balance_date": "2026-08-01",
+ "note": null,
+ "ticker": "MRVL",
+ "latest_filing": "2026-11-12",
+ "fetched": "2026-11-18T16:45:57+00:00"
+}

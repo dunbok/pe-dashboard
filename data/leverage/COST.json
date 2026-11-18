@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -15139000000,
+ "ebitda_ttm": 14359000000,
+ "net_debt_ebitda": -1.05,
+ "interest_cover": 80.6,
+ "balance_date": "2026-08-30",
+ "note": null,
+ "ticker": "COST",
+ "latest_filing": "2026-11-10",
+ "fetched": "2026-11-18T16:45:41+00:00"
+}

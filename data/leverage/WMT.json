@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 28403000000,
+ "ebitda_ttm": 42958000000,
+ "net_debt_ebitda": 0.66,
+ "interest_cover": 17.4,
+ "balance_date": "2026-07-31",
+ "note": null,
+ "ticker": "WMT",
+ "latest_filing": "2026-11-16",
+ "fetched": "2026-11-18T16:46:14+00:00"
+}

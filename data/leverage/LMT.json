@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 14538000000,
+ "ebitda_ttm": 11003000000,
+ "net_debt_ebitda": 1.32,
+ "interest_cover": 9.6,
+ "balance_date": "2026-09-27",
+ "note": null,
+ "ticker": "LMT",
+ "latest_filing": "2026-10-22",
+ "fetched": "2026-11-18T16:45:52+00:00"
+}

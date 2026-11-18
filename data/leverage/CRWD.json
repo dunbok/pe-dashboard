@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -4267631000,
+ "ebitda_ttm": null,
+ "net_debt_ebitda": null,
+ "interest_cover": -5.1,
+ "balance_date": "2026-07-31",
+ "note": "EBITDA inputs missing",
+ "ticker": "CRWD",
+ "latest_filing": "2026-08-27",
+ "fetched": "2026-11-18T16:45:42+00:00"
+}

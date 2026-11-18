@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 6909441000,
+ "ebitda_ttm": 15957058000,
+ "net_debt_ebitda": 0.43,
+ "interest_cover": 22.2,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "NFLX",
+ "latest_filing": "2026-10-21",
+ "fetched": "2026-11-18T16:46:00+00:00"
+}

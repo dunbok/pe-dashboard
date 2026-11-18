@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 1031222000,
+ "ebitda_ttm": 2158413000,
+ "net_debt_ebitda": 0.48,
+ "interest_cover": 14.0,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "CDNS",
+ "latest_filing": "2026-10-28",
+ "fetched": "2026-11-18T16:45:37+00:00"
+}

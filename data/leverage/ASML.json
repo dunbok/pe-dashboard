@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": null,
+ "ebitda_ttm": null,
+ "net_debt_ebitda": null,
+ "interest_cover": null,
+ "balance_date": null,
+ "note": "no debt/cash data",
+ "ticker": "ASML",
+ "latest_filing": "2026-10-14",
+ "fetched": "2026-11-18T16:45:34+00:00"
+}

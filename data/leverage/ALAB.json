@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -1378243000,
+ "ebitda_ttm": 412622000,
+ "net_debt_ebitda": -3.34,
+ "interest_cover": null,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "ALAB",
+ "latest_filing": "2026-11-04",
+ "fetched": "2026-11-18T16:45:31+00:00"
+}

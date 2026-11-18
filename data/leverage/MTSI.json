@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -451664000,
+ "ebitda_ttm": 368079000,
+ "net_debt_ebitda": -1.23,
+ "interest_cover": 59.5,
+ "balance_date": "2026-10-02",
+ "note": null,
+ "ticker": "MTSI",
+ "latest_filing": "2026-11-12",
+ "fetched": "2026-11-18T16:45:58+00:00"
+}

@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 2247669000,
+ "ebitda_ttm": 618016000,
+ "net_debt_ebitda": 3.64,
+ "interest_cover": 0.3,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "COHR",
+ "latest_filing": "2026-11-04",
+ "fetched": "2026-11-18T16:45:41+00:00"
+}

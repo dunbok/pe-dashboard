@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -4606666000,
+ "ebitda_ttm": -171319000,
+ "net_debt_ebitda": null,
+ "interest_cover": -33.9,
+ "balance_date": "2026-09-30",
+ "note": "negative EBITDA",
+ "ticker": "RKLB",
+ "latest_filing": "2026-11-09",
+ "fetched": "2026-11-18T16:46:05+00:00"
+}

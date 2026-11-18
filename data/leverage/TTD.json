@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -1649668000,
+ "ebitda_ttm": 644174000,
+ "net_debt_ebitda": -2.56,
+ "interest_cover": 334.0,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "TTD",
+ "latest_filing": "2026-11-09",
+ "fetched": "2026-11-18T16:46:10+00:00"
+}

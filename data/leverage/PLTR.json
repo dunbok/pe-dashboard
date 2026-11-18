@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": null,
+ "ebitda_ttm": null,
+ "net_debt_ebitda": null,
+ "interest_cover": null,
+ "balance_date": null,
+ "note": "debt not tagged in latest filing",
+ "ticker": "PLTR",
+ "latest_filing": "2026-11-03",
+ "fetched": "2026-11-18T16:46:04+00:00"
+}

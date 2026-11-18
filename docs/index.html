@@ -90,6 +90,9 @@ button.on { border-color: var(--accent); color: var(--accent); }
       (Alpha Vantage free tier, 25 calls/day) hasn't reached it yet. GAAP EPS is usually lower than adjusted, so these medians run
       high and the comparison looks too cheap. It fixes itself within a few days.</li>
     <li><span class="dag">&dagger;</span> price is the last close, not 9:45 ET (market closed, e.g. Tokyo or Seoul).</li>
+    <li><b>Debt safety</b> (SEC filings first, Yahoo fallback; banks, insurers and REITs are skipped): net debt / EBITDA = (debt &minus; cash &amp; short-term investments) &divide; trailing-12-month (operating income + D&amp;A). Negative = net cash.
+      <span class="g">Green</span> below 2, <span class="r">red</span> above 4. Interest cover = operating income &divide; interest expense (red below 2, green 5+).
+      <span class="dag">Y</span> = from Yahoo (used when SEC data is missing, e.g. non-US filers; Yahoo gives no interest cover). Blank = no data or negative EBITDA. Captive-finance arms (e.g. GM, Ford) can look too safe because their debt is tagged differently.</li>
     <li>5y/10y statistics are shown only when at least 80% of trading days in the window have a valid P/E.</li>
     <li>Fwd P/E is price &divide; Yahoo consensus EPS for the next fiscal year. Every day's real value is saved, so real history replaces the approximation over time.</li>
     <li><b>Colours on the current Trailing / Forward P/E</b>: <span class="g">green</span> = lower than all four of its own history
@@ -105,6 +108,7 @@ button.on { border-color: var(--accent); color: var(--accent); }
   <label title="Trailing P/E is below its 5y &amp; 10y mean and median, AND forward P/E is below its 5y &amp; 10y mean and median"><input type="checkbox" id="cheap"> cheaper than all history (trailing &amp; forward)</label>
   <label>max trailing P/E <input type="number" id="maxtr" min="0" step="any" placeholder="any"></label>
   <label>max forward P/E <input type="number" id="maxfwd" min="0" step="any" placeholder="any"></label>
+  <label title="Hide stocks whose net debt / EBITDA is above this (or unknown). Net cash counts as safe.">max net debt / EBITDA <input type="number" id="maxlev" step="any" placeholder="any"></label>
   <label><input type="checkbox" id="onlyfwd"> only with forward history</label>
   <span id="count"></span>
 </div>
@@ -168,6 +172,8 @@ const COLS = [
   { k: "tr_vs_10y_median_pct", label: "Trailing vs 10y median", type: "pct" },
   { k: "fwd_vs_5y_median_pct", label: "Fwd vs 5y median", type: "pct" },
   { k: "fwd_vs_10y_median_pct", label: "Fwd vs 10y median", type: "pct" },
+  { k: "net_debt_ebitda", label: "Net debt / EBITDA", type: "lev" },
+  { k: "interest_cover", label: "Interest cover (x)", type: "cover" },
 ];
 // % difference of current P/E from its own median (negative = cheaper than usual)
 const pctVs = (cur, med) => (typeof cur === "number" && typeof med === "number" && med > 0)
@@ -185,6 +191,7 @@ function fmt(col, v, row) {
   if (v === null || v === undefined) return "";
   if (col.type === "price") return nf0.format(v);
   if (col.type === "pct") return (v > 0 ? "+" : "") + v.toFixed(1) + "%";
+  if (col.type === "lev" || col.type === "cover") return v.toFixed(1);
   if (col.type === "pe") return (col.est ? "≈" : "") + v.toFixed(1);
   return String(v);
 }
@@ -194,7 +201,7 @@ function buildHeader() {
   // first five cells are one per frozen column so each can stick on its own
   [["", 0], ["", 0], ["", 0], ["Current", 0], ["Current", 1]].forEach(([t, e]) => {
     const th = document.createElement("th"); th.className = "sticky" + (e ? " edge" : ""); th.textContent = t; g.appendChild(th); });
-  [[4, "Trailing P/E history"], [4, "≈ Forward P/E history (est.)"], [4, "Current vs median (green = cheaper)"]]
+  [[4, "Trailing P/E history"], [4, "≈ Forward P/E history (est.)"], [4, "Current vs median (green = cheaper)"], [2, "Debt safety"]]
     .forEach(([n, t]) => { const th = document.createElement("th"); th.colSpan = n; th.textContent = t; g.appendChild(th); });
   COLS.forEach((col) => {
     const th = document.createElement("th");
@@ -240,10 +247,12 @@ function curColor(r, key) {
 function visibleRows() {
   const q = $("#q").value.trim().toLowerCase(), sec = $("#sec").value, only = $("#onlyfwd").checked,
     cheap = $("#cheap").checked;
+  const ml = parseFloat($("#maxlev").value);
   const mt = parseFloat($("#maxtr").value), mf = parseFloat($("#maxfwd").value);
   return rows.filter((r) =>
     (isNaN(mt) || (num(r.trailing_pe) && r.trailing_pe <= mt)) &&
     (isNaN(mf) || (num(r.forward_pe) && r.forward_pe <= mf)) &&
+    (isNaN(ml) || (num(r.net_debt_ebitda) && r.net_debt_ebitda <= ml)) &&
     (!q || r.ticker.toLowerCase().includes(q) || (r.name || "").toLowerCase().includes(q)) &&
     (!sec || r.section === sec) && (!only || r.fwd_5y_median !== null) && (!cheap || cheapVsHistory(r)));
 }
@@ -267,7 +276,7 @@ function render() {
   for (const r of list) {
     const tr = document.createElement("tr");
     if (r.has_series) tr.classList.add("chartable");
-    if (r.note) tr.title = r.note;
+    { const t = [r.note, r.lev_note && "Debt: " + r.lev_note].filter(Boolean).join(" | "); if (t) tr.title = t; }
     for (const c of COLS) {
       const td = document.createElement("td");
       const v = r[c.k];
@@ -279,10 +288,16 @@ function render() {
       if (c.k === "name") td.classList.add("name");
       if (c.est) td.classList.add("est");
       if (c.type === "pct") td.style.background = pctColor(v);
+      else if (c.k === "net_debt_ebitda" && num(v)) td.style.background = v > 4 ? "rgba(var(--red),.35)" : v < 2 ? "rgba(var(--green),.30)" : "";
+      else if (c.k === "interest_cover" && num(v)) td.style.background = v < 2 ? "rgba(var(--red),.35)" : v >= 5 ? "rgba(var(--green),.30)" : "";
       else if (c.k === "trailing_pe" || c.k === "forward_pe") td.style.backgroundImage = curColor(r, c.k);
       if (c.k === "price" && v !== null && r.price_basis && r.price_basis !== "9:45") {
         const s = document.createElement("span"); s.className = "dag"; s.textContent = "†";
         s.title = "Price is the " + r.price_basis + ", not 9:45 ET"; td.appendChild(s);
+      }
+      if (c.k === "net_debt_ebitda" && v !== null && r.lev_src === "Yahoo") {
+        const s = document.createElement("span"); s.className = "dag"; s.textContent = "Y";
+        s.title = "From Yahoo (totalDebt - totalCash) / EBITDA; SEC data unavailable"; td.appendChild(s);
       }
       if (c.k === "trailing_pe" && v !== null && r.trailing_eps_src === "Yahoo") td.title = "From Yahoo trailing EPS";
       if (v !== null && r.fwd_hist_src === "edgar_gaap" && (c.est || c.k.startsWith("fwd_vs_"))) {
@@ -397,7 +412,7 @@ async function boot() {
     (DATA.forced ? "  ·  TEST RUN (not a 9:45 ET snapshot)" : "");
   const secs = [...new Set(rows.map((r) => r.section).filter(Boolean))];
   secs.forEach((s) => { const o = document.createElement("option"); o.value = s; o.textContent = s; $("#sec").appendChild(o); });
-  ["#q", "#sec", "#onlyfwd", "#cheap", "#maxtr", "#maxfwd"].forEach((s) => $(s).addEventListener("input", render));
+  ["#q", "#sec", "#onlyfwd", "#cheap", "#maxtr", "#maxfwd", "#maxlev"].forEach((s) => $(s).addEventListener("input", render));
   render();
   try {
     const dates = await (await fetch("data/archive.json", { cache: "no-store" })).json();

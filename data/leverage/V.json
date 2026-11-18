@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 9133000000,
+ "ebitda_ttm": 29513000000,
+ "net_debt_ebitda": 0.31,
+ "interest_cover": null,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "V",
+ "latest_filing": "2026-11-05",
+ "fetched": "2026-11-18T16:46:12+00:00"
+}

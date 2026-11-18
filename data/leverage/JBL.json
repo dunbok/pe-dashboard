@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 1640000000,
+ "ebitda_ttm": 2385000000,
+ "net_debt_ebitda": 0.69,
+ "interest_cover": 6.5,
+ "balance_date": "2026-08-31",
+ "note": null,
+ "ticker": "JBL",
+ "latest_filing": "2026-10-23",
+ "fetched": "2026-11-18T16:45:50+00:00"
+}

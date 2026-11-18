@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 35444000000,
+ "ebitda_ttm": null,
+ "net_debt_ebitda": null,
+ "interest_cover": 10.8,
+ "balance_date": "2026-08-02",
+ "note": "EBITDA inputs missing",
+ "ticker": "AVGO",
+ "latest_filing": "2026-10-27",
+ "fetched": "2026-11-18T16:45:35+00:00"
+}

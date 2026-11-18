@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": null,
+ "ebitda_ttm": null,
+ "net_debt_ebitda": null,
+ "interest_cover": null,
+ "balance_date": null,
+ "note": "debt not tagged in latest filing",
+ "ticker": "F",
+ "latest_filing": "",
+ "fetched": "2026-11-18T16:45:00+00:00"
+}

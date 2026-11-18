@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 5791545000,
+ "ebitda_ttm": null,
+ "net_debt_ebitda": null,
+ "interest_cover": 16.7,
+ "balance_date": "2026-08-01",
+ "note": "EBITDA inputs missing",
+ "ticker": "ADI",
+ "latest_filing": "2026-09-17",
+ "fetched": "2026-11-18T16:45:30+00:00"
+}

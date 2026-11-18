@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -8044000000,
+ "ebitda_ttm": 2235000000,
+ "net_debt_ebitda": -3.6,
+ "interest_cover": 1.4,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "CNC",
+ "latest_filing": "2026-10-27",
+ "fetched": "2026-11-18T16:45:40+00:00"
+}

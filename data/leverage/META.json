@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 1220000000,
+ "ebitda_ttm": 104300000000,
+ "net_debt_ebitda": 0.01,
+ "interest_cover": 178.0,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "META",
+ "latest_filing": "2026-11-12",
+ "fetched": "2026-11-18T16:45:55+00:00"
+}

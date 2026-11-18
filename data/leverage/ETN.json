@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 17694000000,
+ "ebitda_ttm": 5065000000,
+ "net_debt_ebitda": 3.49,
+ "interest_cover": 25.5,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "ETN",
+ "latest_filing": "2026-11-03",
+ "fetched": "2026-11-18T16:45:44+00:00"
+}

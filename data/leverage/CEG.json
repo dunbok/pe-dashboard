@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 18777000000,
+ "ebitda_ttm": 8265000000,
+ "net_debt_ebitda": 2.27,
+ "interest_cover": 10.2,
+ "balance_date": "2026-06-30",
+ "note": null,
+ "ticker": "CEG",
+ "latest_filing": "2026-11-09",
+ "fetched": "2026-11-18T16:45:38+00:00"
+}

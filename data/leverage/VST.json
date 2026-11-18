@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 18403000000,
+ "ebitda_ttm": 6335000000,
+ "net_debt_ebitda": 2.9,
+ "interest_cover": 4.1,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "VST",
+ "latest_filing": "2026-11-16",
+ "fetched": "2026-11-18T16:46:13+00:00"
+}

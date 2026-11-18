@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -584400000,
+ "ebitda_ttm": 3061400000,
+ "net_debt_ebitda": -0.19,
+ "interest_cover": 73.2,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "VRT",
+ "latest_filing": "2026-11-13",
+ "fetched": "2026-11-18T16:46:12+00:00"
+}

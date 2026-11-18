@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 21820000000,
+ "ebitda_ttm": 15677000000,
+ "net_debt_ebitda": 1.39,
+ "interest_cover": 6.1,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "RTX",
+ "latest_filing": "2026-10-20",
+ "fetched": "2026-11-18T16:46:05+00:00"
+}

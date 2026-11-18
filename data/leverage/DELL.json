@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 22897000000,
+ "ebitda_ttm": 17293000000,
+ "net_debt_ebitda": 1.32,
+ "interest_cover": 9.9,
+ "balance_date": "2026-07-31",
+ "note": null,
+ "ticker": "DELL",
+ "latest_filing": "2026-10-21",
+ "fetched": "2026-11-18T16:45:43+00:00"
+}

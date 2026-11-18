@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -40642000000,
+ "ebitda_ttm": 108843000000,
+ "net_debt_ebitda": -0.37,
+ "interest_cover": 179.0,
+ "balance_date": "2026-09-03",
+ "note": null,
+ "ticker": "MU",
+ "latest_filing": "2026-11-05",
+ "fetched": "2026-11-18T16:45:02+00:00"
+}

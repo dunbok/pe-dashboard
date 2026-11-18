@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 23169000000,
+ "ebitda_ttm": 16356000000,
+ "net_debt_ebitda": 1.42,
+ "interest_cover": 10.0,
+ "balance_date": "2026-10-02",
+ "note": null,
+ "ticker": "KO",
+ "latest_filing": "2026-10-28",
+ "fetched": "2026-11-18T16:45:01+00:00"
+}

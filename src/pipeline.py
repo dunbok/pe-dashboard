@@ -19,7 +19,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
-from . import alphavantage as av_mod, edgar, prices, watchlist
+from . import alphavantage as av_mod, edgar, leverage, prices, watchlist
 from .config import DATA, ROOT
 from .forward import forward_pe
 from .trailing import adjust_for_splits, build_quarters, load_adr_ratios, trailing_pe
@@ -35,8 +35,11 @@ COLUMNS = [
     "trailing_pe", "trailing_eps_src", "forward_pe",
     "tr_5y_mean", "tr_5y_median", "tr_10y_mean", "tr_10y_median",
     "fwd_5y_mean", "fwd_5y_median", "fwd_10y_mean", "fwd_10y_median",
-    "fwd_vs_5y_median_pct", "fwd_hist_src", "note",
+    "fwd_vs_5y_median_pct", "fwd_hist_src",
+    "net_debt_ebitda", "interest_cover", "lev_src", "lev_note", "note",
 ]
+# net debt / EBITDA is meaningless for banks, insurers and REITs
+LEVERAGE_SKIP_SECTORS = {"Financial Services", "Real Estate"}
 
 
 def _f(x):
@@ -60,6 +63,7 @@ class Prep:
     px: pd.DataFrame
     tr: dict
     fw: dict
+    lev: dict | None = None
     notes: list[str] = field(default_factory=list)
 
 
@@ -139,7 +143,16 @@ def prepare(symbols: list[watchlist.Symbol], log=print) -> list[Prep]:
         fw = forward_pe(y, p["Close"], av_mod.load(y), gaapq, _f(info.get("forwardEps")),
                         _f(info.get("trailingEps"))) if not p.empty else \
             {"source": None, "pe_series": None, "pe_5y": {}, "pe_10y": {}, "note": "no price history"}
-        out.append(Prep(s, info, e, p, tr, fw, notes[y]))
+        lev = None
+        if info.get("sector") in LEVERAGE_SKIP_SECTORS:
+            lev = {"note": f"n/a for {info['sector']}"}
+        elif e is not None:
+            try:
+                lev = leverage.get(y, e, cik_map)
+            except Exception as ex:
+                log(f"  leverage {y}: {type(ex).__name__}: {ex} (using cache)")
+                lev = leverage.cached(y)
+        out.append(Prep(s, info, e, p, tr, fw, lev, notes[y]))
     return out
 
 
@@ -185,6 +198,24 @@ def _yahoo_pe(info: dict, eps_key: str, pe_key: str, price: float) -> float | No
     return price / eps
 
 
+def _leverage_cells(p: "Prep") -> tuple:
+    """(net debt/EBITDA, interest cover, source, note). SEC first; Yahoo fallback for net debt/EBITDA only
+    (Yahoo has no interest expense). Banks/insurers/REITs stay blank."""
+    lev, info = p.lev or {}, p.info
+    if info.get("sector") in LEVERAGE_SKIP_SECTORS:
+        return None, None, None, lev.get("note")
+    nd, ic = _f(lev.get("net_debt_ebitda")), _f(lev.get("interest_cover"))
+    if nd is not None:
+        return nd, ic, "SEC", lev.get("note")
+    debt, cash, ebitda = _f(info.get("totalDebt")), _f(info.get("totalCash")), _f(info.get("ebitda"))
+    if debt is not None and cash is not None and ebitda is not None and ebitda > 0:
+        return (debt - cash) / ebitda, ic, "Yahoo", None
+    note = lev.get("note")
+    if ebitda is not None and ebitda <= 0 and not note:
+        note = "negative EBITDA"
+    return None, ic, None, note
+
+
 def finalize(preps: list[Prep], live: dict[str, tuple[float, str]]) -> list[dict]:
     rows = []
     for p in preps:
@@ -227,6 +258,7 @@ def finalize(preps: list[Prep], live: dict[str, tuple[float, str]]) -> list[dict
             if n and n not in notes:
                 notes.append(n)
 
+        lev_nd, lev_ic, lev_src, lev_note = _leverage_cells(p)
         rows.append({
             "ticker": y, "tv_symbol": p.sym.tv,
             "name": info.get("shortName") or info.get("longName"),
@@ -244,6 +276,10 @@ def finalize(preps: list[Prep], live: dict[str, tuple[float, str]]) -> list[dict
             "fwd_10y_median": _r(fw.get("pe_10y", {}).get("median"), 1),
             "fwd_vs_5y_median_pct": _r(vs, 1),
             "fwd_hist_src": fw.get("source"),
+            "net_debt_ebitda": _r(lev_nd, 1),
+            "interest_cover": _r(lev_ic, 1),
+            "lev_src": lev_src,
+            "lev_note": lev_note,
             "note": "; ".join(notes) or None,
             "_fwd_eps": _f(info.get("forwardEps")),
         })

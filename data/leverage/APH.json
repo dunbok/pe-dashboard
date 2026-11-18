@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": 11868700000,
+ "ebitda_ttm": 10583900000,
+ "net_debt_ebitda": 1.12,
+ "interest_cover": 64.6,
+ "balance_date": "2026-09-30",
+ "note": null,
+ "ticker": "APH",
+ "latest_filing": "2026-10-30",
+ "fetched": "2026-11-18T16:45:33+00:00"
+}

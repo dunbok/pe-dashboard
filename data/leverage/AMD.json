@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "net_debt": -8697000000,
+ "ebitda_ttm": 8272000000,
+ "net_debt_ebitda": -1.05,
+ "interest_cover": 46.8,
+ "balance_date": "2026-09-26",
+ "note": "EBITDA on last fiscal year",
+ "ticker": "AMD",
+ "latest_filing": "2026-11-04",
+ "fetched": "2026-11-18T16:45:31+00:00"
+}
