@@ -44,7 +44,8 @@ def main() -> int:
     if args.force or args.no_wait:
         asof = datetime.now(pipeline.NY)
     else:
-        asof = schedule.wait_until_target(now)
+        schedule.wait_until_target(now)
+        asof = schedule.price_asof(now)     # 9:45:00 ET, also when this run started late
     print(f"[run] fetching prices as of {asof:%Y-%m-%d %H:%M:%S %Z}")
     live = pipeline.live_prices([p.sym.yahoo for p in preps], asof)
     rows = pipeline.finalize(preps, live)

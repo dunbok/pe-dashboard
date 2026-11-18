@@ -2,8 +2,9 @@ name: Daily P/E table
 
 on:
   schedule:
-    # GitHub cron is UTC and best-effort (often 5-15+ min late). Both lines fire
-    # every weekday; src/schedule.py exits the one that isn't ~9:15 ET.
+    # GitHub cron is UTC and best-effort (seen up to ~8 h late). Both lines fire every
+    # weekday; src/schedule.py exits the too-early one, and a late run still builds
+    # today's table with the 9:45 ET price taken from Yahoo's 1-minute bars.
     - cron: "15 13 * * 1-5"   # 9:15 ET during EDT (summer)
     - cron: "15 14 * * 1-5"   # 9:15 ET during EST (winter)
   workflow_dispatch:

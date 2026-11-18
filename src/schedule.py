@@ -1,9 +1,11 @@
 """Run-time gating for the GitHub Actions cron.
 
 GitHub cron is UTC and best-effort, so the workflow fires at BOTH 13:15 and
-14:15 UTC (= 9:15 ET in summer / winter respectively). The other firing lands at
-8:15 or 10:15 ET and must exit. This module decides, from the current New York
-time alone, whether this firing is the right one, then waits for 9:45:00 ET.
+14:15 UTC (= 9:15 ET in summer / winter respectively). The firing that lands at
+8:15 ET is too early and exits. GitHub can also deliver a firing many hours late;
+a run that starts any time after 9:45 ET (up to LATE_CUTOFF) still produces
+today's table, using the 9:45 ET price recovered from Yahoo's 1-minute bars
+(see price_asof). A day that already has a real table never runs twice.
 """
 from __future__ import annotations
 
@@ -16,7 +18,7 @@ from .config import DATA
 NY = ZoneInfo("America/New_York")
 TARGET = time(9, 45)
 WINDOW_START = time(8, 50)   # earlier than this: it's the wrong-DST firing (8:15 ET)
-WINDOW_END = time(10, 0)     # later than this: wrong-DST firing (10:15 ET) or hopelessly late
+LATE_CUTOFF = time(23, 0)    # later than this: too late to trust the day's 1-minute data, skip
 
 
 def is_trading_day(d: date) -> bool:
@@ -49,13 +51,21 @@ def should_run(now: datetime, ran_check=already_ran, trading_check=is_trading_da
     t = now.time()
     if t < WINDOW_START:
         return False, f"{stamp}: too early (this is the other DST cron firing), exiting"
-    if t >= WINDOW_END:
-        return False, f"{stamp}: past {WINDOW_END:%H:%M} ET (other DST cron firing or too late), exiting"
+    if t >= LATE_CUTOFF:
+        return False, f"{stamp}: past {LATE_CUTOFF:%H:%M} ET, too late for today, exiting"
     if ran_check(now.date()):
         return False, f"{stamp}: today's table already exists, exiting"
     if t < TARGET:
         return True, f"{stamp}: trading day, will wait until {TARGET:%H:%M} ET"
-    return True, f"{stamp}: trading day but already past {TARGET:%H:%M} ET (late start), running now"
+    return True, (f"{stamp}: trading day but already past {TARGET:%H:%M} ET (late start), "
+                  f"running now with the {TARGET:%H:%M} ET price")
+
+
+def price_asof(now: datetime) -> datetime:
+    """The moment prices are taken: always 9:45:00 ET of the run's New York date, even if
+    this run started late (the 1-minute bars still hold the 9:45 price)."""
+    now = now.astimezone(NY)
+    return datetime.combine(now.date(), TARGET, tzinfo=NY)
 
 
 def wait_until_target(now: datetime, sleep=_time.sleep, clock=None) -> datetime:
