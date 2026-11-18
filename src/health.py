@@ -17,6 +17,23 @@ def _previous(day: str) -> pd.DataFrame | None:
     return pd.read_csv(files[-1]) if files else None
 
 
+STAT_PAIRS = [(f"{k}_{w}_mean", f"{k}_{w}_median") for k in ("tr", "fwd") for w in ("5y", "10y")]
+
+
+def _scrub_history(r: dict, warn: list[str]) -> None:
+    """Blank implausible historical mean/median cells (e.g. near-zero EPS blowing up an average)."""
+    for mean_k, med_k in STAT_PAIRS:
+        for k in (mean_k, med_k):
+            v = r.get(k)
+            if v is not None and not (0 < v <= 500):
+                warn.append(f"{r['ticker']}: {k} = {v} implausible, blanked")
+                r[k] = None
+        mean, med = r.get(mean_k), r.get(med_k)
+        if mean is not None and med is not None and mean > 5 * med:
+            warn.append(f"{r['ticker']}: {mean_k} {mean} far above median {med}, blanked")
+            r[mean_k] = None
+
+
 def check(rows: list[dict], day: str, subset: bool = False) -> tuple[list[str], list[str]]:
     severe, warn = [], []
     prev = None if subset else _previous(day)
@@ -43,6 +60,7 @@ def check(rows: list[dict], day: str, subset: bool = False) -> tuple[list[str], 
 
     for r in rows:
         t = r["ticker"]
+        _scrub_history(r, warn)
         for k, lo, hi in (("trailing_pe", 0, 500), ("forward_pe", 0, 500)):
             v = r.get(k)
             if v is not None and not (lo < v <= hi):

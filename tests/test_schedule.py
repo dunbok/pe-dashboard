@@ -106,4 +106,11 @@ for label, t in [("on time (9:46 ET)", datetime(2026, 11, 17, 14, 46, tzinfo=UTC
     results.append(ok)
 
 print(f"\n{sum(results)}/{len(results)} passed")
-sys.exit(0 if all(results) else 1)
+
+
+def test_all_checks_pass():
+    assert all(results), f"{results.count(False)} check(s) failed"
+
+
+if __name__ == "__main__":
+    sys.exit(0 if all(results) else 1)

@@ -85,4 +85,11 @@ check("build: trailing sources disagreeing by >5% raises a warning",
       any("differs" in w for w in b.build(asof, None, good_m, lambda: diff, px)["warnings"]))
 
 print(f"\n{sum(results)}/{len(results)} passed")
-sys.exit(0 if all(results) else 1)
+
+
+def test_all_checks_pass():
+    assert all(results), f"{results.count(False)} check(s) failed"
+
+
+if __name__ == "__main__":
+    sys.exit(0 if all(results) else 1)
