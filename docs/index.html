@@ -43,6 +43,7 @@ th.edge, td.edge { border-right: 2px solid var(--line); }
 tbody tr { cursor: default; }
 tbody tr.chartable { cursor: pointer; }
 tbody tr:hover td { background: var(--panel); }
+tr.benchrow td { font-weight: 600; border-bottom: 2px solid var(--line); background-color: var(--panel); }
 td.ticker { font-weight: 600; }
 td.name { max-width: 190px; overflow: hidden; text-overflow: ellipsis; color: var(--muted); }
 td.est { font-style: italic; }
@@ -121,9 +122,11 @@ button.on { border-color: var(--accent); color: var(--accent); }
       <tr class="groups"></tr>
       <tr class="cols"></tr>
     </thead>
-    <tbody></tbody>
+    <tbody id="bench"></tbody>
+    <tbody id="main"></tbody>
   </table>
 </div>
+<div id="benchnote" class="legend" hidden></div>
 
 <div class="legend">
   Tap a column to sort; tap a row to see its P/E history chart.
@@ -273,9 +276,25 @@ function render() {
     th.classList.toggle("sorted", th.dataset.k === sortK);
     th.classList.toggle("desc", th.dataset.k === sortK && sortDir < 0);
   });
-  const tb = $("#t tbody");
+  const tb = $("#main");
   tb.textContent = "";
-  for (const r of list) {
+  list.forEach((r) => tb.appendChild(buildRow(r)));
+  renderBench();
+  $("#count").textContent = list.length + " of " + rows.length + " stocks";
+  applyFrozen();
+}
+
+// The SPY benchmark row is pinned above the stocks: never sorted or filtered away.
+let BENCH = null;
+function renderBench() {
+  const tb = $("#bench"); tb.textContent = "";
+  if (!BENCH) return;
+  const tr = buildRow(BENCH); tr.classList.add("benchrow");
+  tb.appendChild(tr);
+}
+
+function buildRow(r) {
+  {
     const tr = document.createElement("tr");
     if (r.has_series) tr.classList.add("chartable");
     { const t = [r.note, r.lev_note && "Debt: " + r.lev_note].filter(Boolean).join(" | "); if (t) tr.title = t; }
@@ -310,10 +329,8 @@ function render() {
       tr.appendChild(td);
     }
     if (r.has_series) tr.addEventListener("click", () => openChart(r));
-    tb.appendChild(tr);
+    return tr;
   }
-  $("#count").textContent = list.length + " of " + rows.length + " stocks";
-  applyFrozen();
 }
 
 // Each frozen column sticks at the combined width of the frozen columns before it.
@@ -413,6 +430,16 @@ async function boot() {
     if (w.length) { h.hidden = false; h.querySelector("summary").textContent = "Data check: " + w.length + " item" + (w.length > 1 ? "s" : "") + " to review";
       w.forEach((t) => { const li = document.createElement("li"); li.textContent = t; h.querySelector("ul").appendChild(li); }); } }
   rows.forEach(addDerived);
+  try {
+    const b = await (await fetch("data/benchmark.json", { cache: "no-store" })).json();
+    BENCH = b.row; addDerived(BENCH);
+    const bits = [];
+    if (BENCH.multpl_date) bits.push("trailing P/E and its history: multpl.com monthly S&P 500 P/E (" + BENCH.multpl_date + ")");
+    if (BENCH.factset_date) bits.push("forward P/E and its 5y/10y averages: FactSet Earnings Insight (" + BENCH.factset_date + "; averages only, so forward medians are blank)");
+    const w = (b.warnings || []).length ? " Warning: " + b.warnings.join("; ") + "." : "";
+    $("#benchnote").hidden = false;
+    $("#benchnote").textContent = "S&P 500 (SPY) benchmark: " + bits.join("; ") + "." + w;
+  } catch (e) { BENCH = null; }
   $("#updated").textContent = "Updated: " + DATA.asof + "  ·  " + DATA.count + " stocks" +
     (DATA.forced ? "  ·  TEST RUN (not a 9:45 ET snapshot)" : "");
   const secs = [...new Set(rows.map((r) => r.section).filter(Boolean))];

@@ -60,6 +60,12 @@ def main() -> int:
         print("[health] aborting: not publishing today's data", file=sys.stderr)
         return 1
     pipeline.write_outputs(rows, preps, asof, forced=forced, warnings=[f"SEVERE: {w}" for w in severe] + warns)
+    if not args.only:
+        try:                                    # SPY benchmark row; must never break the stock table
+            from . import benchmark
+            benchmark.run(asof, forced=forced)
+        except Exception as e:
+            print(f"[benchmark] skipped: {type(e).__name__}: {e}")
     return 0
 
 
