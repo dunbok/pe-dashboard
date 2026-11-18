@@ -102,6 +102,8 @@ button.on { border-color: var(--accent); color: var(--accent); }
   </ul>
 </section>
 
+<details id="health" hidden style="margin:8px 16px;padding:8px 12px;border:1px solid rgba(var(--red),.6);border-radius:6px;font-size:13px"><summary></summary><ul></ul></details>
+
 <div class="controls">
   <input type="search" id="q" placeholder="Filter ticker or name" aria-label="Filter">
   <select id="sec" aria-label="Section"><option value="">All sections</option></select>
@@ -407,6 +409,9 @@ async function boot() {
     DATA = await res.json();
   } catch (e) { $("#updated").textContent = "Couldn't load data/latest.json"; return; }
   rows = DATA.rows;
+  { const w = DATA.warnings || [], h = $("#health");
+    if (w.length) { h.hidden = false; h.querySelector("summary").textContent = "Data check: " + w.length + " item" + (w.length > 1 ? "s" : "") + " to review";
+      w.forEach((t) => { const li = document.createElement("li"); li.textContent = t; h.querySelector("ul").appendChild(li); }); } }
   rows.forEach(addDerived);
   $("#updated").textContent = "Updated: " + DATA.asof + "  ·  " + DATA.count + " stocks" +
     (DATA.forced ? "  ·  TEST RUN (not a 9:45 ET snapshot)" : "");

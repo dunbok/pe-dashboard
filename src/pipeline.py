@@ -199,21 +199,22 @@ def _yahoo_pe(info: dict, eps_key: str, pe_key: str, price: float) -> float | No
 
 
 def _leverage_cells(p: "Prep") -> tuple:
-    """(net debt/EBITDA, interest cover, source, note). SEC first; Yahoo fallback for net debt/EBITDA only
+    """(net debt/EBITDA, interest cover, source, note, Yahoo value for cross-check). SEC first; Yahoo fallback for net debt/EBITDA only
     (Yahoo has no interest expense). Banks/insurers/REITs stay blank."""
     lev, info = p.lev or {}, p.info
     if info.get("sector") in LEVERAGE_SKIP_SECTORS:
-        return None, None, None, lev.get("note")
+        return None, None, None, lev.get("note"), None
     nd, ic = _f(lev.get("net_debt_ebitda")), _f(lev.get("interest_cover"))
-    if nd is not None:
-        return nd, ic, "SEC", lev.get("note")
     debt, cash, ebitda = _f(info.get("totalDebt")), _f(info.get("totalCash")), _f(info.get("ebitda"))
-    if debt is not None and cash is not None and ebitda is not None and ebitda > 0:
-        return (debt - cash) / ebitda, ic, "Yahoo", None
+    ynd = (debt - cash) / ebitda if debt is not None and cash is not None and ebitda and ebitda > 0 else None
+    if nd is not None:
+        return nd, ic, "SEC", lev.get("note"), ynd
+    if ynd is not None:
+        return ynd, ic, "Yahoo", None, ynd
     note = lev.get("note")
     if ebitda is not None and ebitda <= 0 and not note:
         note = "negative EBITDA"
-    return None, ic, None, note
+    return None, ic, None, note, None
 
 
 def finalize(preps: list[Prep], live: dict[str, tuple[float, str]]) -> list[dict]:
@@ -258,7 +259,7 @@ def finalize(preps: list[Prep], live: dict[str, tuple[float, str]]) -> list[dict
             if n and n not in notes:
                 notes.append(n)
 
-        lev_nd, lev_ic, lev_src, lev_note = _leverage_cells(p)
+        lev_nd, lev_ic, lev_src, lev_note, lev_y = _leverage_cells(p)
         rows.append({
             "ticker": y, "tv_symbol": p.sym.tv,
             "name": info.get("shortName") or info.get("longName"),
@@ -282,6 +283,7 @@ def finalize(preps: list[Prep], live: dict[str, tuple[float, str]]) -> list[dict
             "lev_note": lev_note,
             "note": "; ".join(notes) or None,
             "_fwd_eps": _f(info.get("forwardEps")),
+            "_lev_yahoo": lev_y,
         })
     return rows
 
@@ -307,7 +309,8 @@ def _series_file(p: Prep, outdir) -> bool:
     return True
 
 
-def write_outputs(rows: list[dict], preps: list[Prep], asof: datetime, forced: bool = False, log=print) -> None:
+def write_outputs(rows: list[dict], preps: list[Prep], asof: datetime, forced: bool = False, log=print,
+                  warnings: list[str] | None = None) -> None:
     day = asof.date().isoformat()
     DAILY_DIR.mkdir(parents=True, exist_ok=True)
     (DOCS / "data" / "series").mkdir(parents=True, exist_ok=True)
@@ -343,6 +346,7 @@ def write_outputs(rows: list[dict], preps: list[Prep], asof: datetime, forced: b
         "forced": forced,
         "generated": datetime.now(NY).isoformat(timespec="seconds"),
         "count": len(public),
+        "warnings": warnings or [],
         "rows": public,
     }
     (DOCS / "data" / "latest.json").write_text(json.dumps(latest, separators=(",", ":")), encoding="utf-8")

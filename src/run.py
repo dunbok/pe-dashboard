@@ -12,7 +12,7 @@ import argparse
 import sys
 from datetime import datetime
 
-from . import pipeline, watchlist
+from . import health, pipeline, watchlist
 
 
 def main() -> int:
@@ -51,7 +51,15 @@ def main() -> int:
     rows = pipeline.finalize(preps, live)
     # A test run (forced / subset / no wait) must never count as today's real run.
     forced = args.force or args.no_wait or bool(args.only)
-    pipeline.write_outputs(rows, preps, asof, forced=forced)
+    severe, warns = health.check(rows, asof.date().isoformat(), subset=bool(args.only))
+    for w in warns:
+        print(f"[health] warning: {w}")
+    if severe and not forced:
+        for w in severe:
+            print(f"[health] SEVERE: {w}", file=sys.stderr)
+        print("[health] aborting: not publishing today's data", file=sys.stderr)
+        return 1
+    pipeline.write_outputs(rows, preps, asof, forced=forced, warnings=[f"SEVERE: {w}" for w in severe] + warns)
     return 0
 
 

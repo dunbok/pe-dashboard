@@ -20,6 +20,11 @@ that lose money. Changes are small and incremental.
 ## Questions asked (date - question - answer - what we did)
 - 2026-11-18 - What to add next? (balance-sheet safety / shareholder friendliness / quality / red-flag score) - Balance-sheet safety (user took my recommendation) - No debt data in the pipeline yet, so user then said ok to the EDGAR plan. Built (not yet committed/pushed): src/leverage.py (SEC companyfacts -> net debt/EBITDA, interest cover), 2 new columns + "max net debt / EBITDA" filter + colours in docs/index.html. Local test: 51 of 96 SEC tickers get a value.
 
+## Data quality (built 2026-11-18)
+- src/health.py runs before outputs are written: aborts the run (Action goes red, yesterday's data stays) on a >10% row drop or
+  >30% fewer trailing P/Es; otherwise puts warnings (odd P/Es, big price jumps, SEC-vs-Yahoo net debt/EBITDA mismatch,
+  tickers added/removed) in latest.json and a banner on the page. ZTS left the table 11-18 because it was removed from the TradingView list.
+
 ## Backlog / ideas
 - Balance-sheet safety follow-ups: blanks for ~45 tickers (non-US filers, banks/REITs skipped, or debt tagged unusually); captive-finance arms (GM, F) look too safe; consider Yahoo fallback for blanks. Original plan: Add net debt/EBITDA and interest coverage columns plus a "max net debt/EBITDA" filter
   (suggested default 4). Needs new pipeline work: pull debt, cash, operating income + D&A, interest expense from SEC
