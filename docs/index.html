@@ -93,7 +93,8 @@ button.on { border-color: var(--accent); color: var(--accent); }
     <li>5y/10y statistics are shown only when at least 80% of trading days in the window have a valid P/E.</li>
     <li>Fwd P/E is price &divide; Yahoo consensus EPS for the next fiscal year. Every day's real value is saved, so real history replaces the approximation over time.</li>
     <li><b>Colours on the current Trailing / Forward P/E</b>: <span class="g">green</span> = lower than all four of its own history
-      figures (5y &amp; 10y mean and median), <span class="r">red</span> = higher than at least one of them, no colour = history missing.
+      figures (5y &amp; 10y mean and median), <span class="r">red</span> = higher than at least one of them. Blank history figures are ignored;
+      no colour only if all four are blank.
       The "vs median" columns are green when cheaper than that median, red when more expensive.</li>
   </ul>
 </section>
@@ -228,11 +229,11 @@ function cheapVsHistory(r) {
 }
 
 // Current P/E cell: green = below all four of its own history stats (5y/10y mean & median),
-// red = above at least one of them. Green needs all four to be present.
+// red = above at least one of them. Blank history figures are ignored (green needs at least one figure).
 function curColor(r, key) {
   const cur = r[key], stats = (key === "trailing_pe" ? TR_STATS : FWD_STATS).filter((k) => num(r[k]));
   if (!num(cur) || !stats.length) return "";
-  const c = stats.some((k) => cur > r[k]) ? "var(--red)" : stats.length === 4 && stats.every((k) => cur < r[k]) ? "var(--green)" : "";
+  const c = stats.some((k) => cur > r[k]) ? "var(--red)" : stats.every((k) => cur < r[k]) ? "var(--green)" : "";
   return c ? `linear-gradient(rgba(${c},.45),rgba(${c},.45))` : "";   // gradient keeps the opaque frozen-cell background
 }
 
