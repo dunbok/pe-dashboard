@@ -1,6 +1,6 @@
 {
  "symbol": "NVDA",
- "fetched": "2026-11-16",
+ "fetched": "2026-11-19",
  "quarters": [
   {
    "end": "1999-04-30",
@@ -771,6 +771,13 @@
    "time": "post-market",
    "eps": 2.22,
    "est": 2.09
+  },
+  {
+   "end": "2026-10-31",
+   "reported": "2026-11-17",
+   "time": "post-market",
+   "eps": 2.68,
+   "est": 2.47
   }
  ]
 }

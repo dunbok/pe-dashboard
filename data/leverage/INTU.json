@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "net_debt": 2964000000,
+ "net_debt": 2880000000,
  "ebitda_ttm": null,
  "net_debt_ebitda": null,
  "interest_cover": 23.0,
- "balance_date": "2026-07-31",
+ "balance_date": "2026-10-31",
  "note": "EBITDA inputs missing",
  "ticker": "INTU",
- "latest_filing": "2026-09-09",
- "fetched": "2026-11-18T16:45:49+00:00"
+ "latest_filing": "2026-11-19",
+ "fetched": "2026-11-19T21:44:24+00:00"
 }

@@ -1,0 +1,230 @@
+{
+ "symbol": "HIMS",
+ "fetched": "2026-11-19",
+ "quarters": [
+  {
+   "end": "2018-12-31",
+   "reported": "2019-03-31",
+   "time": "pre-market",
+   "eps": -0.2681,
+   "est": 0.0
+  },
+  {
+   "end": "2019-03-31",
+   "reported": "2019-06-30",
+   "time": "pre-market",
+   "eps": -0.2681,
+   "est": 0.0
+  },
+  {
+   "end": "2019-06-30",
+   "reported": "2019-08-29",
+   "time": "pre-market",
+   "eps": -0.2423,
+   "est": null
+  },
+  {
+   "end": "2019-09-30",
+   "reported": "2019-11-12",
+   "time": "pre-market",
+   "eps": 0.02,
+   "est": null
+  },
+  {
+   "end": "2019-12-31",
+   "reported": "2020-03-27",
+   "time": "pre-market",
+   "eps": 0.03,
+   "est": null
+  },
+  {
+   "end": "2020-03-31",
+   "reported": "2020-05-13",
+   "time": "pre-market",
+   "eps": 0.05,
+   "est": null
+  },
+  {
+   "end": "2020-06-30",
+   "reported": "2020-08-13",
+   "time": "pre-market",
+   "eps": -0.0737,
+   "est": null
+  },
+  {
+   "end": "2020-09-30",
+   "reported": "2020-11-12",
+   "time": "pre-market",
+   "eps": -0.0571,
+   "est": null
+  },
+  {
+   "end": "2020-12-31",
+   "reported": "2021-03-18",
+   "time": "post-market",
+   "eps": -0.07,
+   "est": -0.16
+  },
+  {
+   "end": "2021-03-31",
+   "reported": "2021-05-17",
+   "time": "pre-market",
+   "eps": -0.28,
+   "est": -0.07
+  },
+  {
+   "end": "2021-06-30",
+   "reported": "2021-08-11",
+   "time": "post-market",
+   "eps": -0.09,
+   "est": -0.06
+  },
+  {
+   "end": "2021-09-30",
+   "reported": "2021-11-10",
+   "time": "post-market",
+   "eps": -0.1,
+   "est": -0.06
+  },
+  {
+   "end": "2021-12-31",
+   "reported": "2022-02-22",
+   "time": "post-market",
+   "eps": -0.15,
+   "est": -0.07
+  },
+  {
+   "end": "2022-03-31",
+   "reported": "2022-05-09",
+   "time": "post-market",
+   "eps": -0.08,
+   "est": -0.06
+  },
+  {
+   "end": "2022-06-30",
+   "reported": "2022-08-08",
+   "time": "post-market",
+   "eps": -0.1,
+   "est": -0.09
+  },
+  {
+   "end": "2022-09-30",
+   "reported": "2022-11-07",
+   "time": "post-market",
+   "eps": -0.09,
+   "est": -0.06
+  },
+  {
+   "end": "2022-12-31",
+   "reported": "2023-02-27",
+   "time": "post-market",
+   "eps": -0.05,
+   "est": -0.07
+  },
+  {
+   "end": "2023-03-31",
+   "reported": "2023-05-08",
+   "time": "post-market",
+   "eps": 0.03,
+   "est": 0.02
+  },
+  {
+   "end": "2023-06-30",
+   "reported": "2023-08-07",
+   "time": "post-market",
+   "eps": -0.03,
+   "est": -0.04
+  },
+  {
+   "end": "2023-09-30",
+   "reported": "2023-11-06",
+   "time": "post-market",
+   "eps": -0.04,
+   "est": -0.03
+  },
+  {
+   "end": "2023-12-31",
+   "reported": "2024-02-26",
+   "time": "post-market",
+   "eps": 0.01,
+   "est": -0.02
+  },
+  {
+   "end": "2024-03-31",
+   "reported": "2024-05-06",
+   "time": "post-market",
+   "eps": 0.05,
+   "est": 0.01
+  },
+  {
+   "end": "2024-06-30",
+   "reported": "2024-08-05",
+   "time": "post-market",
+   "eps": 0.06,
+   "est": 0.05
+  },
+  {
+   "end": "2024-09-30",
+   "reported": "2024-11-04",
+   "time": "post-market",
+   "eps": 0.32,
+   "est": 0.05
+  },
+  {
+   "end": "2024-12-31",
+   "reported": "2025-02-24",
+   "time": "post-market",
+   "eps": 0.11,
+   "est": 0.2175
+  },
+  {
+   "end": "2025-03-31",
+   "reported": "2025-05-05",
+   "time": "post-market",
+   "eps": 0.2,
+   "est": 0.12
+  },
+  {
+   "end": "2025-06-30",
+   "reported": "2025-08-04",
+   "time": "post-market",
+   "eps": 0.29,
+   "est": 0.23
+  },
+  {
+   "end": "2025-09-30",
+   "reported": "2025-11-03",
+   "time": "post-market",
+   "eps": 0.06,
+   "est": 0.1
+  },
+  {
+   "end": "2025-12-31",
+   "reported": "2026-02-23",
+   "time": "post-market",
+   "eps": 0.08,
+   "est": 0.04
+  },
+  {
+   "end": "2026-03-31",
+   "reported": "2026-05-11",
+   "time": "post-market",
+   "eps": -0.4,
+   "est": 0.03
+  },
+  {
+   "end": "2026-06-30",
+   "reported": "2026-08-10",
+   "time": "post-market",
+   "eps": -0.1,
+   "est": -0.07
+  },
+  {
+   "end": "2026-09-30",
+   "reported": "2026-11-09",
+   "time": "post-market",
+   "eps": 0.03,
+   "est": 0.07
+  }
+ ]
+}
