@@ -1,7 +1,7 @@
 {
  "calls": {
-  "count": 25,
-  "date": "2026-11-19"
+  "count": 4,
+  "date": "2026-11-20"
  },
  "tickers": {
   "AAPL": {
@@ -195,8 +195,8 @@
    "status": "ok"
   },
   "INTU": {
-   "fetched": "2026-11-18",
-   "last_reported": "2026-08-25",
+   "fetched": "2026-11-20",
+   "last_reported": "2026-11-19",
    "status": "ok"
   },
   "IONQ": {
@@ -215,7 +215,7 @@
    "status": "ok"
   },
   "JPM": {
-   "fetched": "2026-11-16",
+   "fetched": "2026-11-20",
    "last_reported": "2026-10-13",
    "status": "ok"
   },
@@ -345,8 +345,8 @@
    "status": "ok"
   },
   "PANW": {
-   "fetched": "2026-11-18",
-   "last_reported": "2026-09-01",
+   "fetched": "2026-11-20",
+   "last_reported": "2026-11-18",
    "status": "ok"
   },
   "PG": {
@@ -380,7 +380,7 @@
    "status": "ok"
   },
   "SKHY": {
-   "fetched": "2026-11-16",
+   "fetched": "2026-11-20",
    "last_reported": "2026-10-27",
    "status": "ok"
   },

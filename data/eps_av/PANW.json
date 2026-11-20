@@ -1,6 +1,6 @@
 {
  "symbol": "PANW",
- "fetched": "2026-11-18",
+ "fetched": "2026-11-20",
  "quarters": [
   {
    "end": "2012-07-31",
@@ -400,6 +400,13 @@
    "time": "post-market",
    "eps": 0.53,
    "est": 0.51
+  },
+  {
+   "end": "2026-10-31",
+   "reported": "2026-11-18",
+   "time": "post-market",
+   "eps": 0.46,
+   "est": 0.52
   }
  ]
 }

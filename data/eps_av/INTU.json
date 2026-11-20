@@ -1,6 +1,6 @@
 {
  "symbol": "INTU",
- "fetched": "2026-11-18",
+ "fetched": "2026-11-20",
  "quarters": [
   {
    "end": "1996-01-31",
@@ -862,6 +862,13 @@
    "time": "post-market",
    "eps": 2.17,
    "est": 2.12
+  },
+  {
+   "end": "2026-10-31",
+   "reported": "2026-11-19",
+   "time": "post-market",
+   "eps": 2.91,
+   "est": 2.64
   }
  ]
 }
