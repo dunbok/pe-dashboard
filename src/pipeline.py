@@ -209,6 +209,12 @@ def _leverage_cells(p: "Prep") -> tuple:
     nd, ic = _f(lev.get("net_debt_ebitda")), _f(lev.get("interest_cover"))
     debt, cash, ebitda = _f(info.get("totalDebt")), _f(info.get("totalCash")), _f(info.get("ebitda"))
     ynd = (debt - cash) / ebitda if debt is not None and cash is not None and ebitda and ebitda > 0 else None
+    if nd is not None and ynd is not None and abs(nd - ynd) > max(1.5, 0.5 * max(abs(nd), abs(ynd))):
+        # The sources disagree (SEC can miss finance-arm debt or tag only part of D&A; Yahoo counts leases
+        # and adjusts EBITDA). Show the HIGHER ratio so a debt risk is never understated, and say so.
+        note = (f"SEC {nd:.1f}x vs Yahoo {ynd:.1f}x disagree; showing the higher (more conservative)"
+                + (f"; {lev['note']}" if lev.get("note") else ""))
+        return max(nd, ynd), ic, "Both", note, ynd
     if nd is not None:
         return nd, ic, "SEC", lev.get("note"), ynd
     if ynd is not None:

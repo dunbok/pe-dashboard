@@ -333,6 +333,10 @@ function buildRow(r) {
         const s = document.createElement("span"); s.className = "dag"; s.textContent = "Y";
         s.title = "From Yahoo (totalDebt - totalCash) / EBITDA; SEC data unavailable"; td.appendChild(s);
       }
+      if (c.k === "net_debt_ebitda" && v !== null && r.lev_src === "Both") {
+        const s = document.createElement("span"); s.className = "dag"; s.textContent = "≠";
+        s.title = r.lev_note || "SEC and Yahoo disagree; the higher (more conservative) ratio is shown"; td.appendChild(s);
+      }
       if (c.k === "trailing_pe" && v !== null && r.trailing_eps_src === "Yahoo") td.title = "From Yahoo trailing EPS";
       if ((c.k === "trailing_pe" && r.tr_nm) || (c.k === "forward_pe" && r.fwd_nm))
         td.title = "Not meaningful: P/E is " + (c.k === "trailing_pe" ? r.tr_nm : r.fwd_nm).toFixed(0) + " because earnings are tiny (above " + NM_PE + ")";
@@ -455,7 +459,13 @@ async function boot() {
     $("#benchnote").hidden = false;
     $("#benchnote").textContent = "S&P 500 (SPY) benchmark: " + bits.join("; ") + "." + w;
   } catch (e) { BENCH = null; }
-  $("#updated").textContent = "Updated: " + DATA.asof + "  ·  " + DATA.count + " stocks" +
+  // "built at": when the run actually finished (GitHub can start it hours after 9:45; prices are still the 9:45 ET ones)
+  let built = "";
+  try {
+    if (DATA.generated) built = "  ·  built at " + new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour: "2-digit",
+      minute: "2-digit", hour12: false, month: "short", day: "numeric" }).format(new Date(DATA.generated)) + " ET";
+  } catch (e) { built = ""; }
+  $("#updated").textContent = "Updated: " + DATA.asof + built + "  ·  " + DATA.count + " stocks" +
     (DATA.forced ? "  ·  TEST RUN (not a 9:45 ET snapshot)" : "");
   const secs = [...new Set(rows.map((r) => r.section).filter(Boolean))];
   secs.forEach((s) => { const o = document.createElement("option"); o.value = s; o.textContent = s; $("#sec").appendChild(o); });

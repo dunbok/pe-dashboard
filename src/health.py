@@ -12,12 +12,53 @@ from .config import DATA
 DAILY_DIR = DATA / "daily"
 
 
+# (new shares per old share) ratios that real splits use
+SPLIT_RATIOS = [(2, 1), (3, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1), (10, 1), (15, 1), (20, 1), (25, 1), (30, 1),
+                (40, 1), (50, 1), (3, 2), (5, 4), (7, 4), (7, 5), (9, 5)]
+
+
+def split_ratio(old: float, cur: float, tol: float = 0.2) -> str | None:
+    """Label like '8-for-1' (or '1-for-8' reverse) if the price change is explained by a split, allowing
+    +/-`tol` for the stock's own move on the day. None if no common ratio fits."""
+    if not old or not cur or old <= 0 or cur <= 0:
+        return None
+    r = old / cur                       # >1: price fell (forward split); <1: price rose (reverse split)
+    best = None                         # closest ratio wins, not the first one inside the tolerance
+    for a, b in SPLIT_RATIOS:
+        k = a / b
+        for err, label in ((abs(r / k - 1), f"{a}-for-{b}"),
+                           (abs(r * k - 1), f"1-for-{a}" if b == 1 else f"{b}-for-{a}")):
+            if err <= tol and (best is None or err < best[0]):
+                best = (err, label)
+    return best[1] if best else None
+
+
+def yahoo_recent_split(ticker: str, days: int = 10) -> str | None:
+    """The split Yahoo actually lists for this ticker in the last `days` days, e.g. '8-for-1' (None if none)."""
+    try:
+        import yfinance as yf
+
+        s = yf.Ticker(ticker).splits
+        if s is None or not len(s):
+            return None
+        s = s[s.index >= (pd.Timestamp.now(tz=s.index.tz) - pd.Timedelta(days=days))]
+        if not len(s):
+            return None
+        ratio = float(s.iloc[-1])
+        if ratio >= 1:
+            return f"{ratio:g}-for-1"
+        return f"1-for-{1 / ratio:g}"
+    except Exception:
+        return None
+
+
 def _previous(day: str) -> pd.DataFrame | None:
     files = sorted(p for p in DAILY_DIR.glob("*.csv") if p.stem < day)
     return pd.read_csv(files[-1]) if files else None
 
 
-def check(rows: list[dict], day: str, subset: bool = False) -> tuple[list[str], list[str]]:
+def check(rows: list[dict], day: str, subset: bool = False, split_lookup=None) -> tuple[list[str], list[str]]:
+    split_lookup = split_lookup or yahoo_recent_split
     severe, warn = [], []
     prev = None if subset else _previous(day)
     n = len(rows)
@@ -39,7 +80,17 @@ def check(rows: list[dict], day: str, subset: bool = False) -> tuple[list[str], 
         for r in rows:
             old, cur = pp.get(r["ticker"]), r["price"]
             if old and cur and old > 0 and abs(cur / old - 1) > 0.4:
-                warn.append(f"{r['ticker']}: price moved {100 * (cur / old - 1):+.0f}% vs last run (split or bad quote?)")
+                chg = f"{100 * (cur / old - 1):+.0f}%"
+                real = split_lookup(r["ticker"])           # confirmed by Yahoo's own split events
+                guess = None if real else split_ratio(old, cur)
+                if real:
+                    warn.append(f"{r['ticker']}: price {chg} vs last run is a {real} stock split (confirmed by Yahoo), "
+                                f"not a crash; EPS-based P/Es may be off until the next run")
+                elif guess:
+                    warn.append(f"{r['ticker']}: price {chg} vs last run is close to a {guess} split ratio but Yahoo lists "
+                                f"no split, so it may be a real move or a bad quote")
+                else:
+                    warn.append(f"{r['ticker']}: price moved {chg} vs last run (no split found; bad quote?)")
 
     for r in rows:
         t = r["ticker"]
