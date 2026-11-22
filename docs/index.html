@@ -113,9 +113,8 @@ button.on { border-color: var(--accent); color: var(--accent); }
   <label title="Trailing P/E is below its 5y &amp; 10y mean and median, AND forward P/E is below its 5y &amp; 10y mean and median"><input type="checkbox" id="cheap"> cheaper than all history (trailing &amp; forward)</label>
   <label>max trailing P/E <input type="number" id="maxtr" min="0" step="any" placeholder="any"></label>
   <label>max forward P/E <input type="number" id="maxfwd" min="0" step="any" placeholder="any"></label>
-  <label title="Hide stocks whose net debt / EBITDA is above this (or unknown). Net cash counts as safe.">max net debt / EBITDA <input type="number" id="maxlev" step="any" placeholder="any"></label>
   <label><input type="checkbox" id="onlyfwd"> only with forward history</label>
-  <button id="preset" title="Cheaper than all of its own P/E history, and net debt / EBITDA of 3 or less (this is the default view)">Value screen</button>
+  <button id="preset" title="Cheaper than all of its own P/E history (this is the default view)">Value screen</button>
   <button id="clear" title="Remove every filter and show all stocks">Show all</button>
   <span id="count"></span>
 </div>
@@ -268,12 +267,10 @@ function curColor(r, key) {
 function visibleRows() {
   const q = $("#q").value.trim().toLowerCase(), sec = $("#sec").value, only = $("#onlyfwd").checked,
     cheap = $("#cheap").checked;
-  const ml = parseFloat($("#maxlev").value);
   const mt = parseFloat($("#maxtr").value), mf = parseFloat($("#maxfwd").value);
   return rows.filter((r) =>
     (isNaN(mt) || (num(r.trailing_pe) && r.trailing_pe <= mt)) &&
     (isNaN(mf) || (num(r.forward_pe) && r.forward_pe <= mf)) &&
-    (isNaN(ml) || (num(r.net_debt_ebitda) && r.net_debt_ebitda <= ml)) &&
     (!q || r.ticker.toLowerCase().includes(q) || (r.name || "").toLowerCase().includes(q)) &&
     (!sec || r.section === sec) && (!only || r.fwd_5y_median !== null) && (!cheap || cheapVsHistory(r)));
 }
@@ -472,11 +469,11 @@ async function boot() {
     (DATA.forced ? "  ·  TEST RUN (not a 9:45 ET snapshot)" : "");
   const secs = [...new Set(rows.map((r) => r.section).filter(Boolean))];
   secs.forEach((s) => { const o = document.createElement("option"); o.value = s; o.textContent = s; $("#sec").appendChild(o); });
-  ["#q", "#sec", "#onlyfwd", "#cheap", "#maxtr", "#maxfwd", "#maxlev"].forEach((s) => $(s).addEventListener("input", render));
-  // Default screen: cheaper than all of its own P/E history AND net debt / EBITDA of 3 or less.
-  const preset = () => { $("#cheap").checked = true; $("#maxlev").value = "3"; };
+  ["#q", "#sec", "#onlyfwd", "#cheap", "#maxtr", "#maxfwd"].forEach((s) => $(s).addEventListener("input", render));
+  // Default screen: cheaper than all of its own P/E history.
+  const preset = () => { $("#cheap").checked = true; };
   $("#clear").addEventListener("click", () => {
-    ["#q", "#maxtr", "#maxfwd", "#maxlev"].forEach((s) => { $(s).value = ""; });
+    ["#q", "#maxtr", "#maxfwd"].forEach((s) => { $(s).value = ""; });
     $("#sec").value = ""; $("#cheap").checked = false; $("#onlyfwd").checked = false; render(); });
   $("#preset").addEventListener("click", () => {
     ["#q", "#maxtr", "#maxfwd"].forEach((s) => { $(s).value = ""; });
