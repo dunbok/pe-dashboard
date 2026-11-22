@@ -94,6 +94,8 @@ button.on { border-color: var(--accent); color: var(--accent); }
     <li><b>Debt safety</b> (SEC filings first, Yahoo fallback; banks, insurers and REITs are skipped): net debt / EBITDA = (debt &minus; cash &amp; short-term investments) &divide; trailing-12-month (operating income + D&amp;A). Negative = net cash.
       <span class="g">Green</span> below 2, <span class="r">red</span> above 4. Interest cover = operating income &divide; interest expense (red below 2, green 5+).
       <span class="dag">Y</span> = from Yahoo (used when SEC data is missing, e.g. non-US filers; Yahoo gives no interest cover). Blank = no data or negative EBITDA. Captive-finance arms (e.g. GM, Ford) can look too safe because their debt is tagged differently.</li>
+    <li><b>n/m</b> = not meaningful: a P/E above 200 (earnings are tiny, so the ratio says nothing). It is treated as blank in colours,
+      filters and the "vs median" columns; hover the cell to see the raw number.</li>
     <li>5y/10y statistics are shown only when at least 80% of trading days in the window have a valid P/E.</li>
     <li>Fwd P/E is price &divide; Yahoo consensus EPS for the next fiscal year. Every day's real value is saved, so real history replaces the approximation over time.</li>
     <li><b>Colours on the current Trailing / Forward P/E</b>: <span class="g">green</span> = lower than all four of its own history
@@ -183,7 +185,14 @@ const COLS = [
 // % difference of current P/E from its own median (negative = cheaper than usual)
 const pctVs = (cur, med) => (typeof cur === "number" && typeof med === "number" && med > 0)
   ? Math.round((cur / med - 1) * 1000) / 10 : null;
+// A P/E above this is "not meaningful" (earnings are tiny): shown as n/m and treated as blank
+// everywhere (colours, filters, "vs median"). The raw value stays in the tooltip.
+const NM_PE = 200;
 function addDerived(r) {
+  [["trailing_pe", "tr_nm"], ["forward_pe", "fwd_nm"]].forEach(([k, flag]) => {
+    r[flag] = null;
+    if (typeof r[k] === "number" && r[k] > NM_PE) { r[flag] = r[k]; r[k] = null; }
+  });
   r.tr_vs_5y_median_pct = pctVs(r.trailing_pe, r.tr_5y_median);
   r.tr_vs_10y_median_pct = pctVs(r.trailing_pe, r.tr_10y_median);
   r.fwd_vs_5y_median_pct = pctVs(r.forward_pe, r.fwd_5y_median);
@@ -193,6 +202,10 @@ const $ = (s) => document.querySelector(s);
 const nf0 = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
 
 function fmt(col, v, row) {
+  if ((v === null || v === undefined) && row) {
+    if (col.k === "trailing_pe" && row.tr_nm) return "n/m";
+    if (col.k === "forward_pe" && row.fwd_nm) return "n/m";
+  }
   if (v === null || v === undefined) return "";
   if (col.type === "price") return nf0.format(v);
   if (col.type === "pct") return (v > 0 ? "+" : "") + v.toFixed(1) + "%";
@@ -321,6 +334,8 @@ function buildRow(r) {
         s.title = "From Yahoo (totalDebt - totalCash) / EBITDA; SEC data unavailable"; td.appendChild(s);
       }
       if (c.k === "trailing_pe" && v !== null && r.trailing_eps_src === "Yahoo") td.title = "From Yahoo trailing EPS";
+      if ((c.k === "trailing_pe" && r.tr_nm) || (c.k === "forward_pe" && r.fwd_nm))
+        td.title = "Not meaningful: P/E is " + (c.k === "trailing_pe" ? r.tr_nm : r.fwd_nm).toFixed(0) + " because earnings are tiny (above " + NM_PE + ")";
       if (v !== null && r.fwd_hist_src === "edgar_gaap" && (c.est || c.k.startsWith("fwd_vs_"))) {
         const s = document.createElement("span"); s.className = "dag"; s.textContent = "‡";
         s.title = "Forward history uses GAAP EPS (Alpha Vantage backfill pending). GAAP is usually below adjusted EPS, so these P/Es and medians run high.";
