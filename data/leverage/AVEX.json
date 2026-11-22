@@ -1,12 +1,14 @@
 {
- "schema": 1,
+ "schema": 2,
  "net_debt": 93854000,
  "ebitda_ttm": null,
  "net_debt_ebitda": null,
  "interest_cover": null,
  "balance_date": "2026-09-30",
  "note": "EBITDA inputs missing",
+ "shares_chg_3y": null,
+ "shares_note": "no share data",
  "ticker": "AVEX",
  "latest_filing": "2026-11-13",
- "fetched": "2026-11-18T16:45:35+00:00"
+ "fetched": "2026-11-22T07:25:37+00:00"
 }

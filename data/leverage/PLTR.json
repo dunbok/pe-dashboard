@@ -1,12 +1,14 @@
 {
- "schema": 1,
+ "schema": 2,
  "net_debt": null,
  "ebitda_ttm": null,
  "net_debt_ebitda": null,
  "interest_cover": null,
  "balance_date": null,
  "note": "debt not tagged in latest filing",
+ "shares_chg_3y": 24.3,
+ "shares_note": null,
  "ticker": "PLTR",
  "latest_filing": "2026-11-03",
- "fetched": "2026-11-18T16:46:04+00:00"
+ "fetched": "2026-11-22T07:25:35+00:00"
 }

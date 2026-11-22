@@ -1,12 +1,14 @@
 {
- "schema": 1,
+ "schema": 2,
  "net_debt": -681014000,
  "ebitda_ttm": 589910000,
  "net_debt_ebitda": -1.15,
  "interest_cover": 1286.7,
  "balance_date": "2026-09-25",
  "note": null,
+ "shares_chg_3y": -1.6,
+ "shares_note": null,
  "ticker": "FN",
  "latest_filing": "2026-11-03",
- "fetched": "2026-11-18T16:45:45+00:00"
+ "fetched": "2026-11-22T07:25:16+00:00"
 }

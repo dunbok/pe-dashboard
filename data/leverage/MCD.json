@@ -1,12 +1,14 @@
 {
- "schema": 1,
+ "schema": 2,
  "net_debt": 38627000000,
  "ebitda_ttm": 13507000000,
  "net_debt_ebitda": 2.86,
  "interest_cover": 8.0,
  "balance_date": "2026-09-30",
  "note": null,
+ "shares_chg_3y": -3.4,
+ "shares_note": null,
  "ticker": "MCD",
  "latest_filing": "2026-11-17",
- "fetched": "2026-11-18T16:49:47+00:00"
+ "fetched": "2026-11-22T07:25:44+00:00"
 }
