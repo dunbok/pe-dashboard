@@ -209,6 +209,7 @@ function fmt(col, v, row) {
   if (v === null || v === undefined) return "";
   if (col.type === "price") return nf0.format(v);
   if (col.type === "pct") return (v > 0 ? "+" : "") + v.toFixed(1) + "%";
+  if (col.type === "cover" && v > 100) return ">100";
   if (col.type === "lev" || col.type === "cover") return v.toFixed(1);
   if (col.type === "pe") return (col.est ? "≈" : "") + v.toFixed(1);
   return String(v);
