@@ -234,8 +234,9 @@ def finalize(preps: list[Prep], live: dict[str, tuple[float, str]]) -> list[dict
         price, basis = None, None
         if y in live:
             price, basis = live[y]
-        elif not p.px.empty:
-            price, basis = float(p.px["Close"].iloc[-1]), "prior close"
+        elif not p.px.empty and p.px["Close"].notna().any():
+            # last *real* close: Yahoo sometimes returns a split-day bar with an empty Close
+            price, basis = float(p.px["Close"].dropna().iloc[-1]), "prior close"
         elif _f(info.get("regularMarketPrice")):
             price, basis = float(info["regularMarketPrice"]), "Yahoo quote"
         if price is not None and price <= 0:
