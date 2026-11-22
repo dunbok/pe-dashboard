@@ -4,7 +4,7 @@ SKHY,NASDAQ:SKHY,SK hynix Inc.,VT DRAM,103.57,prior close,5.7,Yahoo,2.5,,,,,4.3,
 MU,NASDAQ:MU,"Micron Technology, Inc.",VT DRAM,594.51,prior close,8.0,SEC,2.8,,,21.9,18.0,,,11.2,8.6,,av,-0.4,179.0,SEC,,
 SKM,NYSE:SKM,"SK Telecom Co., Ltd.",VT DRAM,27.0,prior close,11.6,Yahoo,10.0,,,,,12.8,11.3,14.8,12.0,-11.6,av,0.9,,Yahoo,,
 285A.T,TSE:285A,KIOXIA HOLDINGS CORPORATION,VT NAND,7307.0,prior close,9.8,Yahoo,,,,,,,,,,,,-0.1,,Yahoo,,no EPS history for forward approximation
-SNDK,NASDAQ:SNDK,Sandisk Corporation,VT NAND,,prior close,,SEC,,,,,,3.2,2.6,3.2,2.6,,edgar_gaap,-0.4,169.7,SEC,,AV EPS doesn't match Yahoo's per-share basis; GAAP fallback (no usable AV data)
+SNDK,NASDAQ:SNDK,Sandisk Corporation,VT NAND,94.39,prior close,6.0,SEC,2.6,,,,,3.2,2.6,3.2,2.6,0.6,edgar_gaap,-0.4,169.7,SEC,,AV EPS doesn't match Yahoo's per-share basis; GAAP fallback (no usable AV data)
 TSM,NYSE:TSM,Taiwan Semiconductor Manufactur,VT FOUNDRY TSMC,318.71,prior close,20.7,Yahoo,13.6,30.0,29.4,28.6,24.9,17.4,17.9,18.1,17.9,-23.7,av,-0.8,,Yahoo,,
 AMAT,NASDAQ:AMAT,"Applied Materials, Inc.",VT SPE FRONT-END,302.63,prior close,26.1,SEC,12.3,23.7,20.7,21.3,19.7,18.2,17.9,15.5,14.6,-31.2,av,-0.3,38.7,SEC,,
 ASML,NASDAQ:ASML,ASML Holding N.V. - New York Re,VT SPE FRONT-END,1266.22,prior close,31.2,Yahoo,20.0,44.6,42.4,44.4,41.2,33.6,30.8,34.2,31.9,-35.2,av,-0.7,,Yahoo,,
