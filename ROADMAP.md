@@ -23,6 +23,7 @@ that lose money. Changes are small and incremental.
 - 2026-11-19 - Data health recs (n/m for huge P/E, cap interest cover, flag SEC/Yahoo mismatch) - "do all 3" - n/m (>200) and the ≠ flag were already live; added ">100" display cap for interest cover in docs/index.html (not yet committed/pushed).
 
 - 2026-11-22 - Huge trailing P/E (e.g. CRWD 3519): (a) n/m and exclude, (b) grey out, (c) leave? - Took recommendation (a); kept NM_PE threshold at 200 (not 500, which would let LSCC 338 through) - already live.
+- 2026-11-20 - Next metric: net buyback yield / share-count change, SBC %, or dividends? - Option 1: buyback yield / share-count change (user, 2026-11-22) - Logged; plan below in backlog, not built yet (needs new pipeline fields + SEC verification).
 
 ## Data quality (built 2026-11-18)
 - src/health.py runs before outputs are written: aborts the run (Action goes red, yesterday's data stays) on a >10% row drop or
@@ -35,3 +36,4 @@ that lose money. Changes are small and incremental.
 - Balance-sheet safety follow-ups: blanks for ~45 tickers (non-US filers, banks/REITs skipped, or debt tagged unusually); captive-finance arms (GM, F) look too safe; consider Yahoo fallback for blanks. Original plan: Add net debt/EBITDA and interest coverage columns plus a "max net debt/EBITDA" filter
   (suggested default 4). Needs new pipeline work: pull debt, cash, operating income + D&A, interest expense from SEC
   XBRL (src/edgar.py already fetches EPS); non-US tickers will show blank. Colour: green <2, red >4 (to confirm).
+- Share-count change (chosen 2026-11-22), planned small build: in src/leverage.py compute() (or a new shares.py) take annual diluted weighted-average shares (us-gaap WeightedAverageNumberOfDilutedSharesOutstanding, FY facts from 10-K, units 'shares') and output share_chg_3y_pct = latest FY vs 3 FY earlier (annualised % optional). Bump SCHEMA to refetch. Add column "Shares 3y %" to pipeline COLUMNS + docs/index.html: green if <= -2% (buying back), red if >= +5% (diluting), plus an optional filter. Beware splits (SEC data is not always split-adjusted: skip/flag if |change| > 40%). Non-US tickers blank. Later: true net buyback yield from cash-flow PaymentsForRepurchaseOfCommonStock minus StockIssued.
