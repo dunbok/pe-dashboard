@@ -12,7 +12,7 @@ TER,NASDAQ:TER,"Teradyne, Inc.",VT SPE BACK-END,204.78,prior close,23.5,SEC,17.0
 5802.T,TSE:5802,SUMITOMO ELECTRIC INDUSTRIES,VT OPTICAL CABLES,1235.5,prior close,12.4,Yahoo,5.6,,,,,,,,,,,0.7,,Yahoo,,no EPS history for forward approximation
 GLW,NYSE:GLW,Corning Incorporated,VT OPTICAL CABLES,94.38,prior close,38.2,SEC,20.7,65.0,48.5,58.8,38.7,22.4,19.2,20.1,18.5,8.1,av,1.5,8.0,Yahoo,,
 FN,NYSE:FN,Fabrinet,VT OPTICAL DEVICES,285.04,prior close,21.5,SEC,11.8,29.3,26.7,24.3,21.6,19.7,18.6,16.5,15.1,-36.5,av,-1.1,1286.7,SEC,,
-COHR,NYSE:COHR,Coherent Corp.,VT OPTICAL DEVICES,187.22,prior close,38.8,SEC,11.9,,,,,21.1,20.0,19.2,18.5,-40.6,av,3.6,0.3,SEC,,
+COHR,NYSE:COHR,Coherent Corp.,VT OPTICAL DEVICES,187.22,prior close,38.8,SEC,11.9,,,,,21.1,20.0,19.2,18.5,-40.6,av,3.6,0.3,Both,SEC 3.6x vs Yahoo 1.6x disagree; showing the higher (more conservative),
 MTSI,NASDAQ:MTSI,MACOM Technology Solutions Hold,VT OPTICAL DEVICES,194.91,prior close,45.2,SEC,16.8,68.1,71.6,,,29.4,30.2,31.1,27.9,-44.3,av,-1.2,59.5,SEC,,
 APH,NYSE:APH,Amphenol Corporation,VT OPTICAL CONNECT,69.72,prior close,30.3,SEC,19.2,35.3,35.5,32.9,31.9,14.1,13.0,13.1,12.6,47.9,av,1.1,64.6,SEC,,
 CRDO,NASDAQ:CRDO,Credo Technology Group Holding ,VT OPTICAL CONNECT,99.86,prior close,35.4,SEC,10.3,,,,,2.2135880638969827e+17,37.5,2.2135880638969827e+17,37.5,-72.6,av,-1.4,,SEC,,
@@ -35,7 +35,7 @@ STM,NYSE:STM,STMicroelectronics N.V.,B POWER SEMIS,39.11,prior close,68.6,Yahoo,
 4063.T,TSE:4063,SHIN-ETSU CHEMICAL CO,OS SILICON WAFER,5237.0,prior close,19.3,Yahoo,15.9,,,,,,,,,,,-1.5,,Yahoo,,no EPS history for forward approximation
 AMD,NASDAQ:AMD,"Advanced Micro Devices, Inc.",AI ACCELERATORS,424.39,prior close,92.3,SEC,24.1,194.1,109.4,160.8,109.4,34.5,33.8,37.1,34.3,-28.9,av,-1.1,46.8,SEC,EBITDA on last fiscal year,
 QCOM,NASDAQ:QCOM,QUALCOMM Incorporated,AI ACCELERATORS,149.94,prior close,11.8,SEC,12.3,18.7,17.7,22.5,20.2,14.8,14.3,15.4,15.0,-14.0,av,0.5,12.6,SEC,,
-INTC,NASDAQ:INTC,Intel Corporation,AI ACCELERATORS,51.28,prior close,,,28.6,,,,,45.3,36.7,26.5,13.4,-21.9,av,-2.0,1.9,SEC,,negative TTM EPS
+INTC,NASDAQ:INTC,Intel Corporation,AI ACCELERATORS,51.28,prior close,,,28.6,,,,,45.3,36.7,26.5,13.4,-21.9,av,-0.2,1.9,Both,SEC -2.0x vs Yahoo -0.2x disagree; showing the higher (more conservative),negative TTM EPS
 NVDA,NASDAQ:NVDA,NVIDIA Corporation,AI ACCELERATORS,125.53,prior close,15.9,SEC,7.6,71.1,55.9,64.1,54.6,29.5,23.7,31.1,27.0,-68.1,av,0.1,774.8,SEC,,
 AVGO,NASDAQ:AVGO,Broadcom Inc.,CUSTOM ASIC,304.41,prior close,38.8,SEC,15.7,62.5,46.1,,,21.7,21.4,17.3,14.4,-26.8,av,0.7,10.8,Yahoo,,
 MRVL,NASDAQ:MRVL,"Marvell Technology, Inc.",CUSTOM ASIC,122.28,prior close,40.4,SEC,16.6,,,,,31.6,30.7,28.5,29.6,-46.0,av,0.6,7.5,SEC,,
@@ -73,7 +73,7 @@ NFLX,NASDAQ:NFLX,"Netflix, Inc.",CONSUMER INTERNET,56.73,prior close,16.4,SEC,15
 AAPL,NASDAQ:AAPL,Apple Inc.,CONSUMER INTERNET,342.56,prior close,38.2,SEC,32.4,31.6,31.6,27.0,28.1,28.4,28.8,22.9,23.6,12.4,av,0.1,40.2,SEC,,
 UBER,NYSE:UBER,"Uber Technologies, Inc.",CONSUMER INTERNET,63.47,prior close,37.1,SEC,14.4,,,,,26.1,20.0,,,-28.1,av,0.7,11.9,SEC,,
 TTD,NASDAQ:TTD,"The Trade Desk, Inc.",CONSUMER INTERNET,13.38,prior close,19.7,SEC,11.4,220.3,205.4,172.0,128.8,47.9,47.9,46.9,45.8,-76.2,av,-2.6,334.0,SEC,,
-TSLA,NASDAQ:TSLA,"Tesla, Inc.",ROBOTICS,345.82,prior close,380.0,SEC,160.2,161.5,106.8,,,139.0,105.8,,,51.4,av,-8.3,13.3,SEC,,
+TSLA,NASDAQ:TSLA,"Tesla, Inc.",ROBOTICS,345.82,prior close,380.0,SEC,160.2,161.5,106.8,,,139.0,105.8,,,51.4,av,-2.9,13.3,Both,SEC -8.3x vs Yahoo -2.9x disagree; showing the higher (more conservative),
 AVEX,NYSE:AVEX,AEVEX Corp.,AEROSPACE & DEFENSE,11.04,prior close,,,16.4,,,,,1207.4,163.9,1207.4,163.9,-90.0,av,1.0,,Yahoo,,negative TTM EPS; no recent EPS (stale or gaps)
 LMT,NYSE:LMT,Lockheed Martin Corporation,AEROSPACE & DEFENSE,565.5,prior close,20.1,SEC,17.0,20.9,20.5,21.2,19.2,18.7,17.1,19.1,16.7,-0.7,av,1.3,9.6,SEC,,
 RTX,NYSE:RTX,RTX Corporation,AEROSPACE & DEFENSE,190.17,prior close,30.9,SEC,23.5,36.7,35.9,30.5,29.3,19.8,19.5,17.1,18.4,20.4,av,1.4,6.1,SEC,,
@@ -87,7 +87,7 @@ NVO,NYSE:NVO,Novo Nordisk A/S,GLP-1 CHAIN,37.82,prior close,9.6,Yahoo,10.8,33.7,
 ISRG,NASDAQ:ISRG,"Intuitive Surgical, Inc.",MEDTECH ANIMAL,399.05,prior close,48.3,SEC,32.0,68.8,70.7,65.7,69.0,49.1,49.4,47.3,47.3,-35.3,av,-0.9,,Yahoo,,
 MOH,NYSE:MOH,Molina Healthcare Inc,MANAGED CARE,198.39,prior close,,,20.5,123.8,20.3,79.5,19.9,25.0,17.2,19.5,15.7,19.7,av,-14.4,1.6,SEC,,negative TTM EPS
 ELV,NYSE:ELV,"Elevance Health, Inc.",MANAGED CARE,394.48,prior close,16.8,SEC,13.0,17.3,17.9,17.4,17.6,13.8,13.8,13.6,13.7,-5.7,av,-0.7,4.9,SEC,,
-CNC,NYSE:CNC,Centene Corporation,MANAGED CARE,63.78,prior close,21.8,SEC,11.4,21.6,16.3,22.7,20.7,12.5,11.4,12.7,12.7,0.8,av,-3.6,1.4,SEC,,
+CNC,NYSE:CNC,Centene Corporation,MANAGED CARE,63.78,prior close,21.8,SEC,11.4,21.6,16.3,22.7,20.7,12.5,11.4,12.7,12.7,0.8,av,-1.7,1.4,Both,SEC -3.6x vs Yahoo -1.7x disagree; showing the higher (more conservative),
 UHS,NYSE:UHS,"Universal Health Services, Inc.",MANAGED CARE,179.43,prior close,7.5,SEC,7.8,12.0,11.5,13.3,13.5,10.0,9.7,11.4,11.6,-19.7,av,2.3,11.3,SEC,,
 HOOD,NASDAQ:HOOD,"Robinhood Markets, Inc.",PAYMENTS FINANCIALS,62.17,prior close,28.6,SEC,18.2,,,,,24.7,20.3,,,-10.4,av,,,,n/a for Financial Services,
 AXP,NYSE:AXP,American Express Company,PAYMENTS FINANCIALS,301.7,prior close,17.0,SEC,14.9,18.9,18.9,19.9,18.9,16.5,16.4,16.2,15.5,-9.2,av,,,,n/a for Financial Services,
