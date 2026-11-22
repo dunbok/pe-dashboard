@@ -115,6 +115,8 @@ button.on { border-color: var(--accent); color: var(--accent); }
   <label>max forward P/E <input type="number" id="maxfwd" min="0" step="any" placeholder="any"></label>
   <label title="Hide stocks whose net debt / EBITDA is above this (or unknown). Net cash counts as safe.">max net debt / EBITDA <input type="number" id="maxlev" step="any" placeholder="any"></label>
   <label><input type="checkbox" id="onlyfwd"> only with forward history</label>
+  <button id="preset" title="Cheaper than all of its own P/E history, and net debt / EBITDA of 3 or less (this is the default view)">Value screen</button>
+  <button id="clear" title="Remove every filter and show all stocks">Show all</button>
   <span id="count"></span>
 </div>
 
@@ -471,6 +473,15 @@ async function boot() {
   const secs = [...new Set(rows.map((r) => r.section).filter(Boolean))];
   secs.forEach((s) => { const o = document.createElement("option"); o.value = s; o.textContent = s; $("#sec").appendChild(o); });
   ["#q", "#sec", "#onlyfwd", "#cheap", "#maxtr", "#maxfwd", "#maxlev"].forEach((s) => $(s).addEventListener("input", render));
+  // Default screen: cheaper than all of its own P/E history AND net debt / EBITDA of 3 or less.
+  const preset = () => { $("#cheap").checked = true; $("#maxlev").value = "3"; };
+  $("#clear").addEventListener("click", () => {
+    ["#q", "#maxtr", "#maxfwd", "#maxlev"].forEach((s) => { $(s).value = ""; });
+    $("#sec").value = ""; $("#cheap").checked = false; $("#onlyfwd").checked = false; render(); });
+  $("#preset").addEventListener("click", () => {
+    ["#q", "#maxtr", "#maxfwd"].forEach((s) => { $(s).value = ""; });
+    $("#sec").value = ""; $("#onlyfwd").checked = false; preset(); render(); });
+  preset();
   render();
   try {
     const dates = await (await fetch("data/archive.json", { cache: "no-store" })).json();
