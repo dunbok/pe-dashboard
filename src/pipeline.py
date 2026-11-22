@@ -36,7 +36,7 @@ COLUMNS = [
     "tr_5y_mean", "tr_5y_median", "tr_10y_mean", "tr_10y_median",
     "fwd_5y_mean", "fwd_5y_median", "fwd_10y_mean", "fwd_10y_median",
     "fwd_vs_5y_median_pct", "fwd_hist_src",
-    "net_debt_ebitda", "interest_cover", "lev_src", "lev_note", "note",
+    "net_debt_ebitda", "interest_cover", "shares_chg_3y", "lev_src", "lev_note", "note",
 ]
 # net debt / EBITDA is meaningless for banks, insurers and REITs
 LEVERAGE_SKIP_SECTORS = {"Financial Services", "Real Estate"}
@@ -288,6 +288,7 @@ def finalize(preps: list[Prep], live: dict[str, tuple[float, str]]) -> list[dict
             "fwd_hist_src": fw.get("source"),
             "net_debt_ebitda": _r(lev_nd, 1),
             "interest_cover": _r(lev_ic, 1),
+            "shares_chg_3y": _f((p.lev or {}).get("shares_chg_3y")),
             "lev_src": lev_src,
             "lev_note": lev_note,
             "note": "; ".join(notes) or None,

@@ -16,7 +16,7 @@ from . import edgar
 from .config import DATA
 
 LEVERAGE_DIR = DATA / "leverage"
-SCHEMA = 1
+SCHEMA = 2
 FORMS = {"10-K", "10-Q", "10-K/A", "10-Q/A"}
 
 
@@ -108,13 +108,49 @@ DA = ["DepreciationDepletionAndAmortization", "DepreciationAndAmortization",
 INTEREST = ["InterestExpense", "InterestExpenseDebt", "InterestExpenseNonoperating", "InterestAndDebtExpense"]
 
 
+SHARES = ["WeightedAverageNumberOfDilutedSharesOutstanding", "WeightedAverageNumberOfSharesOutstandingBasic"]
+
+
+def share_change(gaap: dict) -> tuple[float | None, str | None]:
+    """% change in annual weighted-average diluted shares, latest fiscal year vs 3 fiscal years earlier.
+
+    Old years come from older 10-Ks and may not be split-adjusted, so |change| > 40% is dropped (flagged in the note).
+    """
+    for c in SHARES:
+        per: dict[tuple[str, str], float] = {}
+        for r in sorted(gaap.get(c, {}).get("units", {}).get("shares", []), key=lambda r: r.get("filed", "")):
+            if r.get("form") not in {"10-K", "10-K/A"} or not r.get("start") or not r.get("end") or not r.get("val"):
+                continue
+            if 350 <= _days(r["start"], r["end"]) <= 380:
+                per[(r["start"], r["end"])] = float(r["val"])
+        if not per:
+            continue
+        ends = sorted(e for (_, e) in per)
+        last = ends[-1]
+        if _days(last, date.today().isoformat()) > 600:
+            return None, "share count stale"
+        old = [e for e in ends if abs(_days(e, last) - 3 * 365) <= 20]
+        if not old:
+            return None, "<3y share history"
+        new_v = next(v for (st, e), v in per.items() if e == last)
+        old_v = next(v for (st, e), v in per.items() if e == old[-1])
+        chg = (new_v / old_v - 1) * 100
+        if abs(chg) > 40:
+            return None, f"share change {chg:+.0f}% looks like a split/merger; hidden"
+        return round(chg, 1), None
+    return None, "no share data"
+
+
 def compute(facts_json: dict) -> dict:
     gaap = facts_json.get("facts", {}).get("us-gaap", {})
     out = {"schema": SCHEMA, "net_debt": None, "ebitda_ttm": None, "net_debt_ebitda": None,
-           "interest_cover": None, "balance_date": None, "note": None}
+           "interest_cover": None, "balance_date": None, "note": None,
+           "shares_chg_3y": None, "shares_note": None}
     if not gaap:
         out["note"] = "no US-GAAP data"
         return out
+
+    out["shares_chg_3y"], out["shares_note"] = share_change(gaap)
 
     # --- debt (latest balance sheet) ---
     tot = _latest_instant(gaap, DEBT_TOTAL)

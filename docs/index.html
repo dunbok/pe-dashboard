@@ -181,6 +181,7 @@ const COLS = [
   { k: "fwd_vs_10y_median_pct", label: "Fwd vs 10y median", type: "pct" },
   { k: "net_debt_ebitda", label: "Net debt / EBITDA", type: "lev" },
   { k: "interest_cover", label: "Interest cover (x)", type: "cover" },
+  { k: "shares_chg_3y", label: "Shares 3y %", type: "pct" },
 ];
 // % difference of current P/E from its own median (negative = cheaper than usual)
 const pctVs = (cur, med) => (typeof cur === "number" && typeof med === "number" && med > 0)
@@ -321,7 +322,8 @@ function buildRow(r) {
       if (c.k === "ticker") td.classList.add("ticker");
       if (c.k === "name") td.classList.add("name");
       if (c.est) td.classList.add("est");
-      if (c.type === "pct") td.style.background = pctColor(v);
+      if (c.k === "shares_chg_3y") { if (num(v)) td.style.background = v <= -2 ? "rgba(var(--green),.30)" : v >= 5 ? "rgba(var(--red),.35)" : ""; }
+      else if (c.type === "pct") td.style.background = pctColor(v);
       else if (c.k === "net_debt_ebitda" && num(v)) td.style.background = v > 4 ? "rgba(var(--red),.35)" : v < 2 ? "rgba(var(--green),.30)" : "";
       else if (c.k === "interest_cover" && num(v)) td.style.background = v < 2 ? "rgba(var(--red),.35)" : v >= 5 ? "rgba(var(--green),.30)" : "";
       else if (c.k === "trailing_pe" || c.k === "forward_pe") td.style.backgroundImage = curColor(r, c.k);

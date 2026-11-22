@@ -23,7 +23,7 @@ that lose money. Changes are small and incremental.
 - 2026-11-19 - Data health recs (n/m for huge P/E, cap interest cover, flag SEC/Yahoo mismatch) - "do all 3" - n/m (>200) and the ≠ flag were already live; added ">100" display cap for interest cover in docs/index.html (not yet committed/pushed).
 
 - 2026-11-22 - Huge trailing P/E (e.g. CRWD 3519): (a) n/m and exclude, (b) grey out, (c) leave? - Took recommendation (a); kept NM_PE threshold at 200 (not 500, which would let LSCC 338 through) - already live.
-- 2026-11-20 - Next metric: net buyback yield / share-count change, SBC %, or dividends? - Option 1: buyback yield / share-count change (user, 2026-11-22) - Logged; plan below in backlog, not built yet (needs new pipeline fields + SEC verification).
+- 2026-11-20 - Next metric: net buyback yield / share-count change, SBC %, or dividends? - Option 1: buyback yield / share-count change (user, 2026-11-22) - Built 2026-11-22 (uncommitted): 'Shares 3y %' column (src/leverage.py share_change, SCHEMA 2 refetches all; pipeline column; green <= -2%, red >= +5%; >40% hidden as likely split). Spot-checked AAPL -6.9, MSFT -0.3, META -4.7, INTC +9.9, NVDA -2.2. No filter yet.
 
 ## Data quality (built 2026-11-18)
 - src/health.py runs before outputs are written: aborts the run (Action goes red, yesterday's data stays) on a >10% row drop or
