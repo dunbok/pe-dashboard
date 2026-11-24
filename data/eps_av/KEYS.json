@@ -1,6 +1,6 @@
 {
  "symbol": "KEYS",
- "fetched": "2026-11-19",
+ "fetched": "2026-11-24",
  "quarters": [
   {
    "end": "2014-10-31",
@@ -337,6 +337,13 @@
    "time": "post-market",
    "eps": 2.82,
    "est": 2.16
+  },
+  {
+   "end": "2026-10-31",
+   "reported": "2026-11-19",
+   "time": "post-market",
+   "eps": 3.36,
+   "est": 3.09
   }
  ]
 }

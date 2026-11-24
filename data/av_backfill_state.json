@@ -1,7 +1,7 @@
 {
  "calls": {
-  "count": 5,
-  "date": "2026-11-22"
+  "count": 10,
+  "date": "2026-11-24"
  },
  "tickers": {
   "AAPL": {
@@ -45,7 +45,7 @@
    "status": "ok"
   },
   "ARM": {
-   "fetched": "2026-11-17",
+   "fetched": "2026-11-24",
    "last_reported": "2026-11-04",
    "status": "ok"
   },
@@ -125,7 +125,7 @@
    "status": "ok"
   },
   "CRWD": {
-   "fetched": "2026-11-18",
+   "fetched": "2026-11-24",
    "last_reported": "2026-08-26",
    "status": "ok"
   },
@@ -185,7 +185,7 @@
    "status": "ok"
   },
   "HPE": {
-   "fetched": "2026-11-18",
+   "fetched": "2026-11-24",
    "last_reported": "2026-09-02",
    "status": "ok"
   },
@@ -220,12 +220,12 @@
    "status": "ok"
   },
   "KEYS": {
-   "fetched": "2026-11-19",
-   "last_reported": "2026-08-18",
+   "fetched": "2026-11-24",
+   "last_reported": "2026-11-19",
    "status": "ok"
   },
   "KO": {
-   "fetched": "2026-11-19",
+   "fetched": "2026-11-24",
    "last_reported": "2026-10-27",
    "status": "ok"
   },
@@ -270,7 +270,7 @@
    "status": "ok"
   },
   "META": {
-   "fetched": "2026-11-18",
+   "fetched": "2026-11-24",
    "last_reported": "2026-10-21",
    "status": "ok"
   },
@@ -320,12 +320,12 @@
    "status": "ok"
   },
   "NVDA": {
-   "fetched": "2026-11-19",
+   "fetched": "2026-11-24",
    "last_reported": "2026-11-17",
    "status": "ok"
   },
   "NVO": {
-   "fetched": "2026-11-16",
+   "fetched": "2026-11-24",
    "last_reported": "2026-11-04",
    "status": "ok"
   },
@@ -400,7 +400,7 @@
    "status": "ok"
   },
   "STM": {
-   "fetched": "2026-11-17",
+   "fetched": "2026-11-24",
    "last_reported": "2026-10-29",
    "status": "ok"
   },
@@ -450,7 +450,7 @@
    "status": "ok"
   },
   "V": {
-   "fetched": "2026-11-19",
+   "fetched": "2026-11-24",
    "last_reported": "2026-10-27",
    "status": "ok"
   },
