@@ -1,7 +1,7 @@
 {
  "calls": {
   "count": 10,
-  "date": "2026-11-24"
+  "date": "2026-11-25"
  },
  "tickers": {
   "AAPL": {
@@ -10,8 +10,8 @@
    "status": "ok"
   },
   "ADI": {
-   "fetched": "2026-11-17",
-   "last_reported": "2026-08-19",
+   "fetched": "2026-11-25",
+   "last_reported": "2026-11-24",
    "status": "ok"
   },
   "ALAB": {
@@ -40,7 +40,7 @@
    "status": "ok"
   },
   "APH": {
-   "fetched": "2026-11-16",
+   "fetched": "2026-11-25",
    "last_reported": "2026-10-28",
    "status": "ok"
   },
@@ -70,7 +70,7 @@
    "status": "ok"
   },
   "AXP": {
-   "fetched": "2026-11-19",
+   "fetched": "2026-11-25",
    "last_reported": "2026-10-23",
    "status": "ok"
   },
@@ -130,8 +130,8 @@
    "status": "ok"
   },
   "DELL": {
-   "fetched": "2026-11-17",
-   "last_reported": "2026-09-01",
+   "fetched": "2026-11-25",
+   "last_reported": "2026-11-24",
    "status": "ok"
   },
   "ELV": {
@@ -170,7 +170,7 @@
    "status": "ok"
   },
   "GOOG": {
-   "fetched": "2026-11-18",
+   "fetched": "2026-11-25",
    "last_reported": "2026-10-28",
    "status": "ok"
   },
@@ -365,7 +365,7 @@
    "status": "ok"
   },
   "QCOM": {
-   "fetched": "2026-11-17",
+   "fetched": "2026-11-25",
    "last_reported": "2026-11-04",
    "status": "ok"
   },
@@ -380,7 +380,7 @@
    "status": "ok"
   },
   "SKHY": {
-   "fetched": "2026-11-20",
+   "fetched": "2026-11-25",
    "last_reported": "2026-10-27",
    "status": "ok"
   },
@@ -410,7 +410,7 @@
    "status": "ok"
   },
   "TSEM": {
-   "fetched": "2026-11-17",
+   "fetched": "2026-11-25",
    "last_reported": "2026-11-02",
    "status": "ok"
   },
@@ -420,7 +420,7 @@
    "status": "ok"
   },
   "TSM": {
-   "fetched": "2026-11-16",
+   "fetched": "2026-11-25",
    "last_reported": "2026-10-15",
    "status": "ok"
   },
@@ -440,7 +440,7 @@
    "status": "ok"
   },
   "UHS": {
-   "fetched": "2026-11-19",
+   "fetched": "2026-11-25",
    "last_reported": "2026-10-27",
    "status": "ok"
   },

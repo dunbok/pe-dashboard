@@ -1,6 +1,6 @@
 {
  "symbol": "ADI",
- "fetched": "2026-11-17",
+ "fetched": "2026-11-25",
  "quarters": [
   {
    "end": "1996-04-30",
@@ -855,6 +855,13 @@
    "time": "pre-market",
    "eps": 3.45,
    "est": 3.33
+  },
+  {
+   "end": "2026-10-31",
+   "reported": "2026-11-24",
+   "time": "pre-market",
+   "eps": 4.06,
+   "est": 3.89
   }
  ]
 }

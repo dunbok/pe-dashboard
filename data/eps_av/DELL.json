@@ -1,6 +1,6 @@
 {
  "symbol": "DELL",
- "fetched": "2026-11-17",
+ "fetched": "2026-11-25",
  "quarters": [
   {
    "end": "2016-10-31",
@@ -281,6 +281,13 @@
    "time": "post-market",
    "eps": 6.76,
    "est": 4.72
+  },
+  {
+   "end": "2026-10-31",
+   "reported": "2026-11-24",
+   "time": "post-market",
+   "eps": 9.45,
+   "est": 6.59
   }
  ]
 }
